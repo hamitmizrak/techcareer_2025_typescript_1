@@ -28,16 +28,17 @@ Mutlaka bulunduğunuz yer index.html,style.css veya README.md olan yerde olmalı
 ```
 ---
 
-## Typescript/Nodemon kurulum
+## package.json ve Typescript/Nodemon kurulum
 ```sh
+npm init 
 npm init -y
-
 
 npm install -g typescript
 npm install  typescript --save-dev
 
 npm install -g nodemon
 npm install  nodemon --save-dev
+
 ```
 ---
 
@@ -45,7 +46,7 @@ npm install  nodemon --save-dev
 
 ## NPM Komutlar
 ```sh
-
+npm install
 ```
 ---
 

@@ -1,0 +1,26 @@
+{
+  "name": "typescript_tutorials",
+  "version": "1.0.0",
+  "description": "for ı want to typescript",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hamitmizrak/techcareer_2025_typescript_1.git"
+  },
+  "keywords": [
+    "typescript"
+  ],
+  "author": "Master Computer Engineer Hamit Mizrak",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hamitmizrak/techcareer_2025_typescript_1/issues"
+  },
+  "homepage": "https://github.com/hamitmizrak/techcareer_2025_typescript_1#readme",
+  "devDependencies": {
+    "nodemon": "^3.1.9",
+    "typescript": "^5.7.2"
+  }
+}

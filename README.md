@@ -38,8 +38,18 @@ git -v
 
 
 
-## Typescript
+## VS code Extensions
 ```sh
+Auto Close Tag    => Jun Han
+Auto Complete Tag => Jun Han
+Auto Rename Tag   => Jun Han
+Bootstrap 5 Quick Snippets => Anbuselvan Rocky
+Css  Snippets => Joy-yu
+Git Graph =>  mhutchie
+gitignore => CodeZombie
+Live Server => Ritwick Dey
+Material Icon Theme => Philipp Kief
+
 
 ```
 ---
