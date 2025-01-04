@@ -25,7 +25,17 @@
     // "moduleDetection": "auto",                        /* Modül biçimli JS dosyalarını algılamak için kullanılan yöntemi denetle. */
 
     /* Modüller */
-    "module": "commonjs",                                /* Oluşturulan modül kodunu belirtin. */
+    // Eğer ESM formatında çalışıyorsanız:
+    // "module": "esnext",
+    // "target": "es2016",
+    // "esModuleInterop": true
+
+    // Eğer CommonJS formatında çalışıyorsanız:
+    // "module": "commonjs",
+    // "target": "es2016",
+    // "esModuleInterop": true
+
+    "module": "esnext",                                /* Oluşturulan modül kodunu belirtin. */
     // "rootDir": "./",                                  /* Kaynak dosyalarınızda kök klasörü belirtin. */
     // "moduleResolution": "node10",                     /* TypeScript’in belirli bir modül belirticisinden bir dosyayı nasıl arayacağını belirtin. */
     // "baseUrl": "./",                                  /* Göreli olmayan modül adlarını çözümlemek için temel dizini belirtin. */

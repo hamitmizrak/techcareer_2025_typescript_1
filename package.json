@@ -3,12 +3,15 @@
   "version": "1.0.0",
   "description": "for ı want to typescript",
   "main": "src/index.js",
+  "type": "module",
   "scripts": {
     "tsc": "tsc ./src/index.ts",
     "tsc_w": "tsc -w ./src/index.ts",
     "nodemon": "nodemon ./src/index.js",
-    "asenkron": "concurrently \"npm run tsc_w\"  \"npm run nodemon\"",
-    "senkron": "npm-run-all --serial tsc_w nodemon",
+    "nodemon_watch": "nodemon --watch src --watch dist ./src/index.js",
+    "open": "node open.js",
+    "asenkron": "concurrently \"npm run tsc_w\" \"npm run nodemon_watch\"",
+    "senkron": "npm-run-all --serial tsc_w nodemon_watch open",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -28,6 +31,10 @@
     "concurrently": "^9.1.2",
     "nodemon": "^3.1.9",
     "npm-run-all": "^4.1.5",
+    "open": "^10.1.0",
     "typescript": "^5.7.2"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
   }
 }

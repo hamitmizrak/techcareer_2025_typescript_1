@@ -1,0 +1,9 @@
+{
+    "watch": ["src"],
+    "ext": "ts,js",
+    "exec": "node ./src/index.js",
+    "events": {
+      "start": "node open.js"
+    }
+  }
+  

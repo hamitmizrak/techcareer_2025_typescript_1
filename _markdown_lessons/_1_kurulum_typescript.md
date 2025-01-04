@@ -37,12 +37,13 @@ npm init -y
 
 ## Typescript kurulum
 ```sh
+npm install -g typescript
+npm install  typescript --save-dev
 
+tsconfig dosyası için aşağıdaki komutu çalıştır:
 tsc --init --locale tr
 tsc --init
 
-npm install -g typescript
-npm install  typescript --save-dev
 tsc 
 tsc -w (Sistem kendi compiler yapıyor yazdıklarımı kendi ekliyor.)
 ```
@@ -59,6 +60,7 @@ nodemon ./src/index.js
 
 ## Concurrently => Asenkron çalışma modeli (aynı anda birden fazla script çalıştırmak içindir)
 ```sh
+npm install -g concurrently
 npm install concurrently --save-dev
 
 package.json=> içine
@@ -70,6 +72,7 @@ npm run asenkron
 
 ##  Senkron çalışma modeli (aynı anda sadece bir script sonrasında diğer script çalışsın)
 ```sh
+npm install -g npm-run-all
 npm install npm-run-all --save-dev
 
 package.json=> içine
@@ -80,10 +83,62 @@ npm run senkron
 ---
 
 
+## NPM(Node Package Management) Komutlar
+```sh
+npm root                 (Çalıştığım projeki node_modules yolu)
+npm root -g              (Global projeki node_modules you (C:\Users\Hamit-Mizrak\AppData\Roaming\npm\node_modules
+)
 
-## NPM Komutlar
+npm list                 (Projemizdeki bağlımlıkları gösterir)
+npm list -g              (Global bağlımlıkları gösterir (C:\Users\Hamit-Mizrak\AppData\Roaming\npm)
+npm list --depth=0       (Çok derinlenmesine ağaç yapısında görmek istiyorsam)
+
+npm info nodemon
+
+npm config list          (Npm yapılandırılmalarını görmek içindir)
+npm config set <key> <value> e.g(  npm config set registry https://registry.npmjs.org/  )
+
+
+npm rebuild              (Tüm bağımlıkları yeniden derleme)
+
+npm audit                (Güvenlik açıklarını tarar ve raporlar)
+npm audit fix            (Güvenlik sorunlarını çözmek istiyorsak)
+
+npm login                (npm hesabınıza giriş içindir)
+npm pack                 (Node.js paketini .tgz sıkıştırma formatında ekliyor)
+npm publish              (ilgili pkaeti npm gönder)
+
+npm cache clean --force  (Dikkat: Eğer npm çalışmazsa yapınız. Ben mesul değilim.)
+npm cache verify         (Cache dorğulaması)
+
+```
+---
+
+
+
+## NPM(Node Package Management) Komutlar
 ```sh
 npm install
+
+npm i express
+npm install -g express
+npm install express
+npm install express@4.21.2
+npm install express@latest
+
+npm install express --save
+npm install express --save-dev
+
+npm uninstall -g express
+
+npm update
+npm update express
+
+npm outdated  
+=> Projede eklenmiş bileşenlerin güncelliğini kontrol eder eğer güncel bir paket gelmişse bunu bize lsiteler
+current: Şimdiki Yüklü Sürüm
+latest: En son sürüm
+Wanted: package.json'ki sürümdür
 ```
 ---
 
