@@ -12,6 +12,8 @@ git push -u origin master
 
 git status
 git log
+
+git clone https://github.com/hamitmizrak/techcareer_2025_typescript_1
 ```
 ---
 
