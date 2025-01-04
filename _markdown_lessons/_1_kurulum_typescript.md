@@ -57,12 +57,25 @@ nodemon ./src/index.js
 ```
 ---
 
-## Concurrently => aynı anda birden fazla script çalıştırmak içindir
+## Concurrently => Asenkron çalışma modeli (aynı anda birden fazla script çalıştırmak içindir)
 ```sh
 npm install concurrently --save-dev
 
 package.json=> içine
-"start": "concurrently \"npm run tsc_w\"  \"npm run nodemon\"  "
+"asenkron": "concurrently \"npm run tsc_w\"  \"npm run nodemon\"",
+
+npm run asenkron
+```
+---
+
+##  Senkron çalışma modeli (aynı anda sadece bir script sonrasında diğer script çalışsın)
+```sh
+npm install npm-run-all --save-dev
+
+package.json=> içine
+"senkron": "nom-run-all --serial tsc_w nodemon",
+
+npm run senkron
 ```
 ---
 
@@ -82,11 +95,12 @@ npm install
 {
   "main": "src/index.js",
 
-  "scripts": {
+    "scripts": {
     "tsc": "tsc ./src/index.ts",
     "tsc_w": "tsc -w ./src/index.ts",
     "nodemon": "nodemon ./src/index.js",
-    "start": "concurrently \"npm run tsc_w\"  \"npm run nodemon\"",
+    "asenkron": "concurrently \"npm run tsc_w\"  \"npm run nodemon\"",
+    "senkron": "nom-run-all --serial tsc_w nodemon",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
 
