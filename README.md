@@ -76,6 +76,24 @@ npm init -y
 ```
 ---
 
+
+## 
+```sh
+Kodunuzun düzenli ve tutarlı olması için:
+npm install eslint prettier eslint-config-prettier eslint-plugin-prettier --save-dev
+
+Çevresel değişkenleri yönetmek için dotenv kütüphanesini ekleyebilirsiniz:
+npm install dotenv
+npm install dotenv --save-dev
+
+```
+---
+
+
+
+
+
+
 ## Typescript kurulum
 ```sh
 npm install -g typescript
