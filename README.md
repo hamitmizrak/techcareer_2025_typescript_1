@@ -20,7 +20,9 @@ git clone https://github.com/hamitmizrak/techcareer_2025_typescript_1
 
 ## Programs Link
 ```sh
-Nodejs: https://nodejs.org/en
+Nodejs                      : https://nodejs.org/en
+Visual Studio Code(vs code) : https://code.visualstudio.com/
+Git Download                : https://git-scm.com/downloads/win
 ```
 ---
 

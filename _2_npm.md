@@ -1,0 +1,8 @@
+# Typescript Öğreniyorum 
+---
+
+## Typescript
+```sh
+
+```
+---
