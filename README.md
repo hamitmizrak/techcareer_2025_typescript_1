@@ -1,5 +1,6 @@
 # Techcareer Typescript 
 [GitHub](https://github.com/hamitmizrak/techcareer_2025_typescript_1)
+[Techcareer Eğitim Linkleri](https://www.techcareer.net/courses)
 ---
 
 ## Git
