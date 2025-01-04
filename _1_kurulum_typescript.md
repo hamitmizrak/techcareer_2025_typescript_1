@@ -33,8 +33,13 @@ Mutlaka bulunduğunuz yer index.html,style.css veya README.md olan yerde olmalı
 npm init 
 npm init -y
 
+tsc --init --locale tr
+tsc --init
+
 npm install -g typescript
 npm install  typescript --save-dev
+tsc 
+tsc -w (Sistem kendi compiler yapıyor yazdıklarımı kendi ekliyor.)
 
 npm install -g nodemon
 npm install  nodemon --save-dev
