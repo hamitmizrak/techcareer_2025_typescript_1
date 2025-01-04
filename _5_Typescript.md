@@ -275,3 +275,282 @@ class Person {
 ### **Sonuç**
 
 TypeScript, JavaScript’in güçlü yönlerini geliştirirken eksikliklerini gideren, modern ve güçlü bir programlama dilidir. Büyük ölçekli projelerde hata ayıklama, tip güvenliği ve kodun okunabilirliği gibi avantajları sayesinde, günümüzde birçok şirket ve geliştirici tarafından tercih edilmektedir.
+
+
+# tsc komutları
+
+### **TypeScript Compiler (TSC) Komutları ve Açıklamaları**
+
+`tsc` (TypeScript Compiler), TypeScript dosyalarını **JavaScript’e derlemek** için kullanılan bir araçtır. `tsc`, TypeScript projelerini derlemek, yapılandırma dosyaları oluşturmak ve özelleştirilmiş ayarlarla çalışmak gibi işlemleri gerçekleştirir. Aşağıda, `tsc` ile ilgili tüm önemli komutlar ve açıklamaları detaylı bir şekilde yer almaktadır.
+
+---
+
+### **1. `tsc` Komutu**
+
+TypeScript dosyasını derlemek için temel komut:
+
+```bash
+tsc <dosya_adı>.ts
+```
+
+- Bu komut, belirtilen `.ts` dosyasını JavaScript dosyasına çevirir.
+- Çıktı, aynı klasörde `.js` uzantılı bir dosya olarak oluşturulur.
+
+**Örnek:**
+```bash
+tsc example.ts
+```
+
+- Derleme sonrası `example.js` dosyası oluşturulur.
+
+---
+
+### **2. Tüm Projeyi Derlemek**
+
+Bir TypeScript projesinde tüm dosyaları derlemek için:
+
+```bash
+tsc
+```
+
+- Bu komut, proje kök dizinindeki `tsconfig.json` dosyasını kullanarak belirtilen tüm TypeScript dosyalarını derler.
+
+**Not:**
+- Eğer `tsconfig.json` yoksa, `tsc` bir hata verecektir.
+- `tsconfig.json` dosyası, derleyiciye hangi dosyaları derlemesi gerektiğini ve hangi ayarları kullanacağını bildirir.
+
+---
+
+### **3. `--init` (Yapılandırma Dosyası Oluşturma)**
+
+Bir proje için `tsconfig.json` dosyasını oluşturur:
+
+```bash
+tsc --init
+```
+
+**Sonuç:**
+- Aşağıdaki gibi varsayılan ayarlarla bir `tsconfig.json` dosyası oluşturulur:
+
+```json
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "strict": true,
+    "outDir": "./dist",
+    "rootDir": "./src"
+  }
+}
+```
+
+---
+
+### **4. Belirli Bir Dosyayı ve Hedef Klasörü Belirlemek**
+
+TypeScript dosyasını belirli bir klasöre derlemek için:
+
+```bash
+tsc <dosya_adı>.ts --outDir <klasör_adı>
+```
+
+**Örnek:**
+```bash
+tsc example.ts --outDir dist
+```
+
+- Bu komut, `example.ts` dosyasını `dist/` klasörüne derler.
+
+---
+
+### **5. Tüm Dosyaları Belirli Bir Klasöre Derlemek**
+
+Projedeki tüm TypeScript dosyalarını belirli bir klasöre derlemek için:
+
+```bash
+tsc --outDir <klasör_adı>
+```
+
+**Örnek:**
+```bash
+tsc --outDir dist
+```
+
+- Bu komut, `tsconfig.json` dosyasına göre tüm dosyaları `dist/` klasörüne derler.
+
+---
+
+### **6. Belirli Bir JavaScript Hedefi Belirlemek**
+
+Derleme sonrası oluşturulacak JavaScript dosyasının ES5, ES6 gibi hangi ECMAScript sürümünü hedefleyeceğini belirtmek için:
+
+```bash
+tsc <dosya_adı>.ts --target <hedef_sürüm>
+```
+
+**Örnek:**
+```bash
+tsc example.ts --target es6
+```
+
+- Bu komut, `example.ts` dosyasını ES6 uyumlu bir JavaScript dosyasına çevirir.
+
+---
+
+### **7. Modül Türünü Belirlemek**
+
+TypeScript dosyasında kullanılan modül sistemini belirtmek için:
+
+```bash
+tsc <dosya_adı>.ts --module <modül_türü>
+```
+
+**Örnek:**
+```bash
+tsc example.ts --module commonjs
+```
+
+Desteklenen modül türleri:
+- `commonjs`: Node.js projeleri için.
+- `amd`: Tarayıcılar için asenkron modül yükleme.
+- `es2020`: ES modül sistemi.
+
+---
+
+### **8. Kaynak Haritası (Source Map) Oluşturma**
+
+Source map dosyaları, hata ayıklamada TypeScript kodunu izlemek için kullanılır. Source map dosyası oluşturmak için:
+
+```bash
+tsc <dosya_adı>.ts --sourceMap
+```
+
+**Örnek:**
+```bash
+tsc example.ts --sourceMap
+```
+
+- Derleme sonrası `example.js` ve `example.js.map` dosyaları oluşturulur.
+- `.map` dosyası, TypeScript kaynak koduna bağlantı sağlar.
+
+---
+
+### **9. İzleme Modu (Watch Mode)**
+
+TypeScript dosyalarını sürekli izlemek ve her değişiklik sonrası yeniden derlemek için:
+
+```bash
+tsc <dosya_adı>.ts --watch
+```
+
+**Örnek:**
+```bash
+tsc example.ts --watch
+```
+
+- Bu komut, `example.ts` dosyasını sürekli izler ve değişiklik olduğunda otomatik olarak yeniden derler.
+
+---
+
+### **10. Sıkı Mod (Strict Mode)**
+
+TypeScript'in sıkı tip kontrolü yapmasını sağlar:
+
+```bash
+tsc <dosya_adı>.ts --strict
+```
+
+**Özellikler:**
+- **strictNullChecks**: Null ve undefined değerlerini sıkı bir şekilde kontrol eder.
+- **noImplicitAny**: Belirsiz türlere (any) izin vermez.
+- **alwaysStrict**: Kodun her zaman `strict` modunda çalışmasını sağlar.
+
+**Örnek:**
+```bash
+tsc example.ts --strict
+```
+
+---
+
+### **11. Dosya Kök Dizini Belirlemek**
+
+Derlenecek TypeScript dosyalarının bulunduğu kök dizini belirtmek için:
+
+```bash
+tsc --rootDir <klasör_adı>
+```
+
+**Örnek:**
+```bash
+tsc --rootDir src
+```
+
+- Bu komut, `src/` dizinindeki TypeScript dosyalarını derler.
+
+---
+
+### **12. Çıktı Dosyasını Belirlemek**
+
+Tek bir JavaScript dosyasında derleme yapmak için:
+
+```bash
+tsc <dosya_adı>.ts --outFile <dosya_adı>.js
+```
+
+**Örnek:**
+```bash
+tsc example.ts --outFile bundle.js
+```
+
+- Bu komut, tüm TypeScript kodunu `bundle.js` adında tek bir dosyada toplar.
+
+---
+
+### **13. Belirli Dosyaları Dahil Etmek veya Hariç Tutmak**
+
+`tsconfig.json` içinde belirli dosyaları dahil etmek veya hariç tutmak için:
+
+- Dahil Etme:
+  ```json
+  {
+    "include": ["src/**/*.ts"]
+  }
+  ```
+
+- Hariç Tutma:
+  ```json
+  {
+    "exclude": ["node_modules", "dist"]
+  }
+  ```
+
+---
+
+### **14. Hata Ayıklama İçin Daha Fazla Bilgi**
+
+Derleme sırasında daha fazla bilgi almak için:
+
+```bash
+tsc <dosya_adı>.ts --diagnostics
+```
+
+**Örnek:**
+```bash
+tsc example.ts --diagnostics
+```
+
+---
+
+### **15. Yardım Komutları**
+
+TypeScript derleyicisinin tüm özelliklerini görmek için:
+
+```bash
+tsc --help
+```
+
+---
+
+### **Özet**
+
+`tsc` komutları, TypeScript projelerini derlemek, yapılandırmak ve özelleştirmek için geniş bir seçenek yelpazesi sunar. Bu komutlar, derleme sürecini özelleştirmek ve projelerinizi daha etkili bir şekilde yönetmek için güçlü bir araç sağlar. Önemli komutlar ve açıklamaları, TypeScript projelerinde verimli bir geliştirme ortamı oluşturmanıza yardımcı olur.

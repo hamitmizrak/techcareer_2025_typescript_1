@@ -1,5 +1,4 @@
-"use strict";
-let exam = "Merhabalar Ts";
+var exam = "Merhabalar Ts";
 console.log(exam);
 console.log("Nasılsınız" + exam);
 console.log("Nasılsınız" + exam);

@@ -24,14 +24,20 @@ git -v
 ls -al
 pwd
 Mutlaka bulunduğunuz yer index.html,style.css veya README.md olan yerde olmalıyız.
-
 ```
 ---
 
-## package.json ve Typescript/Nodemon kurulum
+## package.json Config
 ```sh
+
 npm init 
 npm init -y
+```
+---
+
+
+## Typescript kurulum
+```sh
 
 tsc --init --locale tr
 tsc --init
@@ -40,13 +46,18 @@ npm install -g typescript
 npm install  typescript --save-dev
 tsc 
 tsc -w (Sistem kendi compiler yapıyor yazdıklarımı kendi ekliyor.)
-
-npm install -g nodemon
-npm install  nodemon --save-dev
-
 ```
 ---
 
+
+## Nodemon kurulum
+```sh
+
+npm install -g nodemon
+npm install  nodemon --save-dev
+nodemon ./src/index.js
+```
+---
 
 
 ## NPM Komutlar
