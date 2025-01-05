@@ -7,35 +7,33 @@ console.log(exam);
 + - * / % ++ -- && || ! == === != !== > < >= <=
 */
 let operator = () => {
-    let num1: number = 13;
-    let num2: number = 5;
-  
-    console.log("Toplam: " + (num1 + num2));
-    console.log("Fark: " + (num1 - num2));
-    console.log("Çarpım: " + num1 * num2);
-    console.log("Bölüm: " + num1 / num2);
-    console.log("Mod: " + num1 % num2);
-    console.log("Arttır: " + num1++);
-    console.log("Azalt: " + num1--);
-    console.log("Arttır: " + ++num1);
-    console.log("Azalt: " + --num1);
-  };
+  let num1: number = 13;
+  let num2: number = 5;
+
+  console.log("Toplam: " + (num1 + num2));
+  console.log("Fark: " + (num1 - num2));
+  console.log("Çarpım: " + num1 * num2);
+  console.log("Bölüm: " + num1 / num2);
+  console.log("Mod: " + (num1 % num2));
+  console.log("Arttır: " + num1++);
+  console.log("Azalt: " + num1--);
+  console.log("Arttır: " + ++num1);
+  console.log("Azalt: " + --num1);
+};
 
 ///////////////////////////////////////////////////////////////////////////
 //**************MATH ************************************
 let math = () => {
-    console.log("Math.PI: " + Math.PI);
-    console.log("Math.abs(-13): " + Math.abs(-13));
-    console.log("Math.ceil(13.2): " + Math.ceil(13.2));
-    console.log("Math.floor(13.9): " + Math.floor(13.9));
-    console.log("Math.round(13.2): " + Math.round(13.2));
-    console.log("Math.round(13.9): " + Math.round(13.9));
-    console.log("Math.random(): " + Math.random());
-    console.log("Math.max(13,5): " + Math.max(13, 5));
-    console.log("Math.min(13,5): " + Math.min(13, 5));
-  }
-}
-
+  console.log("Math.PI: " + Math.PI);
+  console.log("Math.abs(-13): " + Math.abs(-13));
+  console.log("Math.ceil(13.2): " + Math.ceil(13.2));
+  console.log("Math.floor(13.9): " + Math.floor(13.9));
+  console.log("Math.round(13.2): " + Math.round(13.2));
+  console.log("Math.round(13.9): " + Math.round(13.9));
+  console.log("Math.random(): " + Math.random());
+  console.log("Math.max(13,5): " + Math.max(13, 5));
+  console.log("Math.min(13,5): " + Math.min(13, 5));
+};
 
 ///////////////////////////////////////////////////////////////////////////
 //************** DATA TYPES (DYNAMICS) ************************************
@@ -288,7 +286,7 @@ function defaultParameterFunction(
 //************** Overloading (Fonksiyon Aşırı Yükleme) ************************
 // Overloading (Fonksiyon Aşırı Yükleme):
 // Aynı isimde fakat farklı parametrelerle birden fazla fonksiyon tanımlamak.
-let overloadingFunction = function (name: string, surname: string): void {
+var overloadingFunction = function (name: string, surname: string): void {
   console.log(`Overloading Function: ${name}- ${surname}`);
 };
 //overloadingFunction("Hamit","Mızrak");
@@ -306,17 +304,16 @@ let overloadingFunction = function (name: string, isLogin: boolean): void {
 // Bu ifade, bir değişkenin birden fazla türde bir değer alabileceğini belirtir.
 
 let unionTypes = function (): void {
-    let name: string | null = null;
-    console.log(name);
+  let name: string | null = null;
+  console.log(name);
 
-    let surname: string | null = "Mızrak";
-    console.log(surname);
+  let surname: string | null = "Mızrak";
+  console.log(surname);
 
-    let data: string | null | number = 44;
-    //  let data: string | null |number = true; //yazma
-    console.log(data);
-    
-  };
+  let data: string | null | number = 44;
+  //  let data: string | null |number = true; //yazma
+  console.log(data);
+};
 //unionTypes();
 
 /*
@@ -327,20 +324,20 @@ isim değişkeni ya bir string türünde değer alabilir ya da null olabilir.
 ///////////////////////////////////////////////////////////////////////////
 //************** NULLISH COALESCING *************************************************
 // Nullish Coalescing (??)
-// TypeScript'te ?? operatörü, bir değerin null veya undefined olup olmadığını kontrol eder. 
+// TypeScript'te ?? operatörü, bir değerin null veya undefined olup olmadığını kontrol eder.
 // Eğer değer null veya undefined ise alternatif bir değer döndürür.
 // ?? operatörü, || operatöründen farklı olarak null ve undefined değerlerini kontrol eder.
 // ?? operatörü, null ve undefined dışındaki değerler için çalışmaz.
-let nullishCoalescing  = function (): void {
-    let isim: string | null = null;
+let nullishCoalescing = function (): void {
+  let isim: string | null = null;
 
-    //let isim: string | null = null;
-    //let isim: string | null = undefined;
-    let sonuc = isim ?? "Varsayılan İsim";
-    console.log(sonuc);
-    // Çıktı: Varsayılan İsim
-  };
- //nullishCoalescing();
+  //let isim: string | null = null;
+  //let isim: string | null = undefined;
+  let sonuc = isim ?? "Varsayılan İsim";
+  console.log(sonuc);
+  // Çıktı: Varsayılan İsim
+};
+//nullishCoalescing();
 
 ///////////////////////////////////////////////////////////////////////////
 //************** CONDITON *************************************************
@@ -354,7 +351,6 @@ let condition1 = function (): void {
   }
 };
 //condition1();
-
 
 // Ternary(üçlü operatör)  koşul?true:false
 let condition2 = function (): void {
@@ -396,20 +392,20 @@ let condition4 = function (): void {
       console.log("1");
       break;
     case 2:
-        console.log("2");
-        break;
+      console.log("2");
+      break;
     case 3:
-        console.log("3");
-        break;
-   case 4:
-        console.log("4");
-        break;
+      console.log("3");
+      break;
+    case 4:
+      console.log("4");
+      break;
     case 5:
-        console.log("5");
-        break;
+      console.log("5");
+      break;
     default:
-        console.log("Sayı 1<=X<=5 arasında değil");
-        break;
+      console.log("Sayı 1<=X<=5 arasında değil");
+      break;
   }
 };
 //condition4();
@@ -417,20 +413,20 @@ let condition4 = function (): void {
 // Tür kontrollü Şartlı yapı
 // if else
 let condition5 = function (): void {
-    let isActive: boolean = true;
+  let isActive: boolean = true;
 
-    // Tür kontrollü Şartlı yapı
-    if(typeof isActive === "boolean"){
-        if (isActive) {
-            console.log("Kullanıcı Aktif");
-          } else {
-            console.log("Kullanıcı Pasif");
-          }
-    }else{
-        console.log("Değişken boolean değil");
+  // Tür kontrollü Şartlı yapı
+  if (typeof isActive === "boolean") {
+    if (isActive) {
+      console.log("Kullanıcı Aktif");
+    } else {
+      console.log("Kullanıcı Pasif");
     }
-  };
-  //condition5();
+  } else {
+    console.log("Değişken boolean değil");
+  }
+};
+//condition5();
 
 ///////////////////////////////////////////////////////////////////////////
 //************** LOOP(FOR/WHILE) ***************************************************
@@ -442,69 +438,67 @@ Döngüler, özellikle listeler veya diziler üzerinde işlem yaparken oldukça 
 */
 
 // ****************** For
-let  loop1=()=>{
-    for (let i = 0; i < 5; i++) {
-        console.log(`Değer: ${i}`);
-    }
-}
+let loop1 = () => {
+  for (let i = 0; i < 5; i++) {
+    console.log(`Değer: ${i}`);
+  }
+};
 //loop1()
 //console.log();
 
 //****************** */ For Sonsuz
-let  loop2=()=>{
-    for (;;) {
-        console.log(`Değer: ${i}`);
-    }
-}
+let loop2 = () => {
+  for (;;) {
+    // sonsuz döngü
+  }
+};
 //loop2()
-console.log();
+//console.log();
 
 //*********************** */ While
-let  loop3=()=>{
-    let i:number = 0;
-    while ( i < 5) {
-        console.log(`Değer: ${i}`);
-        //i++
-        //i=i+1;
-        i+=1
-    }
-}
+let loop3 = () => {
+  let i: number = 0;
+  while (i < 5) {
+    console.log(`Değer: ${i}`);
+    //i++
+    //i=i+1;
+    i += 1;
+  }
+};
 //loop3()
 //console.log();
 
 // *********************** */ While sonsuz
 // While
-let  loop4=()=>{
-
-    while ( true) {
-    }
-}
+let loop4 = () => {
+  while (true) {}
+};
 //loop4()
 
 // break ve continue Anahtar Kelimeleri
 // break, döngüyü tamamen sonlandırır ve döngüden çıkar.
-console.log();
-let  loop5=()=>{
-    for (let i = 0; i < 10; i++) {
-        if (i === 5) {
-            break;
-        }
-        console.log(i);
+// console.log();
+let loop5 = () => {
+  for (let i = 0; i < 10; i++) {
+    if (i === 5) {
+      break;
     }
-}
+    console.log(i);
+  }
+};
 //loop5()
 
 // continue
 // continue, döngünün o adımını atlar ve bir sonraki adıma geçer.
-console.log();
-let  loop6=()=>{
-    for (let i = 0; i < 10; i++) {
-        if (i % 2 === 0) {
-            continue;
-        }
-        console.log(i);
+// console.log();
+let loop6 = () => {
+  for (let i = 0; i < 10; i++) {
+    if (i % 2 === 0) {
+      continue;
     }
-}
+    console.log(i);
+  }
+};
 //loop6()
 //console.log();
 
@@ -516,41 +510,39 @@ TypeScript, JavaScript dizilerinin tüm özelliklerini destekler ve buna ek olar
 Böylece her elemanın aynı türde olduğu veya belirli türlerin bir karışımı olduğu garanti altına alınabilir.
  */
 
-let  array1=()=>{
-    let sayilar: number[] = [1, 2, 3, 4, 5];
-    console.log(sayilar[0]); // 1
-    console.log(sayilar[3]); // 4
+let array1 = () => {
+  let sayilar: number[] = [1, 2, 3, 4, 5];
+  console.log(sayilar[0]); // 1
+  console.log(sayilar[3]); // 4
 
-    sayilar.push(6);
-    console.log(sayilar[sayilar.length-1]); // 4
-}
-array1()
+  sayilar.push(6);
+  console.log(sayilar[sayilar.length - 1]); // 4
+};
+//array1()
 
-let  array2=()=>{
-    let matris: number[][] = [
-        [1, 2, 3],
-        [4, 5, 6],
-        [7, 8, 9]
-    ];
-    console.log(matris[1][2]); // 6
-}
-array2()
+let array2 = () => {
+  let matris: number[][] = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9],
+  ];
+  console.log(matris[1][2]); // 6
+};
+//array2()
 
-
-let  arrayGenerics=()=>{
-    let isimler: Array<string> = ["Hamit", "Mızrak", "Typescript"];
-    console.log(isimler[1]);
-}
+let arrayGenerics = () => {
+  let isimler: Array<string> = ["Hamit", "Mızrak", "Typescript"];
+  console.log(isimler[1]);
+};
 //arrayGenerics()
 
-
 // Dizilerde (for)
-let  array5=()=>{
-    let dizi: number[] = [10, 20, 30, 40];
-    for (let i = 0; i < dizi.length; i++) {
-        console.log(`Eleman ${i}: ${dizi[i]}`);
-    }
-}
+let array5 = () => {
+  let dizi: number[] = [10, 20, 30, 40];
+  for (let i = 0; i < dizi.length; i++) {
+    console.log(`Eleman ${i}: ${dizi[i]}`);
+  }
+};
 //array5()
 
 // Dizilerde (for of)
@@ -558,38 +550,35 @@ let  array5=()=>{
 for...of döngüsü, bir dizinin veya iteratif bir yapının elemanları üzerinde tekrarlanmasını sağlar. 
 Dizi elemanlarına odaklanır.
 */
-let  array6=()=>{
-    let dizi: number[] = [10, 20, 30, 40];
-    for (let temp of dizi) {
-        console.log(`Eleman: ${temp}`);
-        
-    }
-}
+let array6 = () => {
+  let dizi: number[] = [10, 20, 30, 40];
+  for (let temp of dizi) {
+    console.log(`Eleman: ${temp}`);
+  }
+};
 //array6()
 
 // Dizilerde (for in)
 /*
 for...in döngüsü, bir nesnenin özellikleri (property) veya bir dizinin indeksleri (index) üzerinde tekrarlanır.
 */
-let  array7=()=>{
-    let dizi: number[] = [10, 20, 30, 40];
-    for (let temp in dizi) {
-        console.log(`Eleman: ${temp}`);
-        
-    }
-}
+let array7 = () => {
+  let dizi: number[] = [10, 20, 30, 40];
+  for (let temp in dizi) {
+    console.log(`Eleman: ${temp}`);
+  }
+};
 //array7()
 
 //  Nested (İç İçe) Döngüler
-let  array8=()=>{
-    for (let i = 1; i <= 3; i++) {
-        for (let j = 1; j <= 3; j++) {
-            console.log(`i: ${i}, j: ${j}`);
-        }
+let array8 = () => {
+  for (let i = 1; i <= 3; i++) {
+    for (let j = 1; j <= 3; j++) {
+      console.log(`i: ${i}, j: ${j}`);
     }
-}
+  }
+};
 //array8()
-
 
 //************************************************************************
 //************** Rest Parametreleri Function *****************************
@@ -597,36 +586,145 @@ let  array8=()=>{
 // Bir fonksiyon, birden fazla parametreyi bir dizi olarak alabilir.
 // Bu, ... (spread) operatörüyle yapılır
 
-
 //////////////////////////////////////////////////////////////////////////////////
 //************** Map, Set *******************************************************
 // TypeScript, Map ve Set veri yapılarını döngü ile işlemeyi destekler.
 
 // Map
-let  mapData=()=>{
-    let city = new Map([
-        [1, "Hakkari"],
-        [2, "Hatay"],
-        [3, "Zonguldak"]
-    ]);
-    
-    for (let [anahtar, deger] of city) {
-        console.log(`${anahtar}: ${deger}`);
-    }
-    console.log("data");
-    
+let mapData = () => {
+  // TypeScript'te bir Map tanımlama
+  const userMap: Map<number, string> = new Map();
+
+  // Map'e eleman ekleme
+  userMap.set(1, "Hamit");
+  userMap.set(2, "Mızrak");
+  userMap.set(3, "Malatya");
+
+  // Map'teki belirli bir anahtarı arama
+  const userName = userMap.get(2);
+  if (userName) {
+    console.log(`ID 2'nin kullanıcısı: ${userName}`);
+  } else {
+    console.log("Kullanıcı bulunamadı.");
+  }
+
+  // Map'teki tüm elemanları dolaşma
+  console.log("Tüm kullanıcılar:");
+  userMap.forEach((value, key) => {
+    console.log(`ID: ${key}, Ad: ${value}`);
+  });
+
+  // Belirli bir anahtarın var olup olmadığını kontrol etme
+  if (userMap.has(3)) {
+    console.log("ID 3 mevcut.");
+  } else {
+    console.log("ID 3 mevcut değil.");
+  }
+
+  // Map'teki bir elemanı silme
+  userMap.delete(1);
+  console.log("ID 1 silindi.");
+
+  // Map'in boyutunu öğrenme
+  console.log(`Map'teki toplam kullanıcı sayısı: ${userMap.size}`);
+
+  // Map'i tamamen temizleme
+  userMap.clear();
+  console.log(`Map temizlendi. Toplam kullanıcı sayısı: ${userMap.size}`);
+
+  console.log("data");
+  /*
+Map Tanımlama: Map<K, V> ile anahtar (K) ve değer (V) türlerini belirleyebilirsiniz.
+set Metodu: Map'e eleman ekler.
+get Metodu: Belirli bir anahtara karşılık gelen değeri döndürür.
+has Metodu: Belirli bir anahtarın Map'te olup olmadığını kontrol eder.
+delete Metodu: Belirli bir anahtarı siler.
+clear Metodu: Tüm Map elemanlarını temizler.
+forEach Metodu: Map'in tüm elemanlarını dolaşır.
+    */
+};
+
+mapData();
+
+let mapData1 = () => {
+    const userMap = new Map<number, string>();
+userMap.set(1, "Hamit");
+userMap.set(2, "Mızrak");
+
+for (const [key, value] of userMap) {
+    console.log(`Key: ${key}, Value: ${value}`);
 }
-//mapData()
 
+};
 
+//mapData1();
+
+/*
+TypeScript'teki Set veri yapısı, benzersiz değerlerin bir koleksiyonunu saklamak için kullanılır. 
+Yani bir Set içerisine aynı değeri birden fazla kez eklemeye çalışırsanız, yalnızca bir kez saklanır. 
+Set, JavaScript'in bir parçası olarak TypeScript'te de kullanılabilir.
+*/
+/*
 let  setData=()=>{
     let sayilar = new Set([10, 20, 30]);
 for (let sayi of sayilar) {
     console.log(sayi);
 }
-    
 }
 //setData()
+*/
+
+
+
+let setData2 = () => {
+  // TypeScript'te bir Set tanımlama
+  //const uniqueValues: Set<number> = new Set();
+
+  // Dikkat: Bu sürümü kullanmak için bunları yapmalısınız
+  // npm install -g typescript
+  /*
+
+tsconfig.json dosyasını oluşturun ve aşağıdaki ayarları ekleyin:
+{
+  "compilerOptions": {
+    "target": "ES2015", // veya ES6, ES2020 gibi daha yeni bir sürüm
+    "lib": ["ES2015", "DOM"] // ES2015'i desteklemek için gerekli kütüphaneler
+  }
+}
+*/
+
+  const uniqueValues: Set<number> = new Set([10, 20, 30, 40, 10]); // src/index.ts(667,41): error TS2583: Cannot find name 'Set'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2015' or later.
+
+  // Set'e eleman ekleme
+  //   uniqueValues.add(1);
+  //   uniqueValues.add(1);
+  //   uniqueValues.add(2);
+  //   uniqueValues.add(3);
+  //   uniqueValues.add(2); // Bu değer zaten var, tekrar eklenmez.
+
+  // Set'teki tüm elemanları yazdırma
+  console.log("Set elemanları:");
+  uniqueValues.forEach((value) => {
+    console.log(value);
+  });
+
+  // Set'te belirli bir elemanın varlığını kontrol etme
+  if (uniqueValues.has(2)) {
+    console.log("2 değeri Set içerisinde mevcut.");
+  }
+
+  // Set'teki eleman sayısını öğrenme
+  console.log(`Set'teki eleman sayısı: ${uniqueValues.size}`);
+
+  // Set'ten bir elemanı silme
+  uniqueValues.delete(1);
+  console.log("1 değeri silindi.");
+
+  // Set'i temizleme
+  uniqueValues.clear();
+  console.log(`Set temizlendi. Eleman sayısı: ${uniqueValues.size}`);
+};
+setData2();
 
 //////////////////////////////////////////////////////////////////////////////////
 //************** Generic Fonksiyonlar ********************************************
@@ -637,13 +735,11 @@ for (let sayi of sayilar) {
 TypeScript'te, T extends U ? X : Y yapısıyla şartlı türler tanımlanabilir. 
 Bu, bir türün başka bir türden türeyip türemediğine göre farklı türler döndürür.
 
-
 type Mesaj<T> = T extends string ? string : number;
 
 let mesaj1: Mesaj<string> = "Merhaba"; // Geçerli
 let mesaj2: Mesaj<number> = 42; // Geçerli
 */
-
 
 ///////////////////////////////////////////////////////////////////////////
 //************** Object (Nesne) *******************************************
@@ -651,10 +747,10 @@ let mesaj2: Mesaj<number> = 42; // Geçerli
 // Optional Chaining (?.)
 // ?. operatörü, bir nesne veya değişkenin varlığını kontrol ederek, hataların önüne geçer.
 let kullanici = {
-    isim: "Hamit",
-    adres: {
-        sehir: "Malatya"
-    }
+  isim: "Hamit",
+  adres: {
+    sehir: "Malatya",
+  },
 };
 
 // console.log(kullanici.adres?.sehir); // İstanbul

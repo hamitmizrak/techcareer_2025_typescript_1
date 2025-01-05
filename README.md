@@ -33,9 +33,25 @@ code .
 node -v
 npm -v
 git -v
+tsc --version   //5.7.2
 ```
 ---
 
+
+## tsc test
+```sh
+tsc
+```
+---
+
+
+## tsc test
+```sh
+rm -rf node_modules
+npm install
+
+```
+---
 
 
 ## VS code Extensions

@@ -1,13 +1,14 @@
-var exam = "Merhabalar Ts";
+"use strict";
+let exam = "Merhabalar Ts";
 console.log(exam);
 ///////////////////////////////////////////////////////////////////////////
 //**************OPERATOR ************************************
 /*
 + - * / % ++ -- && || ! == === != !== > < >= <=
 */
-var operator = function () {
-    var num1 = 13;
-    var num2 = 5;
+let operator = () => {
+    let num1 = 13;
+    let num2 = 5;
     console.log("Toplam: " + (num1 + num2));
     console.log("Fark: " + (num1 - num2));
     console.log("Çarpım: " + num1 * num2);
@@ -20,7 +21,7 @@ var operator = function () {
 };
 ///////////////////////////////////////////////////////////////////////////
 //**************MATH ************************************
-var math = function () {
+let math = () => {
     console.log("Math.PI: " + Math.PI);
     console.log("Math.abs(-13): " + Math.abs(-13));
     console.log("Math.ceil(13.2): " + Math.ceil(13.2));
@@ -47,7 +48,7 @@ function normDataTypes() {
 // Static Datatype
 // string
 function realDataTypesString() {
-    var name = "Hamit";
+    let name = "Hamit";
     name = "HamitM";
     //name= 44; //yapma
     console.log(name);
@@ -57,30 +58,30 @@ function realDataTypesString() {
     // let surname:string = "Mızrak";
     // let fullName:string = name + " " + surname;
     // 3. YOL (type safe, interpolation, backtick)
-    var surname = "Mızrak";
+    let surname = "Mızrak";
     // interpolation
-    var fullName = "".concat(name, " ").concat(surname);
+    let fullName = `${name} ${surname}`;
     console.log(fullName);
 }
 //realDataTypesString();
 // Datatype
 // number
-var realDataTypesNumber = function () {
-    var school = 4423;
+let realDataTypesNumber = function () {
+    let school = 4423;
     console.log(school);
-    var decimal = 13.5;
-    var hex = 0xf00d;
-    var binary = 10;
-    var octal = 484;
+    let decimal = 13.5;
+    let hex = 0xf00d;
+    let binary = 0b1010;
+    let octal = 0o744;
     console.log(decimal, hex, binary, octal);
 };
 //realDataTypesNumber();
 // Datatype
 // boolean
-var realDataTypesBoolean = function () {
-    var active = true;
+let realDataTypesBoolean = function () {
+    let active = true;
     console.log(active);
-    var passive = false;
+    let passive = false;
     console.log(passive);
     // typeof: Verilen türün cinsini belirler.
     console.log(typeof passive);
@@ -92,12 +93,12 @@ var realDataTypesBoolean = function () {
 // undefined: Değişken tanımlanmış ama değer atanmamış
 // null     : Değişken tanımlanmış ve değeri null atanmış
 // zero     : Değişken tanımlanmış ve değeri 0 atanmış
-var otherDataTypes = function () {
-    var address = undefined;
+let otherDataTypes = () => {
+    let address = undefined;
     console.log(address);
-    var address2 = null;
+    let address2 = null;
     console.log(address2);
-    var address3 = 0;
+    let address3 = 0;
     console.log(address3);
 };
 //otherDataTypes();
@@ -107,11 +108,11 @@ var otherDataTypes = function () {
 // number,boolen,string,undefined,null hepsini kapsar
 // any kullanımı genellikle veri tipi belirsiz olduğunda kullanılır
 // any yapısının kullanımı tip güvenliğini azaltır ve hata yapma olasılığını artırır.
-var anyTypes = function () {
-    var staticData = "Typescript";
+let anyTypes = () => {
+    let staticData = "Typescript";
     console.log(staticData);
     // Değişken türünü bilmiyorum
-    var dynamicData = "Typescript";
+    let dynamicData = "Typescript";
     dynamicData = 13.5;
     dynamicData = true;
     console.log(dynamicData);
@@ -123,8 +124,8 @@ var anyTypes = function () {
 // any: unknown farkı
 // any: any kullanıldığında tip güvenliği azalır
 // unknown: unknown kullanıldığında tip güvenliği artar
-var unknownTypes = function () {
-    var bilinmeyen = "Typescript";
+let unknownTypes = () => {
+    let bilinmeyen = "Typescript";
     bilinmeyen = 44.23; // virgüllü sayı
     bilinmeyen = 44; // Tam sayı
     bilinmeyen = true; // Tam sayı
@@ -155,7 +156,7 @@ var unknownTypes = function () {
 //********************************************************************** */
 //************** VOID *****************************************************
 // void: Herhangi bir veri tipi döndürmeyen fonksiyonlarda kullanılır
-var voidTypes = function () {
+let voidTypes = () => {
     console.log("void değeri");
     //return "Merhaba Typescript"; // Hata void değer döndürmez
     //return 44; // Hata void değer döndürmez
@@ -199,20 +200,20 @@ function notParameterNotReturn() {
 //notParameterNotReturn();
 // 2-Parametreli, Retursuz Function
 function parameterNotReturn(name, data, isLogin) {
-    console.log("Parametreli, Retursuz Function: ".concat(name, ",").concat(data, ",").concat(isLogin, ", "));
+    console.log(`Parametreli, Retursuz Function: ${name},${data},${isLogin}, `);
 }
 //parameterNotReturn("Hamit",4423,true);
 // 3-Parametresiz, Returlu Function
 function notParameterReturn() {
     return "Parametresiz, Returlu Function";
 }
-var result3 = notParameterReturn();
+let result3 = notParameterReturn();
 //console.log(result3);
 // 4-Parametreli, Returlu Function
 function parameterReturn(name, data, isLogin) {
-    return "Parametreli, Returlu Function: ".concat(name, ",").concat(data, ",").concat(isLogin, ", ");
+    return `Parametreli, Returlu Function: ${name},${data},${isLogin}, `;
 }
-var result4 = parameterReturn("Hamit", 4423, true);
+let result4 = parameterReturn("Hamit", 4423, true);
 //console.log(result4);
 //******************************************************************************** */
 //************** Optional Function *************************************************
@@ -220,7 +221,7 @@ var result4 = parameterReturn("Hamit", 4423, true);
 // Kullanımı=> surname?:string
 function OptionalFunction(name, surname, middleName // eğer kullanıcının orta adı yoksa yazmaya gerek yok ve undefined döner
 ) {
-    console.log("Optional Function: ".concat(name, ",").concat(middleName, ",").concat(surname, ", "));
+    console.log(`Optional Function: ${name},${middleName},${surname}, `);
 }
 //OptionalFunction("Hamit", "Mızrak");
 //OptionalFunction("Hamit", "Mızrak","ortaisim");
@@ -229,11 +230,8 @@ function OptionalFunction(name, surname, middleName // eğer kullanıcının ort
 // Varsayılan Parametreler: Bir parametreye varsayılan bir değer atanabilir.
 // Eğer bu parametreye bir değer geçilmezse, varsayılan değer kullanılır.
 //  Varsayılan Parametreler Function
-function defaultParameterFunction(name, data, isLogin) {
-    if (name === void 0) { name = "adı girmediniz"; }
-    if (data === void 0) { data = 0; }
-    if (isLogin === void 0) { isLogin = false; }
-    console.log(" Varsay\u0131lan Parametreler Function : ".concat(name, ",").concat(data, ",").concat(isLogin, " "));
+function defaultParameterFunction(name = "adı girmediniz", data = 0, isLogin = false) {
+    console.log(` Varsayılan Parametreler Function : ${name},${data},${isLogin} `);
 }
 // defaultParameterFunction("Hamit", 4423, true);
 // defaultParameterFunction("Hamit", 4423);
@@ -243,12 +241,12 @@ function defaultParameterFunction(name, data, isLogin) {
 //************** Overloading (Fonksiyon Aşırı Yükleme) ************************
 // Overloading (Fonksiyon Aşırı Yükleme):
 // Aynı isimde fakat farklı parametrelerle birden fazla fonksiyon tanımlamak.
-var overloadingFunction = function (name, surname) {
-    console.log("Overloading Function: ".concat(name, "- ").concat(surname));
+let overloadingFunction = function (name, surname) {
+    console.log(`Overloading Function: ${name}- ${surname}`);
 };
 //overloadingFunction("Hamit","Mızrak");
-var overloadingFunction = function (name, isLogin) {
-    console.log("Overloading Function: ".concat(name, "- ").concat(isLogin));
+let overloadingFunction = function (name, isLogin) {
+    console.log(`Overloading Function: ${name}- ${isLogin}`);
 };
 //overloadingFunction("Hamit",true);
 ///////////////////////////////////////////////////////////////////////////
@@ -257,12 +255,12 @@ var overloadingFunction = function (name, isLogin) {
 // | işareti, TypeScript'te Union Types (Birleşik Türler) oluşturmak için kullanılır.
 // TypeScript'te Union Types (Birleşik Türler) oluşturmak için kullanılır.
 // Bu ifade, bir değişkenin birden fazla türde bir değer alabileceğini belirtir.
-var unionTypes = function () {
-    var name = null;
+let unionTypes = function () {
+    let name = null;
     console.log(name);
-    var surname = "Mızrak";
+    let surname = "Mızrak";
     console.log(surname);
-    var data = 44;
+    let data = 44;
     //  let data: string | null |number = true; //yazma
     console.log(data);
 };
@@ -278,11 +276,11 @@ isim değişkeni ya bir string türünde değer alabilir ya da null olabilir.
 // Eğer değer null veya undefined ise alternatif bir değer döndürür.
 // ?? operatörü, || operatöründen farklı olarak null ve undefined değerlerini kontrol eder.
 // ?? operatörü, null ve undefined dışındaki değerler için çalışmaz.
-var nullishCoalescing = function () {
-    var isim = null;
+let nullishCoalescing = function () {
+    let isim = null;
     //let isim: string | null = null;
     //let isim: string | null = undefined;
-    var sonuc = isim !== null && isim !== void 0 ? isim : "Varsayılan İsim";
+    let sonuc = isim !== null && isim !== void 0 ? isim : "Varsayılan İsim";
     console.log(sonuc);
     // Çıktı: Varsayılan İsim
 };
@@ -290,8 +288,8 @@ var nullishCoalescing = function () {
 ///////////////////////////////////////////////////////////////////////////
 //************** CONDITON *************************************************
 // if else
-var condition1 = function () {
-    var isActive = true;
+let condition1 = function () {
+    let isActive = true;
     if (isActive) {
         console.log("Kullanıcı Aktif");
     }
@@ -301,16 +299,16 @@ var condition1 = function () {
 };
 //condition1();
 // Ternary(üçlü operatör)  koşul?true:false
-var condition2 = function () {
-    var isActive = true;
-    var result = isActive ? "Kullanıcı Aktif" : "Kullanıcı Pasif";
+let condition2 = function () {
+    let isActive = true;
+    let result = isActive ? "Kullanıcı Aktif" : "Kullanıcı Pasif";
     console.log(result);
 };
 //condition2();
 // if else if else
-var condition3 = function () {
+let condition3 = function () {
     //let data: number = Math.floor(Math.random() * 6);
-    var data = 5;
+    let data = 5;
     //console.log("sayı: " + data);
     //let userData= prompt("Lütfen bir sayı giriniz: ");
     if (data === 1) {
@@ -331,8 +329,8 @@ var condition3 = function () {
 };
 //condition3();
 // switch case
-var condition4 = function () {
-    var data = 5;
+let condition4 = function () {
+    let data = 5;
     //console.log("sayı: " + data);
     //let userData= prompt("Lütfen bir sayı giriniz: ");
     switch (data) {
@@ -359,8 +357,8 @@ var condition4 = function () {
 //condition4();
 // Tür kontrollü Şartlı yapı
 // if else
-var condition5 = function () {
-    var isActive = true;
+let condition5 = function () {
+    let isActive = true;
     // Tür kontrollü Şartlı yapı
     if (typeof isActive === "boolean") {
         if (isActive) {
@@ -384,15 +382,15 @@ Ancak TypeScript, tür güvenliği ile bu yapıları daha hatasız ve güvenilir
 Döngüler, özellikle listeler veya diziler üzerinde işlem yaparken oldukça faydalıdır.
 */
 // ****************** For
-var loop1 = function () {
-    for (var i = 0; i < 5; i++) {
-        console.log("De\u011Fer: ".concat(i));
+let loop1 = () => {
+    for (let i = 0; i < 5; i++) {
+        console.log(`Değer: ${i}`);
     }
 };
 //loop1()
 //console.log();
 //****************** */ For Sonsuz
-var loop2 = function () {
+let loop2 = () => {
     for (;;) {
         // sonsuz döngü
     }
@@ -400,10 +398,10 @@ var loop2 = function () {
 //loop2()
 //console.log();
 //*********************** */ While
-var loop3 = function () {
-    var i = 0;
+let loop3 = () => {
+    let i = 0;
     while (i < 5) {
-        console.log("De\u011Fer: ".concat(i));
+        console.log(`Değer: ${i}`);
         //i++
         //i=i+1;
         i += 1;
@@ -413,15 +411,15 @@ var loop3 = function () {
 //console.log();
 // *********************** */ While sonsuz
 // While
-var loop4 = function () {
+let loop4 = () => {
     while (true) { }
 };
 //loop4()
 // break ve continue Anahtar Kelimeleri
 // break, döngüyü tamamen sonlandırır ve döngüden çıkar.
 // console.log();
-var loop5 = function () {
-    for (var i = 0; i < 10; i++) {
+let loop5 = () => {
+    for (let i = 0; i < 10; i++) {
         if (i === 5) {
             break;
         }
@@ -432,8 +430,8 @@ var loop5 = function () {
 // continue
 // continue, döngünün o adımını atlar ve bir sonraki adıma geçer.
 // console.log();
-var loop6 = function () {
-    for (var i = 0; i < 10; i++) {
+let loop6 = () => {
+    for (let i = 0; i < 10; i++) {
         if (i % 2 === 0) {
             continue;
         }
@@ -449,16 +447,16 @@ Diziler (Arrays), birden fazla değeri tek bir veri yapısında saklamak için k
 TypeScript, JavaScript dizilerinin tüm özelliklerini destekler ve buna ek olarak dizilere tür güvenliği ekler.
 Böylece her elemanın aynı türde olduğu veya belirli türlerin bir karışımı olduğu garanti altına alınabilir.
  */
-var array1 = function () {
-    var sayilar = [1, 2, 3, 4, 5];
+let array1 = () => {
+    let sayilar = [1, 2, 3, 4, 5];
     console.log(sayilar[0]); // 1
     console.log(sayilar[3]); // 4
     sayilar.push(6);
     console.log(sayilar[sayilar.length - 1]); // 4
 };
 //array1()
-var array2 = function () {
-    var matris = [
+let array2 = () => {
+    let matris = [
         [1, 2, 3],
         [4, 5, 6],
         [7, 8, 9],
@@ -466,16 +464,16 @@ var array2 = function () {
     console.log(matris[1][2]); // 6
 };
 //array2()
-var arrayGenerics = function () {
-    var isimler = ["Hamit", "Mızrak", "Typescript"];
+let arrayGenerics = () => {
+    let isimler = ["Hamit", "Mızrak", "Typescript"];
     console.log(isimler[1]);
 };
 //arrayGenerics()
 // Dizilerde (for)
-var array5 = function () {
-    var dizi = [10, 20, 30, 40];
-    for (var i = 0; i < dizi.length; i++) {
-        console.log("Eleman ".concat(i, ": ").concat(dizi[i]));
+let array5 = () => {
+    let dizi = [10, 20, 30, 40];
+    for (let i = 0; i < dizi.length; i++) {
+        console.log(`Eleman ${i}: ${dizi[i]}`);
     }
 };
 //array5()
@@ -484,11 +482,10 @@ var array5 = function () {
 for...of döngüsü, bir dizinin veya iteratif bir yapının elemanları üzerinde tekrarlanmasını sağlar.
 Dizi elemanlarına odaklanır.
 */
-var array6 = function () {
-    var dizi = [10, 20, 30, 40];
-    for (var _i = 0, dizi_1 = dizi; _i < dizi_1.length; _i++) {
-        var temp = dizi_1[_i];
-        console.log("Eleman: ".concat(temp));
+let array6 = () => {
+    let dizi = [10, 20, 30, 40];
+    for (let temp of dizi) {
+        console.log(`Eleman: ${temp}`);
     }
 };
 //array6()
@@ -496,18 +493,18 @@ var array6 = function () {
 /*
 for...in döngüsü, bir nesnenin özellikleri (property) veya bir dizinin indeksleri (index) üzerinde tekrarlanır.
 */
-var array7 = function () {
-    var dizi = [10, 20, 30, 40];
-    for (var temp in dizi) {
-        console.log("Eleman: ".concat(temp));
+let array7 = () => {
+    let dizi = [10, 20, 30, 40];
+    for (let temp in dizi) {
+        console.log(`Eleman: ${temp}`);
     }
 };
 //array7()
 //  Nested (İç İçe) Döngüler
-var array8 = function () {
-    for (var i = 1; i <= 3; i++) {
-        for (var j = 1; j <= 3; j++) {
-            console.log("i: ".concat(i, ", j: ").concat(j));
+let array8 = () => {
+    for (let i = 1; i <= 3; i++) {
+        for (let j = 1; j <= 3; j++) {
+            console.log(`i: ${i}, j: ${j}`);
         }
     }
 };
@@ -521,25 +518,25 @@ var array8 = function () {
 //************** Map, Set *******************************************************
 // TypeScript, Map ve Set veri yapılarını döngü ile işlemeyi destekler.
 // Map
-var mapData = function () {
+let mapData = () => {
     // TypeScript'te bir Map tanımlama
-    var userMap = new Map();
+    const userMap = new Map();
     // Map'e eleman ekleme
     userMap.set(1, "Hamit");
     userMap.set(2, "Mızrak");
     userMap.set(3, "Malatya");
     // Map'teki belirli bir anahtarı arama
-    var userName = userMap.get(2);
+    const userName = userMap.get(2);
     if (userName) {
-        console.log("ID 2'nin kullan\u0131c\u0131s\u0131: ".concat(userName));
+        console.log(`ID 2'nin kullanıcısı: ${userName}`);
     }
     else {
         console.log("Kullanıcı bulunamadı.");
     }
     // Map'teki tüm elemanları dolaşma
     console.log("Tüm kullanıcılar:");
-    userMap.forEach(function (value, key) {
-        console.log("ID: ".concat(key, ", Ad: ").concat(value));
+    userMap.forEach((value, key) => {
+        console.log(`ID: ${key}, Ad: ${value}`);
     });
     // Belirli bir anahtarın var olup olmadığını kontrol etme
     if (userMap.has(3)) {
@@ -552,10 +549,10 @@ var mapData = function () {
     userMap.delete(1);
     console.log("ID 1 silindi.");
     // Map'in boyutunu öğrenme
-    console.log("Map'teki toplam kullan\u0131c\u0131 say\u0131s\u0131: ".concat(userMap.size));
+    console.log(`Map'teki toplam kullanıcı sayısı: ${userMap.size}`);
     // Map'i tamamen temizleme
     userMap.clear();
-    console.log("Map temizlendi. Toplam kullan\u0131c\u0131 say\u0131s\u0131: ".concat(userMap.size));
+    console.log(`Map temizlendi. Toplam kullanıcı sayısı: ${userMap.size}`);
     console.log("data");
     /*
   Map Tanımlama: Map<K, V> ile anahtar (K) ve değer (V) türlerini belirleyebilirsiniz.
@@ -567,17 +564,7 @@ var mapData = function () {
   forEach Metodu: Map'in tüm elemanlarını dolaşır.
       */
 };
-mapData();
-var mapData1 = function () {
-    var userMap = new Map();
-    userMap.set(1, "Hamit");
-    userMap.set(2, "Mızrak");
-    for (var _i = 0, userMap_1 = userMap; _i < userMap_1.length; _i++) {
-        var _a = userMap_1[_i], key = _a[0], value = _a[1];
-        console.log("Key: ".concat(key, ", Value: ").concat(value));
-    }
-};
-//mapData1();
+//mapData();
 /*
 TypeScript'teki Set veri yapısı, benzersiz değerlerin bir koleksiyonunu saklamak için kullanılır.
 Yani bir Set içerisine aynı değeri birden fazla kez eklemeye çalışırsanız, yalnızca bir kez saklanır.
@@ -592,7 +579,19 @@ for (let sayi of sayilar) {
 }
 //setData()
 */
-var setData2 = function () {
+let mapData1 = () => {
+    let city = new Map([
+        [1, "Hakkari"],
+        [2, "Hatay"],
+        [3, "Zonguldak"],
+    ]);
+    for (let [anahtar, deger] of city) {
+        console.log(`${anahtar}: ${deger}`);
+    }
+    console.log("data");
+};
+//mapData1();
+let setData2 = () => {
     // TypeScript'te bir Set tanımlama
     //const uniqueValues: Set<number> = new Set();
     // Dikkat: Bu sürümü kullanmak için bunları yapmalısınız
@@ -607,7 +606,7 @@ var setData2 = function () {
     }
   }
   */
-    var uniqueValues = new Set([10, 20, 30, 40, 10]); // src/index.ts(667,41): error TS2583: Cannot find name 'Set'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2015' or later.
+    const uniqueValues = new Set([10, 20, 30, 40, 10]); // src/index.ts(667,41): error TS2583: Cannot find name 'Set'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2015' or later.
     // Set'e eleman ekleme
     //   uniqueValues.add(1);
     //   uniqueValues.add(1);
@@ -616,7 +615,7 @@ var setData2 = function () {
     //   uniqueValues.add(2); // Bu değer zaten var, tekrar eklenmez.
     // Set'teki tüm elemanları yazdırma
     console.log("Set elemanları:");
-    uniqueValues.forEach(function (value) {
+    uniqueValues.forEach((value) => {
         console.log(value);
     });
     // Set'te belirli bir elemanın varlığını kontrol etme
@@ -624,15 +623,15 @@ var setData2 = function () {
         console.log("2 değeri Set içerisinde mevcut.");
     }
     // Set'teki eleman sayısını öğrenme
-    console.log("Set'teki eleman say\u0131s\u0131: ".concat(uniqueValues.size));
+    console.log(`Set'teki eleman sayısı: ${uniqueValues.size}`);
     // Set'ten bir elemanı silme
     uniqueValues.delete(1);
     console.log("1 değeri silindi.");
     // Set'i temizleme
     uniqueValues.clear();
-    console.log("Set temizlendi. Eleman say\u0131s\u0131: ".concat(uniqueValues.size));
+    console.log(`Set temizlendi. Eleman sayısı: ${uniqueValues.size}`);
 };
-setData2();
+//setData2();
 //////////////////////////////////////////////////////////////////////////////////
 //************** Generic Fonksiyonlar ********************************************
 // Generic Fonksiyonlar: Fonksiyonlarımızı daha esnek hale getirmek için kullanılır.
@@ -651,7 +650,7 @@ let mesaj2: Mesaj<number> = 42; // Geçerli
 // OOP
 // Optional Chaining (?.)
 // ?. operatörü, bir nesne veya değişkenin varlığını kontrol ederek, hataların önüne geçer.
-var kullanici = {
+let kullanici = {
     isim: "Hamit",
     adres: {
         sehir: "Malatya",
