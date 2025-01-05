@@ -35,6 +35,7 @@
     // "target": "es2016",
     // "esModuleInterop": true
 
+    // DİKKATTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
     "module": "esnext",                                /* Oluşturulan modül kodunu belirtin. */
     // "rootDir": "./",                                  /* Kaynak dosyalarınızda kök klasörü belirtin. */
     // "moduleResolution": "node10",                     /* TypeScript’in belirli bir modül belirticisinden bir dosyayı nasıl arayacağını belirtin. */
