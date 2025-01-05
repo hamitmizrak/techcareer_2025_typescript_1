@@ -26,6 +26,7 @@ function realDataTypesString() {
     // let fullName:string = name + " " + surname;
     // 3. YOL (type safe, interpolation, backtick)
     var surname = "Mızrak";
+    // interpolation
     var fullName = "".concat(name, " ").concat(surname);
     console.log(fullName);
 }
@@ -49,6 +50,8 @@ var realDataTypesBoolean = function () {
     console.log(active);
     var passive = false;
     console.log(passive);
+    // typeof: Verilen türün cinsini belirler.
+    console.log(typeof passive);
 };
 //realDataTypesBoolean();
 ///////////////////////////////////////////////////////////////////////////
@@ -67,7 +70,7 @@ var otherDataTypes = function () {
 };
 //otherDataTypes();
 ///////////////////////////////////////////////////////////////////////////
-//************** ANY **************************************
+//************** ANY ******************************************************
 // any: Değişkenin tipi belirsiz olduğunda kullanılır
 // number,boolen,string,undefined,null hepsini kapsar
 // any kullanımı genellikle veri tipi belirsiz olduğunda kullanılır
@@ -81,4 +84,33 @@ var anyTypes = function () {
     dynamicData = true;
     console.log(dynamicData);
 };
-anyTypes();
+//anyTypes();
+///////////////////////////////////////////////////////////////////////////
+//************** UNKNOWN **************************************************
+// unknown: Değişkenin tipi belirsiz olduğunda kullanılır
+// any: unknown farkı
+// any: any kullanıldığında tip güvenliği azalır
+// unknown: unknown kullanıldığında tip güvenliği artar
+var unknownTypes = function () {
+    var bilinmeyen = "Typescript";
+    bilinmeyen = 44.23; // virgüllü sayı
+    bilinmeyen = 44; // Tam sayı
+    bilinmeyen = true; // Tam sayı
+    console.log(bilinmeyen);
+    // unknown tipindeki değişkeni kullanmak için tip kontrolü yapılmalıdır yoksa hata alırız
+    if (typeof bilinmeyen === "string") {
+        console.log("String tipinde veri: " + bilinmeyen);
+    }
+    else if (typeof bilinmeyen === "number") {
+        console.log("Number tipinde veri: " + bilinmeyen);
+    }
+    else if (typeof bilinmeyen === "boolean") {
+        console.log("Boolan tipinde veri: " + bilinmeyen);
+    }
+};
+//unknownTypes();
+///////////////////////////////////////////////////////////////////////////
+//************** VOID **************************************************
+// unknown:
+var voidTypes = function () { };
+voidTypes();
