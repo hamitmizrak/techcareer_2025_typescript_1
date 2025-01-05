@@ -1613,3 +1613,1083 @@ obje.yazdir();
 TypeScript’in fonksiyonlarla ilgili sunduğu bu kapsamlı özellikler, tip güvenliği ve esneklik sağlayarak daha güvenilir kod yazmanıza yardımcı olur.
 
 #
+
+### **TypeScript'te Fonksiyon Türleri**
+
+TypeScript, fonksiyonların türlerini belirlerken oldukça esnek ve güçlü bir sistem sunar. Fonksiyon türleri sayesinde, hem giriş parametreleri hem de dönüş değerlerinin türlerini açıkça belirtebiliriz. Bu, yazılım geliştirme sürecinde daha güvenli, okunabilir ve bakım kolaylığı sağlayan kod yazmamızı mümkün kılar.
+
+---
+
+### **Fonksiyon Tanımı**
+
+TypeScript'te fonksiyonlar, parametrelerin ve dönüş değerinin türlerini belirterek tanımlanabilir.
+
+#### **Temel Fonksiyon Tanımı**
+Bir fonksiyonun parametre türlerini ve dönüş türünü belirtebiliriz.
+
+**Örnek:**
+```typescript
+function toplama(a: number, b: number): number {
+    return a + b;
+}
+
+let sonuc = toplama(10, 20);
+console.log(sonuc); // 30
+```
+
+- **`a` ve `b` türleri:** `number`
+- **Dönüş türü:** `number`
+
+---
+
+### **İsteğe Bağlı (Optional) Parametreler**
+
+Bir parametrenin isteğe bağlı olduğunu belirtmek için `?` operatörü kullanılır.
+
+**Örnek:**
+```typescript
+function selamla(isim: string, soyisim?: string): string {
+    if (soyisim) {
+        return `Merhaba, ${isim} ${soyisim}!`;
+    }
+    return `Merhaba, ${isim}!`;
+}
+
+console.log(selamla("Ahmet")); // Merhaba, Ahmet!
+console.log(selamla("Ahmet", "Yılmaz")); // Merhaba, Ahmet Yılmaz!
+```
+
+- **`soyisim` parametresi isteğe bağlıdır.**
+- İsteğe bağlı parametreler, her zaman zorunlu parametrelerden sonra gelir.
+
+---
+
+### **Varsayılan Parametreler**
+
+Bir parametreye varsayılan bir değer atanabilir. Eğer bu parametreye bir değer geçilmezse, varsayılan değer kullanılır.
+
+**Örnek:**
+```typescript
+function hesaplaFiyat(tutar: number, kdv: number = 0.18): number {
+    return tutar + tutar * kdv;
+}
+
+console.log(hesaplaFiyat(100)); // 118
+console.log(hesaplaFiyat(100, 0.08)); // 108
+```
+
+- **`kdv` parametresi varsayılan olarak `0.18` değerine sahiptir.**
+
+---
+
+### **Rest Parametreleri**
+
+Bir fonksiyon, birden fazla parametreyi bir dizi olarak alabilir. Bu, `...` (spread) operatörüyle yapılır.
+
+**Örnek:**
+```typescript
+function toplama(...sayilar: number[]): number {
+    return sayilar.reduce((toplam, sayi) => toplam + sayi, 0);
+}
+
+console.log(toplama(1, 2, 3, 4, 5)); // 15
+console.log(toplama(10, 20)); // 30
+```
+
+- `sayilar` parametresi, bir `number[]` dizisi olarak alınır.
+
+---
+
+### **Fonksiyon Türü Belirtimi**
+
+Bir fonksiyonun hem parametre türleri hem de dönüş türü, bir tür ifadesi olarak belirtilebilir.
+
+#### **Fonksiyon Türü Söz Dizimi**
+```typescript
+(param1: tür1, param2: tür2, ...) => dönüşTürü
+```
+
+**Örnek:**
+```typescript
+let carpma: (x: number, y: number) => number;
+
+carpma = function (x: number, y: number): number {
+    return x * y;
+};
+
+console.log(carpma(5, 4)); // 20
+```
+
+---
+
+### **Anonim Fonksiyonlar**
+
+TypeScript, anonim fonksiyonlar için de tür çıkarımı yapar.
+
+**Örnek:**
+```typescript
+let kare = (x: number): number => {
+    return x * x;
+};
+
+console.log(kare(5)); // 25
+```
+
+- **Arrow Functions (Ok Fonksiyonları):** Daha kısa bir sözdizimi sunar.
+
+---
+
+### **Callback Fonksiyonlar**
+
+Bir fonksiyonu başka bir fonksiyona parametre olarak geçirebilirsiniz. Callback fonksiyonların türünü belirtmek önemlidir.
+
+**Örnek:**
+```typescript
+function islemYap(a: number, b: number, callback: (x: number, y: number) => number): number {
+    return callback(a, b);
+}
+
+let toplama = (x: number, y: number): number => x + y;
+let carpma = (x: number, y: number): number => x * y;
+
+console.log(islemYap(10, 20, toplama)); // 30
+console.log(islemYap(10, 20, carpma));  // 200
+```
+
+---
+
+### **Void Türünde Fonksiyonlar**
+
+Eğer bir fonksiyon herhangi bir değer döndürmüyorsa, dönüş türü `void` olarak belirtilir.
+
+**Örnek:**
+```typescript
+function logMesaj(mesaj: string): void {
+    console.log(mesaj);
+}
+
+logMesaj("Bu bir bilgilendirme mesajıdır.");
+```
+
+---
+
+### **Never Türünde Fonksiyonlar**
+
+Bir fonksiyon hiçbir zaman değer döndürmüyorsa (örneğin hata fırlatma veya sonsuz döngü), dönüş türü `never` olarak belirtilir.
+
+**Örnek:**
+```typescript
+function hataFirlat(mesaj: string): never {
+    throw new Error(mesaj);
+}
+
+// Sonsuz döngü:
+function sonsuzDongu(): never {
+    while (true) {
+        console.log("Bu döngü bitmeyecek!");
+    }
+}
+```
+
+---
+
+### **Overloading (Fonksiyon Aşırı Yükleme)**
+
+TypeScript, aynı fonksiyonun farklı türde parametrelerle çağrılmasına olanak tanır. Bu, birden fazla fonksiyon imzası (overload signature) tanımlayarak yapılır.
+
+**Örnek:**
+```typescript
+function birlestir(a: string, b: string): string;
+function birlestir(a: number, b: number): number;
+
+function birlestir(a: any, b: any): any {
+    return a + b;
+}
+
+console.log(birlestir(10, 20)); // 30
+console.log(birlestir("Merhaba", " Dünya")); // Merhaba Dünya
+```
+
+---
+
+### **Generic Fonksiyonlar**
+
+Generic fonksiyonlar, türü dinamik olarak belirlemek için kullanılır. Bu, fonksiyonların farklı türlerle çalışmasını sağlar.
+
+**Örnek:**
+```typescript
+function geriDondur<T>(deger: T): T {
+    return deger;
+}
+
+console.log(geriDondur<number>(42)); // 42
+console.log(geriDondur<string>("Merhaba")); // Merhaba
+```
+
+---
+
+### **Fonksiyon Parametrelerinde Type Alias ve Interface Kullanımı**
+
+Parametrelerin türlerini daha okunabilir hale getirmek için `type` veya `interface` kullanılabilir.
+
+**Type Alias ile Örnek:**
+```typescript
+type Hesaplama = (x: number, y: number) => number;
+
+let toplama: Hesaplama = (a, b) => a + b;
+let carpma: Hesaplama = (a, b) => a * b;
+
+console.log(toplama(10, 5)); // 15
+console.log(carpma(10, 5)); // 50
+```
+
+**Interface ile Örnek:**
+```typescript
+interface Hesaplama {
+    (x: number, y: number): number;
+}
+
+let cikarma: Hesaplama = (a, b) => a - b;
+console.log(cikarma(10, 5)); // 5
+```
+
+---
+
+### **Özet**
+
+| **Fonksiyon Türü**              | **Açıklama**                                                                                                                                 |
+|----------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
+| **Temel Fonksiyon Tanımı**       | Parametre ve dönüş türü belirtilir.                                                                                                         |
+| **İsteğe Bağlı Parametreler**    | `?` ile belirtilen parametreler isteğe bağlıdır.                                                                                            |
+| **Varsayılan Parametreler**      | Varsayılan bir değer atanır.                                                                                                                |
+| **Rest Parametreler**            | `...` ile belirtilir ve bir dizi alır.                                                                                                      |
+| **Fonksiyon Türü Belirtimi**     | Fonksiyonun türünü `(param1: tür1, ...) => dönüşTürü` şeklinde tanımlanır.                                                                  |
+| **Void Türü**                    | Hiçbir şey döndürmeyen fonksiyonlarda kullanılır.                                                                                           |
+| **Never Türü**                   | Asla geri dönmeyen fonksiyonlar için kullanılır.                                                                                            |
+| **Overloading**                  | Aynı isimle birden fazla fonksiyonun tanımlanmasına olanak tanır.                                                                           |
+| **Generic Fonksiyonlar**         | Türden bağımsız dinamik yapı sağlar.                                                                                                        |
+| **Type Alias ve Interface**      | Daha karmaşık türleri tanımlamak için kullanılır.                                                                                            |
+
+TypeScript'in sunduğu bu zengin fonksiyon türleri, yazılım geliştirme sürecinde daha okunabilir, tip güvenliği sağlamış ve hata oranını düşürmüş kod yazmanıza olanak tanır.
+
+#
+
+### **TypeScript'te Fonksiyonlar**
+
+TypeScript, fonksiyonların güçlü bir şekilde tanımlanmasına olanak tanır. Fonksiyonlar, parametre türlerinin, varsayılan değerlerin, rest parametrelerinin ve dönüş türlerinin açıkça belirtildiği, tip güvenliği sağlanmış yapılardır.
+
+---
+
+## **1. Fonksiyon Tanımları**
+
+TypeScript'te bir fonksiyon tanımlarken, parametrelerin ve dönüş türünün belirtilmesi önerilir. Böylece kod daha anlaşılır ve hata oranı düşük olur.
+
+#### **Temel Fonksiyon Tanımı**
+Fonksiyon, parametre türlerini ve dönüş türünü açıkça belirtebilir:
+
+**Örnek:**
+```typescript
+function toplama(a: number, b: number): number {
+    return a + b;
+}
+
+console.log(toplama(5, 10)); // 15
+```
+
+- `a` ve `b`: `number` türünde.
+- `: number`: Fonksiyonun dönüş türünü belirtir.
+
+#### **Anonim Fonksiyon Tanımı**
+Anonim fonksiyonlar, bir değişkene atanabilir.
+
+**Örnek:**
+```typescript
+let carpma = function (x: number, y: number): number {
+    return x * y;
+};
+
+console.log(carpma(4, 5)); // 20
+```
+
+#### **Fonksiyon Türü Belirtimi**
+Fonksiyonun türü `(param1: tür1, param2: tür2, ...) => dönüşTürü` şeklinde belirtilir.
+
+**Örnek:**
+```typescript
+let bolme: (x: number, y: number) => number;
+
+bolme = function (x, y) {
+    return x / y;
+};
+
+console.log(bolme(20, 5)); // 4
+```
+
+---
+
+## **2. Parametre Türleri ve Varsayılan Değerler**
+
+#### **Parametre Türleri**
+TypeScript'te, her bir parametrenin türü açıkça belirtilir.
+
+**Örnek:**
+```typescript
+function selamla(isim: string, yas: number): string {
+    return `Merhaba, benim adım ${isim} ve ${yas} yaşındayım.`;
+}
+
+console.log(selamla("Ahmet", 30)); // Merhaba, benim adım Ahmet ve 30 yaşındayım.
+```
+
+#### **İsteğe Bağlı (Optional) Parametreler**
+Bir parametre isteğe bağlı yapılmak istenirse, `?` operatörü kullanılır. İsteğe bağlı parametreler, her zaman zorunlu parametrelerden sonra gelir.
+
+**Örnek:**
+```typescript
+function adresYazdir(il: string, ilce?: string): string {
+    if (ilce) {
+        return `Adres: ${il}, ${ilce}`;
+    }
+    return `Adres: ${il}`;
+}
+
+console.log(adresYazdir("İstanbul")); // Adres: İstanbul
+console.log(adresYazdir("İstanbul", "Kadıköy")); // Adres: İstanbul, Kadıköy
+```
+
+#### **Varsayılan Değerler**
+Varsayılan değer, bir parametreye atanmış bir başlangıç değeri sağlar.
+
+**Örnek:**
+```typescript
+function hesaplaKdv(tutar: number, kdvOrani: number = 0.18): number {
+    return tutar + tutar * kdvOrani;
+}
+
+console.log(hesaplaKdv(100)); // 118
+console.log(hesaplaKdv(100, 0.08)); // 108
+```
+
+---
+
+## **3. Rest Parametreleri**
+
+Bir fonksiyon, birden fazla parametreyi tek bir dizi içinde alabilir. Bu, `...` (spread/rest operatörü) ile yapılır.
+
+**Örnek:**
+```typescript
+function toplam(...sayilar: number[]): number {
+    return sayilar.reduce((toplam, sayi) => toplam + sayi, 0);
+}
+
+console.log(toplam(1, 2, 3, 4, 5)); // 15
+console.log(toplam(10, 20)); // 30
+```
+
+- `sayilar: number[]`: Bir dizi olarak alınır.
+- `reduce`: Dizideki tüm elemanların toplamını hesaplar.
+
+---
+
+## **4. Fonksiyon Dönüş Türleri**
+
+Bir fonksiyonun dönüş türü, `:` sembolü ile belirtilir. TypeScript, dönüş türünü açıkça belirtmezseniz, tür çıkarımı yapar.
+
+#### **Temel Dönüş Türü**
+**Örnek:**
+```typescript
+function kareAl(x: number): number {
+    return x * x;
+}
+
+console.log(kareAl(5)); // 25
+```
+
+#### **Void Türü**
+Bir fonksiyon herhangi bir değer döndürmüyorsa, dönüş türü `void` olarak belirtilir.
+
+**Örnek:**
+```typescript
+function logMesaj(mesaj: string): void {
+    console.log(`Mesaj: ${mesaj}`);
+}
+
+logMesaj("TypeScript öğreniyorum!"); // Mesaj: TypeScript öğreniyorum!
+```
+
+#### **Never Türü**
+Bir fonksiyon hiçbir zaman değer döndürmüyorsa (örneğin hata fırlatma veya sonsuz döngü), dönüş türü `never` olarak belirtilir.
+
+**Örnek:**
+```typescript
+function hataFirlat(mesaj: string): never {
+    throw new Error(mesaj);
+}
+```
+
+---
+
+## **5. Arrow Fonksiyonlar**
+
+Arrow fonksiyonlar (ok fonksiyonları), daha kısa bir sözdizimi sunar ve genellikle anonim fonksiyonlar için kullanılır. Arrow fonksiyonlar, `this` bağlamını da değiştirir.
+
+#### **Sözdizimi**
+```typescript
+(parametreler) => ifade
+```
+
+#### **Örnek 1: Temel Kullanım**
+**Normal Fonksiyon:**
+```typescript
+function toplama(a: number, b: number): number {
+    return a + b;
+}
+```
+
+**Arrow Fonksiyon:**
+```typescript
+let toplama = (a: number, b: number): number => a + b;
+
+console.log(toplama(5, 10)); // 15
+```
+
+#### **Örnek 2: Tek Parametre**
+Tek bir parametre varsa, parantezler opsiyoneldir.
+
+**Örnek:**
+```typescript
+let kare = (x: number): number => x * x;
+
+console.log(kare(5)); // 25
+```
+
+#### **Örnek 3: Rest Parametreleri ile Kullanım**
+**Örnek:**
+```typescript
+let toplam = (...sayilar: number[]): number => sayilar.reduce((toplam, sayi) => toplam + sayi, 0);
+
+console.log(toplam(1, 2, 3)); // 6
+```
+
+#### **Örnek 4: Arrow Fonksiyonun `this` Bağlamı**
+Arrow fonksiyonlar, `this` bağlamını dış fonksiyondan miras alır.
+
+**Normal Fonksiyon ile `this`:**
+```typescript
+let obje = {
+    isim: "TypeScript",
+    yazdir: function() {
+        console.log(this.isim);
+    }
+};
+
+obje.yazdir(); // TypeScript
+```
+
+**Arrow Fonksiyon ile `this`:**
+```typescript
+let obje = {
+    isim: "TypeScript",
+    yazdir: () => {
+        console.log(this); // Global bağlam (window veya undefined)
+    }
+};
+
+obje.yazdir();
+```
+
+---
+
+### **Özet**
+
+| **Konu**                  | **Açıklama**                                                                 |
+|---------------------------|-----------------------------------------------------------------------------|
+| **Fonksiyon Tanımları**    | Parametre türleri ve dönüş türleri açıkça belirtilir.                       |
+| **Parametre Türleri**      | Her parametreye uygun tür atanabilir.                                       |
+| **Varsayılan Değerler**    | Parametrelerin varsayılan değerleri tanımlanabilir.                        |
+| **Rest Parametreleri**     | Birden fazla parametre bir dizi olarak alınabilir.                         |
+| **Fonksiyon Dönüş Türleri**| Fonksiyonun dönüş türü `: tür` ile belirtilir (`number`, `void`, `never`). |
+| **Arrow Fonksiyonlar**     | Daha kısa sözdizimi ve değişmeyen `this` bağlamı sağlar.                   |
+
+TypeScript’in fonksiyonlarla ilgili sunduğu bu kapsamlı özellikler, tip güvenliği ve esneklik sağlayarak daha güvenilir kod yazmanıza yardımcı olur.
+
+#
+
+### **TypeScript'te Şartlı Yapılar (Conditions)**
+
+TypeScript, JavaScript'e dayalı bir dil olduğundan, JavaScript'in tüm şartlı yapılarını destekler. Şartlı yapılar, kodun belirli bir koşula göre farklı yollar izlemesini sağlar. TypeScript'te bu yapılar, tür güvenliği ve hata önleme mekanizmalarıyla daha güçlü hale getirilmiştir.
+
+---
+
+## **1. if-else Şartlı Yapısı**
+
+`if-else`, bir koşulun doğru veya yanlış olmasına göre kodun farklı bölümlerini çalıştırır.
+
+#### **Sözdizimi**
+```typescript
+if (koşul) {
+    // Koşul doğruysa çalıştırılacak kod
+} else {
+    // Koşul yanlışsa çalıştırılacak kod
+}
+```
+
+#### **Örnek:**
+```typescript
+let yas: number = 20;
+
+if (yas >= 18) {
+    console.log("Reşitsiniz.");
+} else {
+    console.log("Reşit değilsiniz.");
+}
+// Çıktı: Reşitsiniz.
+```
+
+#### **if-else if-else**
+Birden fazla koşul için `else if` kullanılabilir.
+
+**Örnek:**
+```typescript
+let not: number = 85;
+
+if (not >= 90) {
+    console.log("Harika: A");
+} else if (not >= 75) {
+    console.log("İyi: B");
+} else if (not >= 50) {
+    console.log("Orta: C");
+} else {
+    console.log("Başarısız: F");
+}
+// Çıktı: İyi: B
+```
+
+---
+
+## **2. Ternary Operator (Üçlü Operatör)**
+
+Ternary operatör, bir `if-else` yapısının kısa bir gösterimidir. Koşul doğruysa bir değer, yanlışsa başka bir değer döndürür.
+
+#### **Sözdizimi**
+```typescript
+koşul ? değer1 : değer2
+```
+
+#### **Örnek:**
+```typescript
+let yas: number = 16;
+let mesaj: string = yas >= 18 ? "Reşitsiniz." : "Reşit değilsiniz.";
+console.log(mesaj);
+// Çıktı: Reşit değilsiniz.
+```
+
+#### **İç içe Ternary Kullanımı**
+Birden fazla koşul için iç içe ternary kullanılabilir, ancak okunabilirliği düşürebilir.
+
+**Örnek:**
+```typescript
+let not: number = 85;
+let sonuc: string = not >= 90 ? "A" : not >= 75 ? "B" : not >= 50 ? "C" : "F";
+console.log(sonuc);
+// Çıktı: B
+```
+
+---
+
+## **3. Switch-Case**
+
+`switch-case`, belirli bir değere bağlı olarak farklı kod bloklarını çalıştırır. Özellikle çok sayıda `if-else` yapısı yerine tercih edilir.
+
+#### **Sözdizimi**
+```typescript
+switch (değer) {
+    case koşul1:
+        // koşul1 doğruysa çalıştırılacak kod
+        break;
+    case koşul2:
+        // koşul2 doğruysa çalıştırılacak kod
+        break;
+    default:
+        // Yukarıdaki koşullardan hiçbiri doğru değilse çalıştırılacak kod
+}
+```
+
+#### **Örnek:**
+```typescript
+let gun: number = 3;
+
+switch (gun) {
+    case 1:
+        console.log("Pazartesi");
+        break;
+    case 2:
+        console.log("Salı");
+        break;
+    case 3:
+        console.log("Çarşamba");
+        break;
+    case 4:
+        console.log("Perşembe");
+        break;
+    case 5:
+        console.log("Cuma");
+        break;
+    default:
+        console.log("Hafta sonu");
+}
+// Çıktı: Çarşamba
+```
+
+#### **Switch-Case ile Birden Fazla Durum**
+Birden fazla durumu aynı anda kontrol etmek için `case` blokları arasında `break` kullanılmaz.
+
+**Örnek:**
+```typescript
+let gun: string = "Cumartesi";
+
+switch (gun) {
+    case "Cumartesi":
+    case "Pazar":
+        console.log("Hafta sonu");
+        break;
+    default:
+        console.log("Hafta içi");
+}
+// Çıktı: Hafta sonu
+```
+
+---
+
+## **4. Tür Kontrolü ile Şartlı Yapılar**
+
+TypeScript, tür kontrolü yaparak şartlı yapıların daha güvenli hale gelmesini sağlar.
+
+#### **typeof Operatörü**
+Bir değişkenin türünü kontrol etmek için `typeof` kullanılır.
+
+**Örnek:**
+```typescript
+let veri: any = "Merhaba";
+
+if (typeof veri === "string") {
+    console.log("Veri bir string.");
+} else if (typeof veri === "number") {
+    console.log("Veri bir sayı.");
+} else {
+    console.log("Veri başka bir türde.");
+}
+// Çıktı: Veri bir string.
+```
+
+#### **instanceof Operatörü**
+Bir nesnenin belirli bir sınıfa ait olup olmadığını kontrol etmek için `instanceof` kullanılır.
+
+**Örnek:**
+```typescript
+class Araba {
+    marka: string;
+    constructor(marka: string) {
+        this.marka = marka;
+    }
+}
+
+let arac = new Araba("Toyota");
+
+if (arac instanceof Araba) {
+    console.log("Bu bir araba.");
+}
+// Çıktı: Bu bir araba.
+```
+
+---
+
+## **5. Nullish Coalescing (??)**
+
+TypeScript'te `??` operatörü, bir değerin `null` veya `undefined` olup olmadığını kontrol eder. Eğer değer `null` veya `undefined` ise alternatif bir değer döndürür.
+
+#### **Örnek:**
+```typescript
+let isim: string | null = null;
+let sonuc = isim ?? "Varsayılan İsim";
+console.log(sonuc);
+// Çıktı: Varsayılan İsim
+```
+
+---
+
+## **6. Optional Chaining (?.)**
+
+`?.` operatörü, bir nesne veya değişkenin varlığını kontrol ederek, hataların önüne geçer.
+
+#### **Örnek:**
+```typescript
+let kullanici = {
+    isim: "Ahmet",
+    adres: {
+        sehir: "İstanbul"
+    }
+};
+
+console.log(kullanici.adres?.sehir); // İstanbul
+console.log(kullanici.adres?.ulke); // undefined
+```
+
+---
+
+## **7. Type Guards (Tür Koruyucular)**
+
+TypeScript, `if` blokları içinde tür kontrolü yaparak, o tür için özel işlemler yapılmasına olanak tanır.
+
+#### **Örnek:**
+```typescript
+function islemYap(veri: number | string) {
+    if (typeof veri === "string") {
+        console.log("String uzunluğu:", veri.length);
+    } else {
+        console.log("Sayı karesi:", veri * veri);
+    }
+}
+
+islemYap("Merhaba"); // String uzunluğu: 7
+islemYap(5); // Sayı karesi: 25
+```
+
+---
+
+## **8. Şartlı Türler (Conditional Types)**
+
+TypeScript'te, `T extends U ? X : Y` yapısıyla şartlı türler tanımlanabilir. Bu, bir türün başka bir türden türeyip türemediğine göre farklı türler döndürür.
+
+#### **Örnek:**
+```typescript
+type Mesaj<T> = T extends string ? string : number;
+
+let mesaj1: Mesaj<string> = "Merhaba"; // Geçerli
+let mesaj2: Mesaj<number> = 42; // Geçerli
+```
+
+---
+
+## **Sonuç**
+
+TypeScript'te şartlı yapılar, hem standart JavaScript kontrol mekanizmalarını içerir hem de TypeScript'in sunduğu güçlü tür sistemiyle daha güvenli hale gelir. Bu yapılar, kodun hem doğru çalışmasını hem de hataların erkenden yakalanmasını sağlar. Şartlı yapıların kullanımında TypeScript'in tür kontrolü, nullish coalescing, optional chaining ve type guards gibi özellikleri, büyük projelerde kodun daha okunabilir ve sürdürülebilir olmasını sağlar.
+
+#
+
+### **TypeScript'te Döngüler (Loops)**
+
+Döngüler, bir işlemi birden fazla kez tekrarlamak için kullanılan yapılar olup, TypeScript'te JavaScript'in döngü yapıları aynen kullanılır. Ancak TypeScript, tür güvenliği ile bu yapıları daha hatasız ve güvenilir hale getirir. Döngüler, özellikle listeler veya diziler üzerinde işlem yaparken oldukça faydalıdır.
+
+---
+
+## **1. for Döngüsü**
+
+`for` döngüsü, belirli bir sayıda işlem yapmak için kullanılır. Üç bileşenden oluşur:
+1. Başlangıç durumu
+2. Koşul (döngü devam ettikçe kontrol edilen ifade)
+3. İterasyon (her adımda yapılan işlem)
+
+#### **Sözdizimi**
+```typescript
+for (başlangıç; koşul; iterasyon) {
+    // Döngüde çalıştırılacak kod
+}
+```
+
+#### **Örnek:**
+```typescript
+for (let i = 0; i < 5; i++) {
+    console.log(`Değer: ${i}`);
+}
+// Çıktı:
+// Değer: 0
+// Değer: 1
+// Değer: 2
+// Değer: 3
+// Değer: 4
+```
+
+- **`i = 0`**: Döngü başlangıç değeri.
+- **`i < 5`**: Döngü bu koşul doğru olduğu sürece çalışır.
+- **`i++`**: Döngü her adımda 1 artırılır.
+
+#### **Dizi Üzerinde Döngü:**
+Bir dizi elemanlarını işlemek için kullanılabilir.
+
+**Örnek:**
+```typescript
+let dizi: number[] = [10, 20, 30, 40];
+for (let i = 0; i < dizi.length; i++) {
+    console.log(`Eleman ${i}: ${dizi[i]}`);
+}
+// Çıktı:
+// Eleman 0: 10
+// Eleman 1: 20
+// Eleman 2: 30
+// Eleman 3: 40
+```
+
+---
+
+## **2. for...of Döngüsü**
+
+`for...of` döngüsü, bir dizinin veya iteratif bir yapının elemanları üzerinde tekrarlanmasını sağlar. **Dizi elemanlarına odaklanır.**
+
+#### **Sözdizimi**
+```typescript
+for (let eleman of dizi) {
+    // Döngüde çalıştırılacak kod
+}
+```
+
+#### **Örnek:**
+```typescript
+let dizi: string[] = ["Ahmet", "Mehmet", "Ayşe"];
+for (let isim of dizi) {
+    console.log(isim);
+}
+// Çıktı:
+// Ahmet
+// Mehmet
+// Ayşe
+```
+
+#### **String Üzerinde Döngü:**
+**Örnek:**
+```typescript
+let kelime: string = "TypeScript";
+for (let harf of kelime) {
+    console.log(harf);
+}
+// Çıktı:
+// T
+// y
+// p
+// e
+// S
+// c
+// r
+// i
+// p
+// t
+```
+
+---
+
+## **3. for...in Döngüsü**
+
+`for...in` döngüsü, bir nesnenin **özellikleri (property)** veya bir dizinin **indeksleri (index)** üzerinde tekrarlanır.
+
+#### **Sözdizimi**
+```typescript
+for (let key in nesne) {
+    // Döngüde çalıştırılacak kod
+}
+```
+
+#### **Örnek:**
+```typescript
+let kisi = {
+    ad: "Ahmet",
+    soyad: "Yılmaz",
+    yas: 30
+};
+
+for (let ozellik in kisi) {
+    console.log(`${ozellik}: ${kisi[ozellik]}`);
+}
+// Çıktı:
+// ad: Ahmet
+// soyad: Yılmaz
+// yas: 30
+```
+
+#### **Dizi Üzerinde Kullanım:**
+**Örnek:**
+```typescript
+let dizi: string[] = ["elma", "armut", "kiraz"];
+for (let index in dizi) {
+    console.log(`Index ${index}: ${dizi[index]}`);
+}
+// Çıktı:
+// Index 0: elma
+// Index 1: armut
+// Index 2: kiraz
+```
+
+---
+
+## **4. while Döngüsü**
+
+`while` döngüsü, belirli bir koşul doğru olduğu sürece kodu tekrarlar.
+
+#### **Sözdizimi**
+```typescript
+while (koşul) {
+    // Döngüde çalıştırılacak kod
+}
+```
+
+#### **Örnek:**
+```typescript
+let i: number = 0;
+while (i < 5) {
+    console.log(`Değer: ${i}`);
+    i++;
+}
+// Çıktı:
+// Değer: 0
+// Değer: 1
+// Değer: 2
+// Değer: 3
+// Değer: 4
+```
+
+#### **Sonsuz Döngü:**
+**Dikkat:** Eğer koşul her zaman doğruysa, döngü sonsuza kadar çalışır.
+```typescript
+// Bu kod çalıştırılmamalıdır, çünkü sonsuz döngüye girer:
+while (true) {
+    console.log("Sonsuz döngü!");
+}
+```
+
+---
+
+## **5. do...while Döngüsü**
+
+`do...while` döngüsü, koşul kontrol edilmeden **en az bir kez çalışır**. Daha sonra koşul doğru olduğu sürece tekrar eder.
+
+#### **Sözdizimi**
+```typescript
+do {
+    // Döngüde çalıştırılacak kod
+} while (koşul);
+```
+
+#### **Örnek:**
+```typescript
+let i: number = 0;
+do {
+    console.log(`Değer: ${i}`);
+    i++;
+} while (i < 5);
+// Çıktı:
+// Değer: 0
+// Değer: 1
+// Değer: 2
+// Değer: 3
+// Değer: 4
+```
+
+---
+
+## **6. break ve continue Anahtar Kelimeleri**
+
+### **break**
+`break`, döngüyü tamamen sonlandırır ve döngüden çıkar.
+
+**Örnek:**
+```typescript
+for (let i = 0; i < 10; i++) {
+    if (i === 5) {
+        break;
+    }
+    console.log(i);
+}
+// Çıktı:
+// 0
+// 1
+// 2
+// 3
+// 4
+```
+
+### **continue**
+`continue`, döngünün o adımını atlar ve bir sonraki adıma geçer.
+
+**Örnek:**
+```typescript
+for (let i = 0; i < 10; i++) {
+    if (i % 2 === 0) {
+        continue;
+    }
+    console.log(i);
+}
+// Çıktı:
+// 1
+// 3
+// 5
+// 7
+// 9
+```
+
+---
+
+## **7. Nested (İç İçe) Döngüler**
+
+Döngülerin içinde başka döngüler tanımlanabilir.
+
+#### **Örnek:**
+```typescript
+for (let i = 1; i <= 3; i++) {
+    for (let j = 1; j <= 3; j++) {
+        console.log(`i: ${i}, j: ${j}`);
+    }
+}
+// Çıktı:
+// i: 1, j: 1
+// i: 1, j: 2
+// i: 1, j: 3
+// i: 2, j: 1
+// i: 2, j: 2
+// i: 2, j: 3
+// i: 3, j: 1
+// i: 3, j: 2
+// i: 3, j: 3
+```
+
+---
+
+## **8. Map ve Set ile Döngüler**
+
+TypeScript, `Map` ve `Set` veri yapılarını döngü ile işlemeyi destekler.
+
+### **Map ile Döngü:**
+**Örnek:**
+```typescript
+let harfler = new Map([
+    [1, "A"],
+    [2, "B"],
+    [3, "C"]
+]);
+
+for (let [anahtar, deger] of harfler) {
+    console.log(`${anahtar}: ${deger}`);
+}
+// Çıktı:
+// 1: A
+// 2: B
+// 3: C
+```
+
+### **Set ile Döngü:**
+**Örnek:**
+```typescript
+let sayilar = new Set([10, 20, 30]);
+
+for (let sayi of sayilar) {
+    console.log(sayi);
+}
+// Çıktı:
+// 10
+// 20
+// 30
+```
+
+---
+
+## **Sonuç**
+
+TypeScript'te döngüler, JavaScript döngü yapılarının aynısıdır ancak TypeScript'in tür güvenliği sayesinde daha güçlü ve güvenilir bir şekilde kullanılır. Döngüler, ister diziler üzerinde işlem yapmak ister nesneleri dolaşmak veya belirli bir sayıda işlem yapmak için temel yapı taşlarından biridir. `for`, `while`, `do...while`, `for...of`, ve `for...in` gibi çeşitli döngüler, her durum için esnek bir çözüm sunar. `break` ve `continue` anahtar kelimeleri ise bu döngüleri daha da kontrol edilebilir hale getirir.

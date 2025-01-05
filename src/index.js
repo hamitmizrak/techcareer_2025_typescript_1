@@ -252,6 +252,42 @@ var overloadingFunction = function (name, isLogin) {
 };
 //overloadingFunction("Hamit",true);
 ///////////////////////////////////////////////////////////////////////////
+//************** UNION TYPES **********************************************
+// Union Types (Birleşik Türler)
+// | işareti, TypeScript'te Union Types (Birleşik Türler) oluşturmak için kullanılır.
+// TypeScript'te Union Types (Birleşik Türler) oluşturmak için kullanılır.
+// Bu ifade, bir değişkenin birden fazla türde bir değer alabileceğini belirtir.
+var unionTypes = function () {
+    var name = null;
+    console.log(name);
+    var surname = "Mızrak";
+    console.log(surname);
+    var data = 44;
+    //  let data: string | null |number = true; //yazma
+    console.log(data);
+};
+//unionTypes();
+/*
+isim değişkeni ya bir string türünde değer alabilir ya da null olabilir.
+| (pipe operatörü), string ve null türlerinin birleşimini oluşturur
+ */
+///////////////////////////////////////////////////////////////////////////
+//************** NULLISH COALESCING *************************************************
+// Nullish Coalescing (??)
+// TypeScript'te ?? operatörü, bir değerin null veya undefined olup olmadığını kontrol eder. 
+// Eğer değer null veya undefined ise alternatif bir değer döndürür.
+// ?? operatörü, || operatöründen farklı olarak null ve undefined değerlerini kontrol eder.
+// ?? operatörü, null ve undefined dışındaki değerler için çalışmaz.
+var nullishCoalescing = function () {
+    var isim = null;
+    //let isim: string | null = null;
+    //let isim: string | null = undefined;
+    var sonuc = isim !== null && isim !== void 0 ? isim : "Varsayılan İsim";
+    console.log(sonuc);
+    // Çıktı: Varsayılan İsim
+};
+//nullishCoalescing();
+///////////////////////////////////////////////////////////////////////////
 //************** CONDITON *************************************************
 // if else
 var condition1 = function () {
@@ -321,7 +357,7 @@ var condition4 = function () {
     }
 };
 //condition4();
-// Tür kontrollü ŞArtlı yapı
+// Tür kontrollü Şartlı yapı
 // if else
 var condition5 = function () {
     var isActive = true;
@@ -338,16 +374,203 @@ var condition5 = function () {
         console.log("Değişken boolean değil");
     }
 };
-condition5();
+//condition5();
 ///////////////////////////////////////////////////////////////////////////
-//************** WHILE ***************************************************
+//************** LOOP(FOR/WHILE) ***************************************************
+/*
+Döngüler, bir işlemi birden fazla kez tekrarlamak için kullanılan yapılar olup,
+TypeScript'te JavaScript'in döngü yapıları aynen kullanılır.
+Ancak TypeScript, tür güvenliği ile bu yapıları daha hatasız ve güvenilir hale getirir.
+Döngüler, özellikle listeler veya diziler üzerinde işlem yaparken oldukça faydalıdır.
+*/
+// ****************** For
+var loop1 = function () {
+    for (var i = 0; i < 5; i++) {
+        console.log("De\u011Fer: ".concat(i));
+    }
+};
+//loop1()
+//console.log();
+//****************** */ For Sonsuz
+var loop2 = function () {
+    for (;;) {
+        console.log("De\u011Fer: ".concat(i));
+    }
+};
+//loop2()
+console.log();
+//*********************** */ While
+var loop3 = function () {
+    var i = 0;
+    while (i < 5) {
+        console.log("De\u011Fer: ".concat(i));
+        //i++
+        //i=i+1;
+        i += 1;
+    }
+};
+//loop3()
+//console.log();
+// *********************** */ While sonsuz
+// While
+var loop4 = function () {
+    while (true) {
+    }
+};
+//loop4()
+// break ve continue Anahtar Kelimeleri
+// break, döngüyü tamamen sonlandırır ve döngüden çıkar.
+console.log();
+var loop5 = function () {
+    for (var i = 0; i < 10; i++) {
+        if (i === 5) {
+            break;
+        }
+        console.log(i);
+    }
+};
+//loop5()
+// continue
+// continue, döngünün o adımını atlar ve bir sonraki adıma geçer.
+console.log();
+var loop6 = function () {
+    for (var i = 0; i < 10; i++) {
+        if (i % 2 === 0) {
+            continue;
+        }
+        console.log(i);
+    }
+};
+//loop6()
+//console.log();
 ///////////////////////////////////////////////////////////////////////////
 //************** Array(Diziler) *******************************************
+/*
+Diziler (Arrays), birden fazla değeri tek bir veri yapısında saklamak için kullanılan temel veri tiplerinden biridir.
+TypeScript, JavaScript dizilerinin tüm özelliklerini destekler ve buna ek olarak dizilere tür güvenliği ekler.
+Böylece her elemanın aynı türde olduğu veya belirli türlerin bir karışımı olduğu garanti altına alınabilir.
+ */
+var array1 = function () {
+    var sayilar = [1, 2, 3, 4, 5];
+    console.log(sayilar[0]); // 1
+    console.log(sayilar[3]); // 4
+    sayilar.push(6);
+    console.log(sayilar[sayilar.length - 1]); // 4
+};
+array1();
+var array2 = function () {
+    var matris = [
+        [1, 2, 3],
+        [4, 5, 6],
+        [7, 8, 9]
+    ];
+    console.log(matris[1][2]); // 6
+};
+array2();
+var arrayGenerics = function () {
+    var isimler = ["Hamit", "Mızrak", "Typescript"];
+    console.log(isimler[1]);
+};
+//arrayGenerics()
+// Dizilerde (for)
+var array5 = function () {
+    var dizi = [10, 20, 30, 40];
+    for (var i = 0; i < dizi.length; i++) {
+        console.log("Eleman ".concat(i, ": ").concat(dizi[i]));
+    }
+};
+//array5()
+// Dizilerde (for of)
+/*
+for...of döngüsü, bir dizinin veya iteratif bir yapının elemanları üzerinde tekrarlanmasını sağlar.
+Dizi elemanlarına odaklanır.
+*/
+var array6 = function () {
+    var dizi = [10, 20, 30, 40];
+    for (var _i = 0, dizi_1 = dizi; _i < dizi_1.length; _i++) {
+        var temp = dizi_1[_i];
+        console.log("Eleman: ".concat(temp));
+    }
+};
+//array6()
+// Dizilerde (for in)
+/*
+for...in döngüsü, bir nesnenin özellikleri (property) veya bir dizinin indeksleri (index) üzerinde tekrarlanır.
+*/
+var array7 = function () {
+    var dizi = [10, 20, 30, 40];
+    for (var temp in dizi) {
+        console.log("Eleman: ".concat(temp));
+    }
+};
+//array7()
+//  Nested (İç İçe) Döngüler
+var array8 = function () {
+    for (var i = 1; i <= 3; i++) {
+        for (var j = 1; j <= 3; j++) {
+            console.log("i: ".concat(i, ", j: ").concat(j));
+        }
+    }
+};
+//array8()
 //************************************************************************
 //************** Rest Parametreleri Function *****************************
 // Rest Parametreleri: Fonksiyonlara sınırsız sayıda parametre göndermek için kullanılır.
 // Bir fonksiyon, birden fazla parametreyi bir dizi olarak alabilir.
 // Bu, ... (spread) operatörüyle yapılır
-///////////////////////////////////////////////////////////////////////////
-//************** Generic Fonksiyonlar ************************
+//////////////////////////////////////////////////////////////////////////////////
+//************** Map, Set *******************************************************
+// TypeScript, Map ve Set veri yapılarını döngü ile işlemeyi destekler.
+// Map
+var mapData = function () {
+    var city = new Map([
+        [1, "Hakkari"],
+        [2, "Hatay"],
+        [3, "Zonguldak"]
+    ]);
+    for (var _i = 0, city_1 = city; _i < city_1.length; _i++) {
+        var _a = city_1[_i], anahtar = _a[0], deger = _a[1];
+        console.log("".concat(anahtar, ": ").concat(deger));
+    }
+    console.log("data");
+};
+//mapData()
+var setData = function () {
+    var sayilar = new Set([10, 20, 30]);
+    for (var _i = 0, sayilar_1 = sayilar; _i < sayilar_1.length; _i++) {
+        var sayi = sayilar_1[_i];
+        console.log(sayi);
+    }
+};
+//setData()
+//////////////////////////////////////////////////////////////////////////////////
+//************** Generic Fonksiyonlar ********************************************
 // Generic Fonksiyonlar: Fonksiyonlarımızı daha esnek hale getirmek için kullanılır.
+/*
+Şartlı Türler (Conditional Types)
+TypeScript'te, T extends U ? X : Y yapısıyla şartlı türler tanımlanabilir.
+Bu, bir türün başka bir türden türeyip türemediğine göre farklı türler döndürür.
+
+
+type Mesaj<T> = T extends string ? string : number;
+
+let mesaj1: Mesaj<string> = "Merhaba"; // Geçerli
+let mesaj2: Mesaj<number> = 42; // Geçerli
+*/
+///////////////////////////////////////////////////////////////////////////
+//************** Object (Nesne) *******************************************
+// OOP
+// Optional Chaining (?.)
+// ?. operatörü, bir nesne veya değişkenin varlığını kontrol ederek, hataların önüne geçer.
+var kullanici = {
+    isim: "Hamit",
+    adres: {
+        sehir: "Malatya"
+    }
+};
+// console.log(kullanici.adres?.sehir); // İstanbul
+// console.log(kullanici.adres?.ulke); // undefined
+// Class
+// interface
+// abstract
+// instance
