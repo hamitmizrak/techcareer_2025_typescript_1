@@ -175,6 +175,12 @@ function sonsuzDongu(): never {
 
 ///////////////////////////////////////////////////////////////////////////
 //************** FUNCTION *************************************************
+/* TypeScript, fonksiyonların türlerini belirlerken oldukça esnek 
+ve güçlü bir sistem sunar. Fonksiyon türleri sayesinde, 
+hem giriş parametreleri hem de dönüş değerlerinin türlerini açıkça belirtebiliriz. 
+Bu, yazılım geliştirme sürecinde daha güvenli, okunabilir ve 
+bakım kolaylığı sağlayan kod yazmamızı mümkün kılar.
+*/
 // 1-Parametresiz, Retursuz Function
 function notParameterNotReturn(): void {
   console.log("Parametresiz, Retursuz Function");
@@ -203,12 +209,58 @@ function parameterReturn(name: string, data: number, isLogin: boolean): string {
   return `Parametreli, Returlu Function: ${name},${data},${isLogin}, `;
 }
 let result4 = parameterReturn("Hamit", 4423, true);
-console.log(result4);
+//console.log(result4);
 
+///////////////////////////////////////////////////////////////////////////////////
+//************** Optional Function *************************************************
+// İsteğe Bağlı (Optional) Parametreler: Fonksiyonlara bazen parametre göndermek veya görmemek isteyebiliriz.
+// Kullanımı=> surname?:string
+function OptionalFunction(
+  name: string,
+  surname: string,
+  middleName?: string // eğer kullanıcının orta adı yoksa yazmaya gerek yok ve undefined döner
+): void {
+  console.log(`Optional Function: ${name},${middleName},${surname}, `);
+}
+//OptionalFunction("Hamit", "Mızrak");
+//OptionalFunction("Hamit", "Mızrak","ortaisim");
+
+///////////////////////////////////////////////////////////////////////////
+//************** Varsayılan Parametreler Function ************************
+// Varsayılan Parametreler: Bir parametreye varsayılan bir değer atanabilir.
+// Eğer bu parametreye bir değer geçilmezse, varsayılan değer kullanılır.
+
+//  Varsayılan Parametreler Function
+function defaultParameterFunction(
+  name: string="adı girmediniz",
+  data: number=0,
+  isLogin: boolean=false
+): void {
+  console.log(
+    ` Varsayılan Parametreler Function : ${name},${data},${isLogin} `
+  );
+}
+defaultParameterFunction("Hamit", 4423, true);
+defaultParameterFunction("Hamit", 4423);
+defaultParameterFunction("Hamit");
+defaultParameterFunction();
+
+///////////////////////////////////////////////////////////////////////////
+//************** Rest Parametreleri Function *****************************
+// Rest Parametreleri: Fonksiyonlara sınırsız sayıda parametre göndermek için kullanılır.
+// Bir fonksiyon, birden fazla parametreyi bir dizi olarak alabilir.
+// Bu, ... (spread) operatörüyle yapılır
+
+///////////////////////////////////////////////////////////////////////////
+//************** Overloading (Fonksiyon Aşırı Yükleme) ************************
+// Overloading (Fonksiyon Aşırı Yükleme): Aynı isimde fakat farklı parametrelerle birden fazla fonksiyon tanımlamak.
+
+///////////////////////////////////////////////////////////////////////////
+//************** Generic Fonksiyonlar ************************
+// Generic Fonksiyonlar: Fonksiyonlarımızı daha esnek hale getirmek için kullanılır.
 
 ///////////////////////////////////////////////////////////////////////////
 //************** CONDITON *************************************************
-
 
 ///////////////////////////////////////////////////////////////////////////
 //************** WHILE ***************************************************
