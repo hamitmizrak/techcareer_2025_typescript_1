@@ -145,13 +145,7 @@ let voidTypes = ():void => {
 ///////////////////////////////////////////////////////////////////////////
 //************** NEVER *****************************************************
 // never: Asla bir değer döndürmeyen fonksiyonlarda kullanılır
-let neverTypes = ():void => {
-    console.log("void değeri");
-    //return "Merhaba Typescript"; // Hata void değer döndürmez
-    //return 44; // Hata void değer döndürmez
-    //return true; // Hata void değer döndürmez
-    //return null; // Hata void değer döndürmez
-    //return undefined; // Hata void değer döndürmez
-    //return; // Doğru
+let neverTypes = ()=> {
+
 };
 neverTypes();
