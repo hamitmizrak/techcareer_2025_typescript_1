@@ -1,7 +1,8 @@
 var exam = "Merhabalar Ts";
 console.log(exam);
 ///////////////////////////////////////////////////////////////////////////
-//************** DATA TYPES ***********************************************
+//************** DATA TYPES (DYNAMICS) ***********************************************
+// Dynamics Datatype
 // Data Type Primitive Types
 function normDataTypes() {
     // Normal Type
@@ -11,8 +12,8 @@ function normDataTypes() {
 }
 //normDataTypes();
 ///////////////////////////////////////////////////////////////////////////
-//************** DATA TYPES ***********************************************
-// Datatype
+//************** DATA TYPES (STATIC) ***************************************
+// Static Datatype
 // string
 function realDataTypesString() {
     var name = "Hamit";
@@ -110,7 +111,28 @@ var unknownTypes = function () {
 };
 //unknownTypes();
 ///////////////////////////////////////////////////////////////////////////
-//************** VOID **************************************************
-// unknown:
-var voidTypes = function () { };
-voidTypes();
+//************** VOID *****************************************************
+// void: Herhangi bir veri tipi döndürmeyen fonksiyonlarda kullanılır
+var voidTypes = function () {
+    console.log("void değeri");
+    //return "Merhaba Typescript"; // Hata void değer döndürmez
+    //return 44; // Hata void değer döndürmez
+    //return true; // Hata void değer döndürmez
+    //return null; // Hata void değer döndürmez
+    //return undefined; // Hata void değer döndürmez
+    //return; // Doğru
+};
+//voidTypes();
+///////////////////////////////////////////////////////////////////////////
+//************** NEVER *****************************************************
+// never: Asla bir değer döndürmeyen fonksiyonlarda kullanılır
+var neverTypes = function () {
+    console.log("void değeri");
+    //return "Merhaba Typescript"; // Hata void değer döndürmez
+    //return 44; // Hata void değer döndürmez
+    //return true; // Hata void değer döndürmez
+    //return null; // Hata void değer döndürmez
+    //return undefined; // Hata void değer döndürmez
+    //return; // Doğru
+};
+neverTypes();
