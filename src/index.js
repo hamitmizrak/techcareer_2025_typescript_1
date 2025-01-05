@@ -1,7 +1,38 @@
 var exam = "Merhabalar Ts";
 console.log(exam);
 ///////////////////////////////////////////////////////////////////////////
-//************** DATA TYPES (DYNAMICS) ***********************************************
+//**************OPERATOR ************************************
+/*
++ - * / % ++ -- && || ! == === != !== > < >= <=
+*/
+var operator = function () {
+    var num1 = 13;
+    var num2 = 5;
+    console.log("Toplam: " + (num1 + num2));
+    console.log("Fark: " + (num1 - num2));
+    console.log("Çarpım: " + num1 * num2);
+    console.log("Bölüm: " + num1 / num2);
+    console.log("Mod: " + num1 % num2);
+    console.log("Arttır: " + num1++);
+    console.log("Azalt: " + num1--);
+    console.log("Arttır: " + ++num1);
+    console.log("Azalt: " + --num1);
+};
+///////////////////////////////////////////////////////////////////////////
+//**************MATH ************************************
+var math = function () {
+    console.log("Math.PI: " + Math.PI);
+    console.log("Math.abs(-13): " + Math.abs(-13));
+    console.log("Math.ceil(13.2): " + Math.ceil(13.2));
+    console.log("Math.floor(13.9): " + Math.floor(13.9));
+    console.log("Math.round(13.2): " + Math.round(13.2));
+    console.log("Math.round(13.9): " + Math.round(13.9));
+    console.log("Math.random(): " + Math.random());
+    console.log("Math.max(13,5): " + Math.max(13, 5));
+    console.log("Math.min(13,5): " + Math.min(13, 5));
+};
+///////////////////////////////////////////////////////////////////////////
+//************** DATA TYPES (DYNAMICS) ************************************
 // Dynamics Datatype
 // Data Type Primitive Types
 function normDataTypes() {
@@ -118,7 +149,10 @@ var unknownTypes = function () {
 // 4-) Parametreli, Retursuz Function
 // 5-) Parametresiz, Returlu Function
 // 6-) Parametreli, Returlu Function
-///////////////////////////////////////////////////////////////////////////
+// 7-) İsteğe Bağlı (Optional) Parametreler
+// 8-) Varsayılan Parametreler
+// 9-) Overloading (Fonksiyon Aşırı Yükleme)
+//********************************************************************** */
 //************** VOID *****************************************************
 // void: Herhangi bir veri tipi döndürmeyen fonksiyonlarda kullanılır
 var voidTypes = function () {
@@ -131,7 +165,7 @@ var voidTypes = function () {
     //return; // Doğru
 };
 //voidTypes();
-///////////////////////////////////////////////////////////////////////////
+//********************************************************************** */
 //************** NEVER *****************************************************
 // never: Asla bir değer döndürmeyen fonksiyonlarda kullanılır.
 // never: Sonsuz döngü, hata fırlatma gibi durumlarda kullanılır.
@@ -150,7 +184,7 @@ function sonsuzDongu() {
     }
 }
 //sonsuzDongu()
-///////////////////////////////////////////////////////////////////////////
+//********************************************************************** */
 //************** FUNCTION *************************************************
 /* TypeScript, fonksiyonların türlerini belirlerken oldukça esnek
 ve güçlü bir sistem sunar. Fonksiyon türleri sayesinde,
@@ -180,7 +214,7 @@ function parameterReturn(name, data, isLogin) {
 }
 var result4 = parameterReturn("Hamit", 4423, true);
 //console.log(result4);
-///////////////////////////////////////////////////////////////////////////////////
+//******************************************************************************** */
 //************** Optional Function *************************************************
 // İsteğe Bağlı (Optional) Parametreler: Fonksiyonlara bazen parametre göndermek veya görmemek isteyebiliriz.
 // Kullanımı=> surname?:string
@@ -190,7 +224,7 @@ function OptionalFunction(name, surname, middleName // eğer kullanıcının ort
 }
 //OptionalFunction("Hamit", "Mızrak");
 //OptionalFunction("Hamit", "Mızrak","ortaisim");
-///////////////////////////////////////////////////////////////////////////
+//********************************************************************** */
 //************** Varsayılan Parametreler Function ************************
 // Varsayılan Parametreler: Bir parametreye varsayılan bir değer atanabilir.
 // Eğer bu parametreye bir değer geçilmezse, varsayılan değer kullanılır.
@@ -201,22 +235,119 @@ function defaultParameterFunction(name, data, isLogin) {
     if (isLogin === void 0) { isLogin = false; }
     console.log(" Varsay\u0131lan Parametreler Function : ".concat(name, ",").concat(data, ",").concat(isLogin, " "));
 }
-defaultParameterFunction("Hamit", 4423, true);
-defaultParameterFunction("Hamit", 4423);
-defaultParameterFunction("Hamit");
-defaultParameterFunction();
+// defaultParameterFunction("Hamit", 4423, true);
+// defaultParameterFunction("Hamit", 4423);
+// defaultParameterFunction("Hamit");
+// defaultParameterFunction();
 ///////////////////////////////////////////////////////////////////////////
+//************** Overloading (Fonksiyon Aşırı Yükleme) ************************
+// Overloading (Fonksiyon Aşırı Yükleme):
+// Aynı isimde fakat farklı parametrelerle birden fazla fonksiyon tanımlamak.
+var overloadingFunction = function (name, surname) {
+    console.log("Overloading Function: ".concat(name, "- ").concat(surname));
+};
+//overloadingFunction("Hamit","Mızrak");
+var overloadingFunction = function (name, isLogin) {
+    console.log("Overloading Function: ".concat(name, "- ").concat(isLogin));
+};
+//overloadingFunction("Hamit",true);
+///////////////////////////////////////////////////////////////////////////
+//************** CONDITON *************************************************
+// if else
+var condition1 = function () {
+    var isActive = true;
+    if (isActive) {
+        console.log("Kullanıcı Aktif");
+    }
+    else {
+        console.log("Kullanıcı Pasif");
+    }
+};
+//condition1();
+// Ternary(üçlü operatör)  koşul?true:false
+var condition2 = function () {
+    var isActive = true;
+    var result = isActive ? "Kullanıcı Aktif" : "Kullanıcı Pasif";
+    console.log(result);
+};
+//condition2();
+// if else if else
+var condition3 = function () {
+    //let data: number = Math.floor(Math.random() * 6);
+    var data = 5;
+    //console.log("sayı: " + data);
+    //let userData= prompt("Lütfen bir sayı giriniz: ");
+    if (data === 1) {
+        console.log("1");
+    }
+    else if (data === 2) {
+        console.log("2");
+    }
+    else if (data === 3) {
+        console.log("4");
+    }
+    else if (data === 5) {
+        console.log("5");
+    }
+    else {
+        console.log("Sayı 1<=X<=5 arasında değil");
+    }
+};
+//condition3();
+// switch case
+var condition4 = function () {
+    var data = 5;
+    //console.log("sayı: " + data);
+    //let userData= prompt("Lütfen bir sayı giriniz: ");
+    switch (data) {
+        case 1:
+            console.log("1");
+            break;
+        case 2:
+            console.log("2");
+            break;
+        case 3:
+            console.log("3");
+            break;
+        case 4:
+            console.log("4");
+            break;
+        case 5:
+            console.log("5");
+            break;
+        default:
+            console.log("Sayı 1<=X<=5 arasında değil");
+            break;
+    }
+};
+//condition4();
+// Tür kontrollü ŞArtlı yapı
+// if else
+var condition5 = function () {
+    var isActive = true;
+    // Tür kontrollü Şartlı yapı
+    if (typeof isActive === "boolean") {
+        if (isActive) {
+            console.log("Kullanıcı Aktif");
+        }
+        else {
+            console.log("Kullanıcı Pasif");
+        }
+    }
+    else {
+        console.log("Değişken boolean değil");
+    }
+};
+condition5();
+///////////////////////////////////////////////////////////////////////////
+//************** WHILE ***************************************************
+///////////////////////////////////////////////////////////////////////////
+//************** Array(Diziler) *******************************************
+//************************************************************************
 //************** Rest Parametreleri Function *****************************
 // Rest Parametreleri: Fonksiyonlara sınırsız sayıda parametre göndermek için kullanılır.
 // Bir fonksiyon, birden fazla parametreyi bir dizi olarak alabilir.
 // Bu, ... (spread) operatörüyle yapılır
 ///////////////////////////////////////////////////////////////////////////
-//************** Overloading (Fonksiyon Aşırı Yükleme) ************************
-// Overloading (Fonksiyon Aşırı Yükleme): Aynı isimde fakat farklı parametrelerle birden fazla fonksiyon tanımlamak.
-///////////////////////////////////////////////////////////////////////////
 //************** Generic Fonksiyonlar ************************
 // Generic Fonksiyonlar: Fonksiyonlarımızı daha esnek hale getirmek için kullanılır.
-///////////////////////////////////////////////////////////////////////////
-//************** CONDITON *************************************************
-///////////////////////////////////////////////////////////////////////////
-//************** WHILE ***************************************************
