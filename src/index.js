@@ -111,6 +111,14 @@ var unknownTypes = function () {
 };
 //unknownTypes();
 ///////////////////////////////////////////////////////////////////////////
+//************** FUNCTION *************************************************
+// 1-) Void
+// 2-) Never
+// 3-) Parametresiz, Retursuz Function
+// 4-) Parametreli, Retursuz Function
+// 5-) Parametresiz, Returlu Function
+// 6-) Parametreli, Returlu Function
+///////////////////////////////////////////////////////////////////////////
 //************** VOID *****************************************************
 // void: Herhangi bir veri tipi döndürmeyen fonksiyonlarda kullanılır
 var voidTypes = function () {
@@ -125,7 +133,48 @@ var voidTypes = function () {
 //voidTypes();
 ///////////////////////////////////////////////////////////////////////////
 //************** NEVER *****************************************************
-// never: Asla bir değer döndürmeyen fonksiyonlarda kullanılır
-var neverTypes = function () {
-};
-neverTypes();
+// never: Asla bir değer döndürmeyen fonksiyonlarda kullanılır.
+// never: Sonsuz döngü, hata fırlatma gibi durumlarda kullanılır.
+// never: Asla fonksiyonun sonuna ulaşmayan fonksiyonlarda kullanılır.
+// never: Asla bir hata döndürmeyen fonksiyonlarda kullanılır.
+// never: Asla sonsuz döngüde olmayan fonksiyonlarda kullanılır.
+// HATA FIRLAT
+function hataFirlat(message) {
+    throw new Error(message);
+}
+//hataFirlat("Hata fırlatıldı");
+// SONSUZ DÖNGÜ
+function sonsuzDongu() {
+    while (true) {
+        console.log("Sonsuz Döngü");
+    }
+}
+//sonsuzDongu()
+///////////////////////////////////////////////////////////////////////////
+//************** FUNCTION *************************************************
+// 1-Parametresiz, Retursuz Function
+function notParameterNotReturn() {
+    console.log("Parametresiz, Retursuz Function");
+}
+//notParameterNotReturn();
+// 2-Parametreli, Retursuz Function
+function parameterNotReturn(name, data, isLogin) {
+    console.log("Parametreli, Retursuz Function: ".concat(name, ",").concat(data, ",").concat(isLogin, ", "));
+}
+//parameterNotReturn("Hamit",4423,true);
+// 3-Parametresiz, Returlu Function
+function notParameterReturn() {
+    return "Parametresiz, Returlu Function";
+}
+var result3 = notParameterReturn();
+//console.log(result3);
+// 4-Parametreli, Returlu Function
+function parameterReturn(name, data, isLogin) {
+    return "Parametreli, Returlu Function: ".concat(name, ",").concat(data, ",").concat(isLogin, ", ");
+}
+var result4 = parameterReturn("Hamit", 4423, true);
+console.log(result4);
+///////////////////////////////////////////////////////////////////////////
+//************** CONDITON *************************************************
+///////////////////////////////////////////////////////////////////////////
+//************** WHILE ***************************************************

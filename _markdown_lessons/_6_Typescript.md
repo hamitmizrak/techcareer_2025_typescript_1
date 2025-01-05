@@ -919,3 +919,697 @@ TypeScript, başlangıçta JavaScript’in eksikliklerini gidermek için gelişt
 
 # 
 
+### **TypeScript'te Primitif Türler**
+
+TypeScript, JavaScript'in temeli üzerine inşa edildiği için, JavaScript'in tüm **primitif türlerini** destekler. Bu türler, JavaScript'te olduğu gibi temel veri yapılarını ifade eder.
+
+#### **1. string**
+`string` türü, metinleri temsil eder. Çift tırnak `"` veya tek tırnak `'` kullanılabilir. Ayrıca, şablon dizgiler (template strings) için backtick (\`\`) kullanılabilir.
+
+**Örnek:**
+```typescript
+let isim: string = "Ahmet";
+let soyad: string = 'Yılmaz';
+let tamAd: string = `${isim} ${soyad}`;
+console.log(tamAd); // Ahmet Yılmaz
+```
+
+#### **2. number**
+`number` türü, hem tamsayıları hem de ondalıklı sayıların temsilini içerir. Ayrıca, hex, binary ve octal sayıları da destekler.
+
+**Örnek:**
+```typescript
+let yas: number = 30;
+let maas: number = 2500.50;
+let hex: number = 0xAB;
+let binary: number = 0b1010;
+let octal: number = 0o712;
+
+console.log(yas, maas, hex, binary, octal);
+```
+
+#### **3. boolean**
+`boolean` türü, sadece `true` veya `false` değerlerini alabilir.
+
+**Örnek:**
+```typescript
+let aktif: boolean = true;
+let emekli: boolean = false;
+
+console.log(aktif, emekli);
+```
+
+#### **4. undefined**
+`undefined`, değişkenin tanımlandığı ancak bir değer almadığı durumları ifade eder.
+
+**Örnek:**
+```typescript
+let adres: undefined = undefined;
+console.log(adres); // undefined
+```
+
+#### **5. null**
+`null`, hiçbir değerin olmamasını ifade eder. Genelde referans veri türlerinde kullanılır.
+
+**Örnek:**
+```typescript
+let evliMi: null = null;
+console.log(evliMi); // null
+```
+
+---
+
+### **Any Türü**
+`any` türü, herhangi bir türü temsil edebilir. Bu, TypeScript’in tip kontrolünü geçici olarak devre dışı bırakır.
+
+**Kullanım Durumları:**
+- Dinamik veri yapılarını işlerken.
+- Türün önceden belirlenemediği durumlarda.
+
+**Örnek:**
+```typescript
+let dinamik: any = "Merhaba";
+console.log(dinamik); // Merhaba
+
+dinamik = 42;
+console.log(dinamik); // 42
+
+dinamik = true;
+console.log(dinamik); // true
+```
+
+**Dezavantaj:**
+- Tür kontrolü yapılmadığı için, hatalara açık hale gelir.
+
+---
+
+### **Unknown Türü**
+`unknown`, herhangi bir türü temsil eder ancak `any`'den farklı olarak, tür kontrolünü zorunlu kılar.
+
+**Örnek:**
+```typescript
+let bilinmeyen: unknown = "Merhaba";
+console.log(bilinmeyen); // Merhaba
+
+bilinmeyen = 42;
+console.log(bilinmeyen); // 42
+
+// Tür kontrolü yapılmazsa hata alır:
+if (typeof bilinmeyen === "string") {
+    console.log(bilinmeyen.toUpperCase());
+}
+```
+
+---
+
+### **Void Türü**
+`void`, bir fonksiyonun **herhangi bir değer döndürmediğini** ifade eder.
+
+**Örnek:**
+```typescript
+function selamla(): void {
+    console.log("Merhaba!");
+}
+
+selamla(); // Merhaba!
+```
+
+- **Void ile Değişkenler:** Genelde anlamsızdır, çünkü yalnızca `undefined` veya `null` atanabilir.
+
+**Örnek:**
+```typescript
+let bos: void = undefined; 
+```
+
+---
+
+### **Never Türü**
+`never`, bir değerin asla geri dönmediği durumları temsil eder. Genellikle, sonsuz döngüler veya hata fırlatan (throwing) fonksiyonlarda kullanılır.
+
+**Örnek:**
+```typescript
+function hataFirlat(mesaj: string): never {
+    throw new Error(mesaj);
+}
+
+// Sonsuz döngü:
+function sonsuzDongu(): never {
+    while (true) {
+        console.log("Bu döngü bitmeyecek!");
+    }
+}
+```
+
+---
+
+### **Type Inference (Tür Çıkarımı)**
+
+TypeScript, değişkenlerin türlerini açıkça belirtmeden, atanan değere göre **tahmin edebilir**. Buna "Tür Çıkarımı" denir. Tür çıkarımı sayesinde, kod daha kısa ve okunabilir hale gelir.
+
+#### **1. Basit Tür Çıkarımı**
+**Örnek:**
+```typescript
+let mesaj = "Merhaba"; // TypeScript, türü otomatik olarak `string` olarak belirler.
+let sayi = 42;         // Tür: number
+let dogruMu = true;    // Tür: boolean
+```
+
+#### **2. Fonksiyonlarda Tür Çıkarımı**
+Fonksiyonun dönüş türü, otomatik olarak belirlenebilir.
+
+**Örnek:**
+```typescript
+function toplama(a: number, b: number) {
+    return a + b; // TypeScript, dönüş türünü `number` olarak tahmin eder.
+}
+
+let sonuc = toplama(5, 10);
+console.log(sonuc); // 15
+```
+
+#### **3. Karmaşık Tür Çıkarımı**
+**Örnek:**
+```typescript
+let dizi = [1, 2, 3]; // Tür: number[]
+let karisik = [1, "iki", true]; // Tür: (number | string | boolean)[]
+```
+
+---
+
+### **Özet**
+
+| **Tür**       | **Açıklama**                                                                                  | **Örnek**                                          |
+|----------------|----------------------------------------------------------------------------------------------|---------------------------------------------------|
+| **string**     | Metinleri temsil eder.                                                                       | `let isim: string = "Ahmet";`                     |
+| **number**     | Sayıları temsil eder.                                                                        | `let yas: number = 30;`                           |
+| **boolean**    | Mantıksal `true` veya `false` değerlerini temsil eder.                                       | `let aktif: boolean = true;`                      |
+| **undefined**  | Değeri atanmamış değişkenleri temsil eder.                                                   | `let adres: undefined = undefined;`              |
+| **null**       | Boş bir değeri temsil eder.                                                                  | `let evliMi: null = null;`                        |
+| **any**        | Herhangi bir türü temsil eder (tip kontrolü yapılmaz).                                       | `let dinamik: any = "Merhaba";`                   |
+| **unknown**    | Herhangi bir türü temsil eder ancak tür kontrolü gerektirir.                                 | `let bilinmeyen: unknown = 42;`                   |
+| **void**       | Değer döndürmeyen fonksiyonlar için kullanılır.                                              | `function selamla(): void { console.log("Hi"); }` |
+| **never**      | Asla geri dönmeyen durumlar (hata fırlatma veya sonsuz döngü).                               | `function hata(): never { throw new Error(); }`   |
+
+TypeScript'in sunduğu bu türler ve tür çıkarımı mekanizması, yazılım geliştirme sürecinde daha güvenli ve okunabilir kod yazmanızı sağlar.
+
+#
+
+### **TypeScript'te Fonksiyon Türleri**
+
+TypeScript, fonksiyonların türlerini belirlerken oldukça esnek ve güçlü bir sistem sunar. Fonksiyon türleri sayesinde, hem giriş parametreleri hem de dönüş değerlerinin türlerini açıkça belirtebiliriz. Bu, yazılım geliştirme sürecinde daha güvenli, okunabilir ve bakım kolaylığı sağlayan kod yazmamızı mümkün kılar.
+
+---
+
+### **Fonksiyon Tanımı**
+
+TypeScript'te fonksiyonlar, parametrelerin ve dönüş değerinin türlerini belirterek tanımlanabilir.
+
+#### **Temel Fonksiyon Tanımı**
+Bir fonksiyonun parametre türlerini ve dönüş türünü belirtebiliriz.
+
+**Örnek:**
+```typescript
+function toplama(a: number, b: number): number {
+    return a + b;
+}
+
+let sonuc = toplama(10, 20);
+console.log(sonuc); // 30
+```
+
+- **`a` ve `b` türleri:** `number`
+- **Dönüş türü:** `number`
+
+---
+
+### **İsteğe Bağlı (Optional) Parametreler**
+
+Bir parametrenin isteğe bağlı olduğunu belirtmek için `?` operatörü kullanılır.
+
+**Örnek:**
+```typescript
+function selamla(isim: string, soyisim?: string): string {
+    if (soyisim) {
+        return `Merhaba, ${isim} ${soyisim}!`;
+    }
+    return `Merhaba, ${isim}!`;
+}
+
+console.log(selamla("Ahmet")); // Merhaba, Ahmet!
+console.log(selamla("Ahmet", "Yılmaz")); // Merhaba, Ahmet Yılmaz!
+```
+
+- **`soyisim` parametresi isteğe bağlıdır.**
+- İsteğe bağlı parametreler, her zaman zorunlu parametrelerden sonra gelir.
+
+---
+
+### **Varsayılan Parametreler**
+
+Bir parametreye varsayılan bir değer atanabilir. Eğer bu parametreye bir değer geçilmezse, varsayılan değer kullanılır.
+
+**Örnek:**
+```typescript
+function hesaplaFiyat(tutar: number, kdv: number = 0.18): number {
+    return tutar + tutar * kdv;
+}
+
+console.log(hesaplaFiyat(100)); // 118
+console.log(hesaplaFiyat(100, 0.08)); // 108
+```
+
+- **`kdv` parametresi varsayılan olarak `0.18` değerine sahiptir.**
+
+---
+
+### **Rest Parametreleri**
+
+Bir fonksiyon, birden fazla parametreyi bir dizi olarak alabilir. Bu, `...` (spread) operatörüyle yapılır.
+
+**Örnek:**
+```typescript
+function toplama(...sayilar: number[]): number {
+    return sayilar.reduce((toplam, sayi) => toplam + sayi, 0);
+}
+
+console.log(toplama(1, 2, 3, 4, 5)); // 15
+console.log(toplama(10, 20)); // 30
+```
+
+- `sayilar` parametresi, bir `number[]` dizisi olarak alınır.
+
+---
+
+### **Fonksiyon Türü Belirtimi**
+
+Bir fonksiyonun hem parametre türleri hem de dönüş türü, bir tür ifadesi olarak belirtilebilir.
+
+#### **Fonksiyon Türü Söz Dizimi**
+```typescript
+(param1: tür1, param2: tür2, ...) => dönüşTürü
+```
+
+**Örnek:**
+```typescript
+let carpma: (x: number, y: number) => number;
+
+carpma = function (x: number, y: number): number {
+    return x * y;
+};
+
+console.log(carpma(5, 4)); // 20
+```
+
+---
+
+### **Anonim Fonksiyonlar**
+
+TypeScript, anonim fonksiyonlar için de tür çıkarımı yapar.
+
+**Örnek:**
+```typescript
+let kare = (x: number): number => {
+    return x * x;
+};
+
+console.log(kare(5)); // 25
+```
+
+- **Arrow Functions (Ok Fonksiyonları):** Daha kısa bir sözdizimi sunar.
+
+---
+
+### **Callback Fonksiyonlar**
+
+Bir fonksiyonu başka bir fonksiyona parametre olarak geçirebilirsiniz. Callback fonksiyonların türünü belirtmek önemlidir.
+
+**Örnek:**
+```typescript
+function islemYap(a: number, b: number, callback: (x: number, y: number) => number): number {
+    return callback(a, b);
+}
+
+let toplama = (x: number, y: number): number => x + y;
+let carpma = (x: number, y: number): number => x * y;
+
+console.log(islemYap(10, 20, toplama)); // 30
+console.log(islemYap(10, 20, carpma));  // 200
+```
+
+---
+
+### **Void Türünde Fonksiyonlar**
+
+Eğer bir fonksiyon herhangi bir değer döndürmüyorsa, dönüş türü `void` olarak belirtilir.
+
+**Örnek:**
+```typescript
+function logMesaj(mesaj: string): void {
+    console.log(mesaj);
+}
+
+logMesaj("Bu bir bilgilendirme mesajıdır.");
+```
+
+---
+
+### **Never Türünde Fonksiyonlar**
+
+Bir fonksiyon hiçbir zaman değer döndürmüyorsa (örneğin hata fırlatma veya sonsuz döngü), dönüş türü `never` olarak belirtilir.
+
+**Örnek:**
+```typescript
+function hataFirlat(mesaj: string): never {
+    throw new Error(mesaj);
+}
+
+// Sonsuz döngü:
+function sonsuzDongu(): never {
+    while (true) {
+        console.log("Bu döngü bitmeyecek!");
+    }
+}
+```
+
+---
+
+### **Overloading (Fonksiyon Aşırı Yükleme)**
+
+TypeScript, aynı fonksiyonun farklı türde parametrelerle çağrılmasına olanak tanır. Bu, birden fazla fonksiyon imzası (overload signature) tanımlayarak yapılır.
+
+**Örnek:**
+```typescript
+function birlestir(a: string, b: string): string;
+function birlestir(a: number, b: number): number;
+
+function birlestir(a: any, b: any): any {
+    return a + b;
+}
+
+console.log(birlestir(10, 20)); // 30
+console.log(birlestir("Merhaba", " Dünya")); // Merhaba Dünya
+```
+
+---
+
+### **Generic Fonksiyonlar**
+
+Generic fonksiyonlar, türü dinamik olarak belirlemek için kullanılır. Bu, fonksiyonların farklı türlerle çalışmasını sağlar.
+
+**Örnek:**
+```typescript
+function geriDondur<T>(deger: T): T {
+    return deger;
+}
+
+console.log(geriDondur<number>(42)); // 42
+console.log(geriDondur<string>("Merhaba")); // Merhaba
+```
+
+---
+
+### **Fonksiyon Parametrelerinde Type Alias ve Interface Kullanımı**
+
+Parametrelerin türlerini daha okunabilir hale getirmek için `type` veya `interface` kullanılabilir.
+
+**Type Alias ile Örnek:**
+```typescript
+type Hesaplama = (x: number, y: number) => number;
+
+let toplama: Hesaplama = (a, b) => a + b;
+let carpma: Hesaplama = (a, b) => a * b;
+
+console.log(toplama(10, 5)); // 15
+console.log(carpma(10, 5)); // 50
+```
+
+**Interface ile Örnek:**
+```typescript
+interface Hesaplama {
+    (x: number, y: number): number;
+}
+
+let cikarma: Hesaplama = (a, b) => a - b;
+console.log(cikarma(10, 5)); // 5
+```
+
+---
+
+### **Özet**
+
+| **Fonksiyon Türü**              | **Açıklama**                                                                                                                                 |
+|----------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
+| **Temel Fonksiyon Tanımı**       | Parametre ve dönüş türü belirtilir.                                                                                                         |
+| **İsteğe Bağlı Parametreler**    | `?` ile belirtilen parametreler isteğe bağlıdır.                                                                                            |
+| **Varsayılan Parametreler**      | Varsayılan bir değer atanır.                                                                                                                |
+| **Rest Parametreler**            | `...` ile belirtilir ve bir dizi alır.                                                                                                      |
+| **Fonksiyon Türü Belirtimi**     | Fonksiyonun türünü `(param1: tür1, ...) => dönüşTürü` şeklinde tanımlanır.                                                                  |
+| **Void Türü**                    | Hiçbir şey döndürmeyen fonksiyonlarda kullanılır.                                                                                           |
+| **Never Türü**                   | Asla geri dönmeyen fonksiyonlar için kullanılır.                                                                                            |
+| **Overloading**                  | Aynı isimle birden fazla fonksiyonun tanımlanmasına olanak tanır.                                                                           |
+| **Generic Fonksiyonlar**         | Türden bağımsız dinamik yapı sağlar.                                                                                                        |
+| **Type Alias ve Interface**      | Daha karmaşık türleri tanımlamak için kullanılır.                                                                                            |
+
+TypeScript'in sunduğu bu zengin fonksiyon türleri, yazılım geliştirme sürecinde daha okunabilir, tip güvenliği sağlamış ve hata oranını düşürmüş kod yazmanıza olanak tanır.
+#
+
+### **TypeScript'te Fonksiyonlar**
+
+TypeScript, fonksiyonların güçlü bir şekilde tanımlanmasına olanak tanır. Fonksiyonlar, parametre türlerinin, varsayılan değerlerin, rest parametrelerinin ve dönüş türlerinin açıkça belirtildiği, tip güvenliği sağlanmış yapılardır.
+
+---
+
+## **1. Fonksiyon Tanımları**
+
+TypeScript'te bir fonksiyon tanımlarken, parametrelerin ve dönüş türünün belirtilmesi önerilir. Böylece kod daha anlaşılır ve hata oranı düşük olur.
+
+#### **Temel Fonksiyon Tanımı**
+Fonksiyon, parametre türlerini ve dönüş türünü açıkça belirtebilir:
+
+**Örnek:**
+```typescript
+function toplama(a: number, b: number): number {
+    return a + b;
+}
+
+console.log(toplama(5, 10)); // 15
+```
+
+- `a` ve `b`: `number` türünde.
+- `: number`: Fonksiyonun dönüş türünü belirtir.
+
+#### **Anonim Fonksiyon Tanımı**
+Anonim fonksiyonlar, bir değişkene atanabilir.
+
+**Örnek:**
+```typescript
+let carpma = function (x: number, y: number): number {
+    return x * y;
+};
+
+console.log(carpma(4, 5)); // 20
+```
+
+#### **Fonksiyon Türü Belirtimi**
+Fonksiyonun türü `(param1: tür1, param2: tür2, ...) => dönüşTürü` şeklinde belirtilir.
+
+**Örnek:**
+```typescript
+let bolme: (x: number, y: number) => number;
+
+bolme = function (x, y) {
+    return x / y;
+};
+
+console.log(bolme(20, 5)); // 4
+```
+
+---
+
+## **2. Parametre Türleri ve Varsayılan Değerler**
+
+#### **Parametre Türleri**
+TypeScript'te, her bir parametrenin türü açıkça belirtilir.
+
+**Örnek:**
+```typescript
+function selamla(isim: string, yas: number): string {
+    return `Merhaba, benim adım ${isim} ve ${yas} yaşındayım.`;
+}
+
+console.log(selamla("Ahmet", 30)); // Merhaba, benim adım Ahmet ve 30 yaşındayım.
+```
+
+#### **İsteğe Bağlı (Optional) Parametreler**
+Bir parametre isteğe bağlı yapılmak istenirse, `?` operatörü kullanılır. İsteğe bağlı parametreler, her zaman zorunlu parametrelerden sonra gelir.
+
+**Örnek:**
+```typescript
+function adresYazdir(il: string, ilce?: string): string {
+    if (ilce) {
+        return `Adres: ${il}, ${ilce}`;
+    }
+    return `Adres: ${il}`;
+}
+
+console.log(adresYazdir("İstanbul")); // Adres: İstanbul
+console.log(adresYazdir("İstanbul", "Kadıköy")); // Adres: İstanbul, Kadıköy
+```
+
+#### **Varsayılan Değerler**
+Varsayılan değer, bir parametreye atanmış bir başlangıç değeri sağlar.
+
+**Örnek:**
+```typescript
+function hesaplaKdv(tutar: number, kdvOrani: number = 0.18): number {
+    return tutar + tutar * kdvOrani;
+}
+
+console.log(hesaplaKdv(100)); // 118
+console.log(hesaplaKdv(100, 0.08)); // 108
+```
+
+---
+
+## **3. Rest Parametreleri**
+
+Bir fonksiyon, birden fazla parametreyi tek bir dizi içinde alabilir. Bu, `...` (spread/rest operatörü) ile yapılır.
+
+**Örnek:**
+```typescript
+function toplam(...sayilar: number[]): number {
+    return sayilar.reduce((toplam, sayi) => toplam + sayi, 0);
+}
+
+console.log(toplam(1, 2, 3, 4, 5)); // 15
+console.log(toplam(10, 20)); // 30
+```
+
+- `sayilar: number[]`: Bir dizi olarak alınır.
+- `reduce`: Dizideki tüm elemanların toplamını hesaplar.
+
+---
+
+## **4. Fonksiyon Dönüş Türleri**
+
+Bir fonksiyonun dönüş türü, `:` sembolü ile belirtilir. TypeScript, dönüş türünü açıkça belirtmezseniz, tür çıkarımı yapar.
+
+#### **Temel Dönüş Türü**
+**Örnek:**
+```typescript
+function kareAl(x: number): number {
+    return x * x;
+}
+
+console.log(kareAl(5)); // 25
+```
+
+#### **Void Türü**
+Bir fonksiyon herhangi bir değer döndürmüyorsa, dönüş türü `void` olarak belirtilir.
+
+**Örnek:**
+```typescript
+function logMesaj(mesaj: string): void {
+    console.log(`Mesaj: ${mesaj}`);
+}
+
+logMesaj("TypeScript öğreniyorum!"); // Mesaj: TypeScript öğreniyorum!
+```
+
+#### **Never Türü**
+Bir fonksiyon hiçbir zaman değer döndürmüyorsa (örneğin hata fırlatma veya sonsuz döngü), dönüş türü `never` olarak belirtilir.
+
+**Örnek:**
+```typescript
+function hataFirlat(mesaj: string): never {
+    throw new Error(mesaj);
+}
+```
+
+---
+
+## **5. Arrow Fonksiyonlar**
+
+Arrow fonksiyonlar (ok fonksiyonları), daha kısa bir sözdizimi sunar ve genellikle anonim fonksiyonlar için kullanılır. Arrow fonksiyonlar, `this` bağlamını da değiştirir.
+
+#### **Sözdizimi**
+```typescript
+(parametreler) => ifade
+```
+
+#### **Örnek 1: Temel Kullanım**
+**Normal Fonksiyon:**
+```typescript
+function toplama(a: number, b: number): number {
+    return a + b;
+}
+```
+
+**Arrow Fonksiyon:**
+```typescript
+let toplama = (a: number, b: number): number => a + b;
+
+console.log(toplama(5, 10)); // 15
+```
+
+#### **Örnek 2: Tek Parametre**
+Tek bir parametre varsa, parantezler opsiyoneldir.
+
+**Örnek:**
+```typescript
+let kare = (x: number): number => x * x;
+
+console.log(kare(5)); // 25
+```
+
+#### **Örnek 3: Rest Parametreleri ile Kullanım**
+**Örnek:**
+```typescript
+let toplam = (...sayilar: number[]): number => sayilar.reduce((toplam, sayi) => toplam + sayi, 0);
+
+console.log(toplam(1, 2, 3)); // 6
+```
+
+#### **Örnek 4: Arrow Fonksiyonun `this` Bağlamı**
+Arrow fonksiyonlar, `this` bağlamını dış fonksiyondan miras alır.
+
+**Normal Fonksiyon ile `this`:**
+```typescript
+let obje = {
+    isim: "TypeScript",
+    yazdir: function() {
+        console.log(this.isim);
+    }
+};
+
+obje.yazdir(); // TypeScript
+```
+
+**Arrow Fonksiyon ile `this`:**
+```typescript
+let obje = {
+    isim: "TypeScript",
+    yazdir: () => {
+        console.log(this); // Global bağlam (window veya undefined)
+    }
+};
+
+obje.yazdir();
+```
+
+---
+
+### **Özet**
+
+| **Konu**                  | **Açıklama**                                                                 |
+|---------------------------|-----------------------------------------------------------------------------|
+| **Fonksiyon Tanımları**    | Parametre türleri ve dönüş türleri açıkça belirtilir.                       |
+| **Parametre Türleri**      | Her parametreye uygun tür atanabilir.                                       |
+| **Varsayılan Değerler**    | Parametrelerin varsayılan değerleri tanımlanabilir.                        |
+| **Rest Parametreleri**     | Birden fazla parametre bir dizi olarak alınabilir.                         |
+| **Fonksiyon Dönüş Türleri**| Fonksiyonun dönüş türü `: tür` ile belirtilir (`number`, `void`, `never`). |
+| **Arrow Fonksiyonlar**     | Daha kısa sözdizimi ve değişmeyen `this` bağlamı sağlar.                   |
+
+TypeScript’in fonksiyonlarla ilgili sunduğu bu kapsamlı özellikler, tip güvenliği ve esneklik sağlayarak daha güvenilir kod yazmanıza yardımcı olur.
+
+#

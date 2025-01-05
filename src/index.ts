@@ -128,24 +128,87 @@ let unknownTypes = () => {
 //unknownTypes();
 
 ///////////////////////////////////////////////////////////////////////////
+//************** FUNCTION *************************************************
+// 1-) Void
+// 2-) Never
+// 3-) Parametresiz, Retursuz Function
+// 4-) Parametreli, Retursuz Function
+// 5-) Parametresiz, Returlu Function
+// 6-) Parametreli, Returlu Function
+
+///////////////////////////////////////////////////////////////////////////
 //************** VOID *****************************************************
 // void: Herhangi bir veri tipi döndürmeyen fonksiyonlarda kullanılır
-let voidTypes = ():void => {
-    console.log("void değeri");
-    //return "Merhaba Typescript"; // Hata void değer döndürmez
-    //return 44; // Hata void değer döndürmez
-    //return true; // Hata void değer döndürmez
-    //return null; // Hata void değer döndürmez
-    //return undefined; // Hata void değer döndürmez
-    //return; // Doğru
+let voidTypes = (): void => {
+  console.log("void değeri");
+  //return "Merhaba Typescript"; // Hata void değer döndürmez
+  //return 44; // Hata void değer döndürmez
+  //return true; // Hata void değer döndürmez
+  //return null; // Hata void değer döndürmez
+  //return undefined; // Hata void değer döndürmez
+  //return; // Doğru
 };
 //voidTypes();
 
-
 ///////////////////////////////////////////////////////////////////////////
 //************** NEVER *****************************************************
-// never: Asla bir değer döndürmeyen fonksiyonlarda kullanılır
-let neverTypes = ()=> {
+// never: Asla bir değer döndürmeyen fonksiyonlarda kullanılır.
+// never: Sonsuz döngü, hata fırlatma gibi durumlarda kullanılır.
+// never: Asla fonksiyonun sonuna ulaşmayan fonksiyonlarda kullanılır.
+// never: Asla bir hata döndürmeyen fonksiyonlarda kullanılır.
+// never: Asla sonsuz döngüde olmayan fonksiyonlarda kullanılır.
 
-};
-neverTypes();
+// HATA FIRLAT
+function hataFirlat(message: string): never {
+  throw new Error(message);
+}
+//hataFirlat("Hata fırlatıldı");
+
+// SONSUZ DÖNGÜ
+function sonsuzDongu(): never {
+  while (true) {
+    console.log("Sonsuz Döngü");
+  }
+}
+
+//sonsuzDongu()
+
+///////////////////////////////////////////////////////////////////////////
+//************** FUNCTION *************************************************
+// 1-Parametresiz, Retursuz Function
+function notParameterNotReturn(): void {
+  console.log("Parametresiz, Retursuz Function");
+}
+//notParameterNotReturn();
+
+// 2-Parametreli, Retursuz Function
+function parameterNotReturn(
+  name: string,
+  data: number,
+  isLogin: boolean
+): void {
+  console.log(`Parametreli, Retursuz Function: ${name},${data},${isLogin}, `);
+}
+//parameterNotReturn("Hamit",4423,true);
+
+// 3-Parametresiz, Returlu Function
+function notParameterReturn(): string {
+  return "Parametresiz, Returlu Function";
+}
+let result3 = notParameterReturn();
+//console.log(result3);
+
+// 4-Parametreli, Returlu Function
+function parameterReturn(name: string, data: number, isLogin: boolean): string {
+  return `Parametreli, Returlu Function: ${name},${data},${isLogin}, `;
+}
+let result4 = parameterReturn("Hamit", 4423, true);
+console.log(result4);
+
+
+///////////////////////////////////////////////////////////////////////////
+//************** CONDITON *************************************************
+
+
+///////////////////////////////////////////////////////////////////////////
+//************** WHILE ***************************************************
