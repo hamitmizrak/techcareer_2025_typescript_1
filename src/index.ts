@@ -1,17 +1,16 @@
 let exam = "Merhabalar Ts";
 console.log(exam);
 
-
 ///////////////////////////////////////////////////////////////////////////
 //************** DATA TYPES ***********************************************
 // Data Type Primitive Types
 function normDataTypes() {
-    // Normal Type
-    var normTypeName = "Hamit44";
-    normTypeName = 4423;
-    console.log(normTypeName);
-  }
-  //normDataTypes();
+  // Normal Type
+  var normTypeName = "Hamit44";
+  normTypeName = 4423;
+  console.log(normTypeName);
+}
+//normDataTypes();
 
 ///////////////////////////////////////////////////////////////////////////
 //************** DATA TYPES ***********************************************
@@ -62,11 +61,38 @@ let realDataTypesBoolean = function () {
 };
 //realDataTypesBoolean();
 
+///////////////////////////////////////////////////////////////////////////
+//************** UNDEFINED/NULL/ZERO **************************************
+// undefined , null ,zero
+// undefined: Değişken tanımlanmış ama değer atanmamış
+// null     : Değişken tanımlanmış ve değeri null atanmış
+// zero     : Değişken tanımlanmış ve değeri 0 atanmış
+let otherDataTypes = () => {
+  let address: undefined = undefined;
+  console.log(address);
+
+  let address2: null = null;
+  console.log(address2);
+
+  let address3: number = 0;
+  console.log(address3);
+};
+//otherDataTypes();
 
 ///////////////////////////////////////////////////////////////////////////
-//************** DATA TYPES ***********************************************
-// undefined , null ,zero
-let otherDataTypes =  () => { 
+//************** ANY **************************************
+// any: Değişkenin tipi belirsiz olduğunda kullanılır
+// number,boolen,string,undefined,null hepsini kapsar
+// any kullanımı genellikle veri tipi belirsiz olduğunda kullanılır
+// any yapısının kullanımı tip güvenliğini azaltır ve hata yapma olasılığını artırır.
+let anyTypes = () => {
+  let staticData: string = "Typescript";
+  console.log(staticData);
 
+  // Değişken türünü bilmiyorum
+  let dynamicData: any = "Typescript";
+  dynamicData = 13.5;
+  dynamicData = true;
+  console.log(dynamicData);
 };
-otherDataTypes
+anyTypes();

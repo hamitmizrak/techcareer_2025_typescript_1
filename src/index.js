@@ -52,8 +52,33 @@ var realDataTypesBoolean = function () {
 };
 //realDataTypesBoolean();
 ///////////////////////////////////////////////////////////////////////////
-//************** DATA TYPES ***********************************************
+//************** UNDEFINED/NULL/ZERO **************************************
 // undefined , null ,zero
+// undefined: Değişken tanımlanmış ama değer atanmamış
+// null     : Değişken tanımlanmış ve değeri null atanmış
+// zero     : Değişken tanımlanmış ve değeri 0 atanmış
 var otherDataTypes = function () {
+    var address = undefined;
+    console.log(address);
+    var address2 = null;
+    console.log(address2);
+    var address3 = 0;
+    console.log(address3);
 };
-otherDataTypes;
+//otherDataTypes();
+///////////////////////////////////////////////////////////////////////////
+//************** ANY **************************************
+// any: Değişkenin tipi belirsiz olduğunda kullanılır
+// number,boolen,string,undefined,null hepsini kapsar
+// any kullanımı genellikle veri tipi belirsiz olduğunda kullanılır
+// any yapısının kullanımı tip güvenliğini azaltır ve hata yapma olasılığını artırır.
+var anyTypes = function () {
+    var staticData = "Typescript";
+    console.log(staticData);
+    // Değişken türünü bilmiyorum
+    var dynamicData = "Typescript";
+    dynamicData = 13.5;
+    dynamicData = true;
+    console.log(dynamicData);
+};
+anyTypes();
