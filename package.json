@@ -9,9 +9,8 @@
     "tsc_w": "tsc -w ./src/index.ts",
     "nodemon": "nodemon ./src/index.js",
     "nodemon_watch": "nodemon --watch src --watch dist ./src/index.js",
-    "open": "node open.js",
     "asenkron": "concurrently \"npm run tsc_w\" \"npm run nodemon_watch\"",
-    "senkron": "npm-run-all --serial tsc_w nodemon_watch open",
+    "senkron": "npm-run-all --serial tsc_w nodemon_watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -35,11 +34,11 @@
     "eslint-plugin-prettier": "^5.2.1",
     "nodemon": "^3.1.9",
     "npm-run-all": "^4.1.5",
-    "open": "^10.1.0",
     "prettier": "^3.4.2",
     "typescript": "^5.7.2"
   },
   "dependencies": {
-    "express": "^4.21.2"
+    "express": "^4.21.2",
+    "typescript_tutorials": "file:"
   }
 }
