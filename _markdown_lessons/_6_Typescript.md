@@ -1,5 +1,6 @@
-# Typescript Öğreniyorum 
-[GitHub](https://github.com/hamitmizrak/techcareer_2025_typescript_1.git)
+# Techcareer Typescript
+[GitHub](https://github.com/hamitmizrak/techcareer_2025_typescript_1)
+[Techcareer Eğitim Linkleri](https://www.techcareer.net/courses)
 ---
 
 ## Typescript Dersleri
@@ -523,7 +524,9 @@ class Person {
 
 ### **Sonuç**
 
-TypeScript, JavaScript’in güçlü yönlerini geliştirirken eksikliklerini gideren, modern ve güçlü bir programlama dilidir. Büyük ölçekli projelerde hata ayıklama, tip güvenliği ve kodun okunabilirliği gibi avantajları sayesinde, günümüzde birçok şirket ve geliştirici tarafından tercih edilmektedir.
+TypeScript, JavaScript’in güçlü yönlerini geliştirirken eksikliklerini gideren, modern ve güçlü bir programlama dilidir. 
+Büyük ölçekli projelerde hata ayıklama, tip güvenliği ve kodun okunabilirliği gibi avantajları sayesinde,
+günümüzde birçok şirket ve geliştirici tarafından tercih edilmektedir.
 
 
 # tsc komutları
@@ -800,21 +803,26 @@ tsc --help
 
 ### **Özet**
 
-`tsc` komutları, TypeScript projelerini derlemek, yapılandırmak ve özelleştirmek için geniş bir seçenek yelpazesi sunar. Bu komutlar, derleme sürecini özelleştirmek ve projelerinizi daha etkili bir şekilde yönetmek için güçlü bir araç sağlar. Önemli komutlar ve açıklamaları, TypeScript projelerinde verimli bir geliştirme ortamı oluşturmanıza yardımcı olur.
+`tsc` komutları, TypeScript projelerini derlemek, yapılandırmak ve özelleştirmek için geniş bir seçenek yelpazesi sunar. 
+Bu komutlar, derleme sürecini özelleştirmek ve projelerinizi daha etkili bir şekilde yönetmek için güçlü bir araç sağlar. Önemli komutlar ve açıklamaları, TypeScript projelerinde verimli bir geliştirme ortamı oluşturmanıza yardımcı olur.
 
 #
 ### **TypeScript Tarihsel Gelişimi**
 
-TypeScript, **Microsoft** tarafından geliştirilmiş ve ilk olarak 2012 yılında tanıtılmış bir programlama dilidir. JavaScript'in güçlü yönlerini koruyarak, zayıf yönlerini iyileştirmeyi hedefleyen TypeScript, JavaScript'in üzerine inşa edilmiştir. Geliştirilme sürecinde büyük projelerin ve yazılım ekiplerinin ihtiyaçlarını göz önünde bulundurarak tasarlanmıştır. Bu kapsamda, TypeScript'in tarihsel gelişimini detaylı olarak ele alalım.
+TypeScript, **Microsoft** tarafından geliştirilmiş ve ilk olarak 2012 yılında tanıtılmış bir programlama dilidir.
+JavaScript'in güçlü yönlerini koruyarak, zayıf yönlerini iyileştirmeyi hedefleyen TypeScript, JavaScript'in üzerine inşa edilmiştir. 
+Geliştirilme sürecinde büyük projelerin ve yazılım ekiplerinin ihtiyaçlarını göz önünde bulundurarak tasarlanmıştır. Bu kapsamda, TypeScript'in tarihsel gelişimini detaylı olarak ele alalım.
 
 ---
 
 ### **2010: JavaScript'in Yetersizliklerinin Fark Edilmesi**
 
-JavaScript, başlangıçta tarayıcılar üzerinde çalışan basit bir betik dili olarak tasarlanmıştır. Ancak zamanla, tarayıcılar dışında da kullanılarak (örneğin Node.js ile sunucu tarafında) büyük ve karmaşık projelerde yer almaya başlamıştır. Bu süreçte, JavaScript’in aşağıdaki yetersizlikleri öne çıkmıştır:
+JavaScript, başlangıçta tarayıcılar üzerinde çalışan basit bir betik dili olarak tasarlanmıştır. 
+Ancak zamanla, tarayıcılar dışında da kullanılarak (örneğin Node.js ile sunucu tarafında) büyük ve karmaşık projelerde yer almaya başlamıştır. Bu süreçte, JavaScript’in aşağıdaki yetersizlikleri öne çıkmıştır:
 
 1. **Statik Tip Güvenliğinin Olmaması:**
-   - JavaScript dinamik bir dildir, bu nedenle tür kontrolü çalışma zamanında yapılır. Bu durum, büyük projelerde hataların tespitini zorlaştırır.
+   - JavaScript dinamik bir dildir, bu nedenle tür kontrolü çalışma zamanında yapılır. 
+   - Bu durum, büyük projelerde hataların tespitini zorlaştırır.
 
 2. **Modern Yazılım Gereksinimlerine Yanıt Vermede Eksiklik:**
    - JavaScript, sınıf tabanlı bir nesne yönelimli programlama (OOP) paradigmasını desteklemekte yetersizdi (ES6 öncesi).
@@ -822,7 +830,8 @@ JavaScript, başlangıçta tarayıcılar üzerinde çalışan basit bir betik di
 3. **Büyük Projelerde Zor Yönetim:**
    - JavaScript, çok büyük projelerde kodun okunabilirliği ve bakımı açısından zorluk çıkarıyordu.
 
-Bu yetersizlikler, Microsoft’un TypeScript’i geliştirmeye başlamasına ilham verdi. Amaç, JavaScript’in gücünü koruyarak, modern yazılım geliştirme ihtiyaçlarına uygun bir araç sunmaktı.
+Bu yetersizlikler, Microsoft’un TypeScript’i geliştirmeye başlamasına ilham verdi. 
+Amaç, JavaScript’in gücünü koruyarak, modern yazılım geliştirme ihtiyaçlarına uygun bir araç sunmaktı.
 
 ---
 
@@ -863,7 +872,8 @@ TypeScript’in ilk sürümleri geliştiricilerden olumlu geri dönüşler aldı
 
 ### **2015: TypeScript ve Angular 2 Ortaklığı**
 
-TypeScript'in büyük ölçüde popülerlik kazanması, Google'ın **Angular 2** için TypeScript'i tercih etmesiyle gerçekleşti. Google, Angular 2’nin temelinde TypeScript'i kullanacağını duyurdu. Bu olay, TypeScript’in kaderini değiştiren önemli bir dönüm noktasıydı.
+TypeScript'in büyük ölçüde popülerlik kazanması, Google'ın **Angular 2** için TypeScript'i tercih etmesiyle gerçekleşti. 
+Google, Angular 2’nin temelinde TypeScript'i kullanacağını duyurdu. Bu olay, TypeScript’in kaderini değiştiren önemli bir dönüm noktasıydı.
 
 #### **Neden Angular 2, TypeScript'i Seçti?**
 1. **Statik Tip Güvenliği:** Angular gibi büyük bir framework, karmaşıklığını yönetmek için statik tip güvenliğinden faydalandı.
@@ -882,7 +892,8 @@ Angular 2’nin TypeScript kullanımı, birçok geliştiricinin TypeScript’i �
 - **Tagged Union Types:** Karmaşık veri yapılarını daha iyi ifade edebilme imkanı tanındı.
 
 #### **Facebook ve React ile Uyumluluk**
-- Facebook’un React ekosistemi, JavaScript odaklı bir framework olmasına rağmen, TypeScript ile uyumluluğunu artırdı. Bu, TypeScript’in JavaScript dünyasında daha geniş bir kabul görmesini sağladı.
+- Facebook’un React ekosistemi, JavaScript odaklı bir framework olmasına rağmen, TypeScript ile uyumluluğunu artırdı. 
+- Bu, TypeScript’in JavaScript dünyasında daha geniş bir kabul görmesini sağladı.
 
 #### **TypeScript 2.x Sürümleri:**
 - Yeni ES özellikleri (async/await, ES Modules) eklendi.
@@ -898,7 +909,8 @@ Angular 2’nin TypeScript kullanımı, birçok geliştiricinin TypeScript’i �
 - **Optional Chaining:** Karmaşık nesne yapılarında daha temiz kod yazılmasına imkan tanıdı.
 
 #### **TypeScript’in GitHub Üzerinde Yükselişi**
-GitHub’ın her yıl yayımladığı "En Popüler Programlama Dilleri" raporlarında, TypeScript sürekli yükselen bir dil olarak öne çıktı. Büyük açık kaynak projelerinde TypeScript kullanılmaya başlandı.
+GitHub’ın her yıl yayımladığı "En Popüler Programlama Dilleri" raporlarında, TypeScript sürekli yükselen bir dil olarak öne çıktı. 
+Büyük açık kaynak projelerinde TypeScript kullanılmaya başlandı.
 
 ---
 
@@ -917,7 +929,8 @@ GitHub’ın her yıl yayımladığı "En Popüler Programlama Dilleri" raporlar
 
 ### **TypeScript’in Geleceği**
 
-TypeScript, JavaScript’in modern gereksinimlere cevap verme hızını artırarak yazılım geliştirme süreçlerini iyileştiren bir araç olmaya devam etmektedir. Özellikle:
+TypeScript, JavaScript’in modern gereksinimlere cevap verme hızını artırarak yazılım geliştirme süreçlerini iyileştiren bir araç olmaya devam etmektedir. 
+Özellikle:
 
 - **Daha Fazla Framework Desteği:** React, Vue, Angular gibi framework’lerle daha sıkı entegrasyon.
 - **Gelişmiş Derleme ve Optimizasyon:** Daha hızlı derleyiciler ve optimize edilmiş kod çıktıları.
@@ -927,16 +940,19 @@ TypeScript, JavaScript’in modern gereksinimlere cevap verme hızını artırar
 
 ### **Sonuç**
 
-TypeScript, başlangıçta JavaScript’in eksikliklerini gidermek için geliştirilen bir dilken, günümüzde büyük projelerin ve ekiplerin tercihi haline gelmiştir. Statik tip güvenliği, modern dil özellikleri ve güçlü araç desteği, TypeScript’i hem bireysel geliştiriciler hem de endüstri devleri için vazgeçilmez bir teknoloji yapmıştır.
+TypeScript, başlangıçta JavaScript’in eksikliklerini gidermek için geliştirilen bir dilken, günümüzde büyük projelerin ve ekiplerin tercihi haline gelmiştir. 
+Statik tip güvenliği, modern dil özellikleri ve güçlü araç desteği, TypeScript’i hem bireysel geliştiriciler hem de endüstri devleri için vazgeçilmez bir teknoloji yapmıştır.
 
 # 
 
 ### **TypeScript'te Primitif Türler**
 
-TypeScript, JavaScript'in temeli üzerine inşa edildiği için, JavaScript'in tüm **primitif türlerini** destekler. Bu türler, JavaScript'te olduğu gibi temel veri yapılarını ifade eder.
+TypeScript, JavaScript'in temeli üzerine inşa edildiği için, JavaScript'in tüm **primitif türlerini** destekler. 
+Bu türler, JavaScript'te olduğu gibi temel veri yapılarını ifade eder.
 
 #### **1. string**
-`string` türü, metinleri temsil eder. Çift tırnak `"` veya tek tırnak `'` kullanılabilir. Ayrıca, şablon dizgiler (template strings) için backtick (\`\`) kullanılabilir.
+`string` türü, metinleri temsil eder. Çift tırnak `"` veya tek tırnak `'` kullanılabilir. 
+Ayrıca, şablon dizgiler (template strings) için backtick (\`\`) kullanılabilir.
 
 **Örnek:**
 ```typescript
@@ -1076,7 +1092,8 @@ function sonsuzDongu(): never {
 
 ### **Type Inference (Tür Çıkarımı)**
 
-TypeScript, değişkenlerin türlerini açıkça belirtmeden, atanan değere göre **tahmin edebilir**. Buna "Tür Çıkarımı" denir. Tür çıkarımı sayesinde, kod daha kısa ve okunabilir hale gelir.
+TypeScript, değişkenlerin türlerini açıkça belirtmeden, atanan değere göre **tahmin edebilir**. 
+Buna "Tür Çıkarımı" denir. Tür çıkarımı sayesinde, kod daha kısa ve okunabilir hale gelir.
 
 #### **1. Basit Tür Çıkarımı**
 **Örnek:**

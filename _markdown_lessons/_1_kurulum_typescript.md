@@ -1,4 +1,6 @@
-# Typescript Kurulumu 
+# Techcareer Typescript
+[GitHub](https://github.com/hamitmizrak/techcareer_2025_typescript_1)
+[Techcareer Eğitim Linkleri](https://www.techcareer.net/courses)
 ---
 
 ## Programs Link
@@ -141,7 +143,6 @@ latest: En son sürüm
 Wanted: package.json'ki sürümdür
 ```
 ---
-
 
 
 

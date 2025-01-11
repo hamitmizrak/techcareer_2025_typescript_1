@@ -1,6 +1,7 @@
-# Typescript Öğreniyorum 
+# Techcareer Typescript
+[GitHub](https://github.com/hamitmizrak/techcareer_2025_typescript_1)
+[Techcareer Eğitim Linkleri](https://www.techcareer.net/courses)
 ---
-
 ## tsc ile nodemon arasındaki farklar 
 ```sh
 
@@ -8,13 +9,15 @@
 ---
 ### **`tsc` ve `nodemon` Arasındaki Farklar**
 
-Hem `tsc` hem de `nodemon` geliştirme süreçlerinde farklı görevler için kullanılır ve işlevleri birbirinden oldukça farklıdır. İşte bu iki aracın ayrıntılı açıklaması ve farkları:
+Hem `tsc` hem de `nodemon` geliştirme süreçlerinde farklı görevler için kullanılır ve işlevleri birbirinden oldukça farklıdır. 
+İşte bu iki aracın ayrıntılı açıklaması ve farkları:
 
 ---
 
 ### **1. `tsc` (TypeScript Compiler)**
 
-`tsc` (TypeScript Compiler), **TypeScript dosyalarını JavaScript'e derlemek** için kullanılır. TypeScript, tarayıcılar veya Node.js tarafından doğrudan çalıştırılamaz, bu yüzden önce JavaScript'e çevrilmesi gerekir.
+`tsc` (TypeScript Compiler), **TypeScript dosyalarını JavaScript'e derlemek** için kullanılır. 
+TypeScript, tarayıcılar veya Node.js tarafından doğrudan çalıştırılamaz, bu yüzden önce JavaScript'e çevrilmesi gerekir.
 
 #### **`tsc` Nasıl Çalışır?**
 1. **Derleme İşlevi:** 
@@ -81,7 +84,8 @@ Hem `tsc` hem de `nodemon` geliştirme süreçlerinde farklı görevler için ku
 
 ### **Birlikte Kullanım: `tsc` ve `nodemon`**
 
-`tsc` ve `nodemon`, birlikte kullanıldığında daha verimli bir geliştirme süreci sunar. TypeScript ile çalışırken, derleme işlemini ve Node.js uygulamasını yeniden başlatma işlemini birleştirebilirsiniz.
+`tsc` ve `nodemon`, birlikte kullanıldığında daha verimli bir geliştirme süreci sunar. 
+TypeScript ile çalışırken, derleme işlemini ve Node.js uygulamasını yeniden başlatma işlemini birleştirebilirsiniz.
 
 #### **TypeScript ile `tsc` ve `nodemon` Entegrasyonu**
 1. **Adım 1: `tsc --watch` ile Derlemeyi İzleme**

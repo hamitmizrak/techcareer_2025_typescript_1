@@ -1,4 +1,6 @@
-# Typescript Öğreniyorum 
+# Techcareer Typescript
+[GitHub](https://github.com/hamitmizrak/techcareer_2025_typescript_1)
+[Techcareer Eğitim Linkleri](https://www.techcareer.net/courses)
 ---
 
 ## npm run otomatik çalıştırmak concurrently Dersleri
@@ -54,4 +56,5 @@ npm run start
 
 ---
 
-Bu yöntem, geliştirme sırasında hem TypeScript dosyalarını derleyip hem de Node.js uygulamasını otomatik olarak çalıştırmanızı sağlar.
+Bu yöntem, geliştirme sırasında hem TypeScript dosyalarını derleyip
+hem de Node.js uygulamasını otomatik olarak çalıştırmanızı sağlar.

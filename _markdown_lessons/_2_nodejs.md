@@ -1,4 +1,6 @@
-# Typescript Öğreniyorum 
+# Techcareer Typescript
+[GitHub](https://github.com/hamitmizrak/techcareer_2025_typescript_1)
+[Techcareer Eğitim Linkleri](https://www.techcareer.net/courses)
 ---
 
 ## Node js
@@ -9,7 +11,8 @@
 
 ### **Node.js Nedir?**
 
-Node.js, **Chrome’un V8 JavaScript motoru** üzerine inşa edilmiş, açık kaynaklı, platform bağımsız bir **JavaScript çalışma ortamıdır** (runtime environment). Node.js, JavaScript’in sadece tarayıcıda çalışan bir dil olma sınırlamasını aşarak, sunucu tarafında ve farklı uygulamalarda kullanılmasını sağlar. 
+Node.js, **Chrome’un V8 JavaScript motoru** üzerine inşa edilmiş, açık kaynaklı, platform bağımsız bir **JavaScript çalışma ortamıdır** (runtime environment). 
+Node.js, JavaScript’in sadece tarayıcıda çalışan bir dil olma sınırlamasını aşarak, sunucu tarafında ve farklı uygulamalarda kullanılmasını sağlar. 
 
 Node.js, **olay tabanlı (event-driven)** ve **bloklanmayan (non-blocking I/O)** mimarisiyle, yüksek verimlilik ve düşük gecikme süreleri gerektiren uygulamalarda tercih edilen bir teknolojidir.
 
@@ -119,7 +122,8 @@ Dosya okunuyor...
    - Node.js, yüksek CPU kullanımı gerektiren işlemler için uygun değildir.
 
 2. **Callback Hell (Geri Çağırma Cehennemi)**
-   - Asenkron yapı, iç içe geçmiş geri çağırmalar nedeniyle karmaşık hale gelebilir. Ancak modern JavaScript özellikleri (Promises ve `async/await`) bu sorunu çözmüştür.
+   - Asenkron yapı, iç içe geçmiş geri çağırmalar nedeniyle karmaşık hale gelebilir. 
+   - Ancak modern JavaScript özellikleri (Promises ve `async/await`) bu sorunu çözmüştür.
 
 3. **Tek İş Parçacıklı Olmanın Sınırlamaları**
    - Bazı durumlarda, özellikle büyük paralel işlemler gerektiğinde, performans düşebilir.
@@ -175,4 +179,8 @@ server.listen(3000, () => {
 
 ### **Sonuç**
 
-Node.js, modern web ve sunucu tarafı geliştirmede devrim niteliğinde bir araçtır. Asenkron yapısı, olay tabanlı mimarisi ve geniş ekosistemi sayesinde Node.js, gerçek zamanlı uygulamalardan API geliştirmeye kadar birçok alanda tercih edilmektedir. Özellikle JavaScript’in hem istemci hem de sunucu tarafında kullanılması, öğrenme sürecini kolaylaştırır ve geliştiricilere güçlü bir araç sunar.
+Node.js, modern web ve sunucu tarafı geliştirmede devrim niteliğinde bir araçtır. 
+Asenkron yapısı, olay tabanlı mimarisi ve geniş ekosistemi sayesinde 
+Node.js, gerçek zamanlı uygulamalardan API geliştirmeye kadar birçok alanda tercih edilmektedir. 
+Özellikle JavaScript’in hem istemci hem de sunucu tarafında kullanılması, 
+öğrenme sürecini kolaylaştırır ve geliştiricilere güçlü bir araç sunar.

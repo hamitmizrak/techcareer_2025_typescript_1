@@ -1,6 +1,7 @@
-# Typescript Öğreniyorum 
+# Techcareer Typescript
+[GitHub](https://github.com/hamitmizrak/techcareer_2025_typescript_1)
+[Techcareer Eğitim Linkleri](https://www.techcareer.net/courses)
 ---
-
 ## Npm Komutları
 ```sh
 
@@ -9,7 +10,8 @@
 
 ### **npm Komutları ve Açıklamaları**
 
-`npm` (Node Package Manager), **Node.js ile birlikte gelen bir paket yönetim aracıdır.** npm, JavaScript projelerinde kullanılan kütüphaneleri ve bağımlılıkları kolayca yüklemek, yönetmek ve güncellemek için kullanılır.
+`npm` (Node Package Manager), **Node.js ile birlikte gelen bir paket yönetim aracıdır.** npm, 
+JavaScript projelerinde kullanılan kütüphaneleri ve bağımlılıkları kolayca yüklemek, yönetmek ve güncellemek için kullanılır.
 
 ---
 
@@ -309,4 +311,7 @@ Belirli bir paketin detaylı bilgilerini görüntüler.
 
 ### **Sonuç**
 
-npm, Node.js projelerinde kullanılan paketlerin yönetimini kolaylaştıran güçlü bir araçtır. Hem bağımlılıkları yönetmek hem de projeleri yapılandırmak için sıkça kullanılır. Yukarıdaki komutlar, npm’in temel işlevlerini anlamak ve projelerinizi verimli bir şekilde yönetmek için yeterli olacaktır.
+npm, Node.js projelerinde kullanılan paketlerin yönetimini kolaylaştıran güçlü bir araçtır. 
+Hem bağımlılıkları yönetmek hem de projeleri yapılandırmak için sıkça kullanılır. 
+Yukarıdaki komutlar, npm’in temel işlevlerini anlamak ve projelerinizi verimli bir şekilde yönetmek için yeterli olacaktır.
+
