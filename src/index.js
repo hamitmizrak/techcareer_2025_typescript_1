@@ -761,3 +761,25 @@ Namespace tanımlama ve kullanımı
 Mixins kavramı
 Çoklu sınıf kalıtımı için mixins kullanımı
 */
+// ************************************************************************
+// OOP ********************************************************************
+/*
+1. OOP Nedir?
+**Nesne Yönelimli Programlama (Object-Oriented Programming - OOP)**, yazılım geliştirme sürecinde kodun yeniden kullanılabilirliğini, modülerliğini ve anlaşılabilirliğini artırmak için kullanılan bir programlama paradigmasıdır. Temel olarak OOP, yazılım sistemlerini gerçek dünyadaki nesneleri modelleyerek oluşturmayı hedefler. OOP'nin dört temel prensibi şunlardır:
+
+1. **Kapsülleme (Encapsulation):** Verilerin ve davranışların bir sınıf içinde birleştirilmesi.
+2. **Kalıtım (Inheritance):** Bir sınıfın başka bir sınıfın özelliklerini ve metotlarını devralması.
+3. **Çok Biçimlilik (Polymorphism):** Aynı işlemin farklı biçimlerde uygulanabilmesi.
+4. **Soyutlama (Abstraction):** Gereksiz detaylardan arındırarak yalnızca önemli bilgileri sunma.
+
+---
+
+2. TypeScript’te OOP’nin Avantajları
+TypeScript, OOP paradigmasını güçlü bir şekilde destekler. TypeScript'te OOP'nin avantajları şunlardır:
+
+1. Statik Tip Kontrolü: TypeScript, tip güvenliğini artırarak derleme zamanında hataları tespit eder. Bu, büyük projelerde hata oranını azaltır.
+2. ES6 ve Üzeri Özellikler: TypeScript, ES6 sınıf yapısına dayalı güçlü bir OOP desteği sunar ve ek olarak interface, abstract class gibi özellikler sağlar.
+3. Kodun Yeniden Kullanılabilirliği: OOP’nin sağladığı modüler yapı, TypeScript’in interface ve inheritance desteği ile daha verimli hale gelir.
+4. Güçlü Modül Yönetimi: TypeScript, modüller aracılığıyla kodun daha iyi organize edilmesini sağlar.
+5. Bakımı Kolaylaştırma: Kodun okunabilirliği ve modüler yapısı, özellikle büyük ölçekli projelerde bakım sürecini kolaylaştırır.
+*/ 
