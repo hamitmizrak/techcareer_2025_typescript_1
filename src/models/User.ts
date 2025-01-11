@@ -1,3 +1,5 @@
+import { Admin } from "./Admin";
+
 // Export the User class
 export class User {
   // Field (Access Modifiers)
@@ -14,7 +16,11 @@ export class User {
   private lastLogin: Date | null = null; // en son admin giriş tarihi
 
   // constructor: Kurucu Method
-  constructor(username: string, password: string, role:UserRole=UserRole.User) {
+  constructor(
+    username: string,
+    password: string,
+    role: UserRole = UserRole.User
+  ) {
     this.id = User.idCounter++;
     this.username = username;
     this.password = password;
@@ -51,5 +57,11 @@ export class User {
   // ROLE
   public getRole(): string {
     return this.role;
+  }
+
+  // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  // Type Guards (IsAdmin)
+  isAdmin(user: User): user is Admin {
+    return user.getRole() === UserRole.Admin;
   }
 } // end of class User
