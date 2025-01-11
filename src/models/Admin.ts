@@ -3,6 +3,11 @@ import { User } from "./User";
 
 // Export Admin
 // Extends: Kalıtımlama
+
+/* 
+
+*/
+
 export class Admin extends User {
   // Constuctor
   constructor(username: string, password: string) {
