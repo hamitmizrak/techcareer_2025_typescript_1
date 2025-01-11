@@ -11,6 +11,7 @@ export class AuthService {
   // User import
   private users: User[] = [];
 
+  ///////////////////////////////////////////////////////////
   // register (Kayıt Ol)
   public register(data: IRegister): string {
     if (data.password !== data.confirmPassword) {
@@ -22,6 +23,7 @@ export class AuthService {
     return `User registered successfully. ID: ${user.getId()}`;
   }
 
+  ///////////////////////////////////////////////////////////
   // login (Giriş Yap)
   public login(data:Ilogin):string {
     const user = this.users.find((u) => u.getUsername() === data.username);

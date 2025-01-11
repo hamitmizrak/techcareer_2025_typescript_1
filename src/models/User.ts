@@ -1,4 +1,5 @@
 // İçeriğe aktarmak(Import)
+import { Ilogin } from "../interfaces/Ilogin";
 import { Admin } from "./Admin";
 
 // Export: Diğer Classlarda da kullanabilmek için
@@ -16,12 +17,12 @@ export class User {
   private static idCounter: number = 1;
 
   // Field Attributes
-  private id: number;
-  protected username: string;
-  private password: string;
+  private id: number; // Her kullanıcı için özel ID
+  protected username: string; // Kullanıcı adı
+  private password: string; // Kullanıcı şifresi
 
   //private readonly role: string = "User"; // Default Value: User
-  private readonly role = UserRole; // Default Value: User
+  private readonly role: UserRole = UserRole.User; // Default Value: User
   private lastLogin: Date | null = null; // en son admin giriş tarihi
 
   // constructor: Kurucu Method
@@ -63,9 +64,16 @@ export class User {
     return this.password === password;
   }
 
-  // ROLE
+  // ROLE ÇAĞIR
   public getRole(): string {
     return this.role;
+  }
+
+  // ROLE DEĞİŞTİR
+  protected setRoler(newRole: string): void {
+    if (newRole === UserRole.Admin) {
+      (this as any).role = newRole;
+    }
   }
 
   // Yetkilendirme
@@ -76,6 +84,24 @@ export class User {
       console.log("Moderator sayfasına hoşgeldiniz");
     }
   }
+
+  // Remember Me
+  loginUser(data: Ilogin): void {
+    console.log(`User Logged In${data.username}`);
+    if (data.rememberMe) {
+      console.log("Remember Me özelliği ile kullanıcıyı artık tanıyorum");
+    } else {
+      console.log("");
+    }
+  }
+
+  // Kullanıcı Bilgileri Göster
+  public displayUserInfo(): void {
+    console.log(
+      `User Info: User ID: ${this.id} - username: ${this.username} - Roles: ${this.role}`
+    );
+  }
+
   // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   // Type Guards (IsAdmin)
   isAdmin(user: User): user is Admin {

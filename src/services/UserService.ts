@@ -1,8 +1,5 @@
 import { User } from "../models/User";
 
-/* 
-
-*/
 
 // abstract
 export abstract class UserService {
