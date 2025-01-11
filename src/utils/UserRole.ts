@@ -23,14 +23,15 @@ Okunabilirlik:
 String değerler yerine enum sabitlerini kullanmak, kodun daha açıklayıcı olmasını sağlar.
 */
 
-enum UserRole {
-    User = "User", // Default Value
+// UserRole.ts
+export enum UserRole {
+    User = "User",
     Admin = "Admin",
     Moderator = "Moderator",
 }
 
 // for Example:
-const userRole: UserRole = UserRole.Admin;
+//const userRole: UserRole = UserRole.Admin;
 //console.log(userRole); // Admin
 
 /*

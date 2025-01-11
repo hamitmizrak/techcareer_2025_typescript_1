@@ -5,6 +5,15 @@
 
 ## Git
 ```sh
+Proje tamamdır. çalıştırmak için isterseniz:
+npm run senkron:app
+veya
+npm run senkron:index
+```
+---
+
+## Git
+```sh
 git init
 git add .
 git commit -m "typescript init"

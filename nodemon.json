@@ -1,6 +1,5 @@
 {
-    "watch": ["src"],
-    "ext": "ts,js",
-    "exec": "node ./src/index.js"
-  }
-  
+  "watch": ["src"],
+  "ext": "ts",
+  "exec_comment": "ts-node ./src/app.ts"
+}

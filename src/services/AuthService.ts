@@ -17,7 +17,6 @@ export class AuthService {
     if (data.password !== data.confirmPassword) {
       return "Password and Confirm Password do not match";
     }
-    // User ekle
     const user = new User(data.username, data.password);
     this.users.push(user);
     return `User registered successfully. ID: ${user.getId()}`;
@@ -25,17 +24,15 @@ export class AuthService {
 
   ///////////////////////////////////////////////////////////
   // login (Giriş Yap)
-  public login(data:Ilogin):string {
+  public login(data: Ilogin): string {
     const user = this.users.find((u) => u.getUsername() === data.username);
-    // if (!user || !user.verifyPassword(data.password)) {
     if (!user) {
       return "User not found";
     }
-
     if (!user.verifyPassword(data.password)) {
       return "Password is incorrect";
     }
-    return `Welcome ${user.getRole()} ${user.getUsername}`;
+    return `Welcome ${user.getRole()} ${user.getUsername()}`;
   }
 
   // Users (User'ları getir)

@@ -1,5 +1,6 @@
 // User Eklendi
 import { User } from "./User";
+import {UserRole} from "../utils/UserRole";
 
 // Export Admin
 // Extends: Kalıtımlama
@@ -35,13 +36,12 @@ export class Admin extends User {
   // Constuctor
   constructor(username: string, password: string) {
     // Super: Kalıtımla gelen class özellikleri constructor içinde kullanmak için
-    super(username, password);
+    super(username, password, UserRole.Admin);
   } //end of constructor
 
   // Role özelleştirimesi için Override yaptık.
   // Role Normalde User'dı, Admin olarak değiştirildi
-  public override getRole(): string {
-    //return "Admin";
+  public override getRole(): UserRole {
     return UserRole.Admin;
   }
 
