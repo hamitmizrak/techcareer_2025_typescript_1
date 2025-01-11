@@ -12,10 +12,10 @@
 
     /* Dil ve Ortam */
     //"target": "es2016",                                  /* Yayılan JavaScript için JavaScript dil sürümünü ayarlayın ve uyumlu kitaplık bildirimlerini ekleyin. */
-    "target": "ES2015", // veya ES6, ES2020 gibi daha yeni bir sürüm                                  /* Yayılan JavaScript için JavaScript dil sürümünü ayarlayın ve uyumlu kitaplık bildirimlerini ekleyin. */
+    "target": "ES2015",                                   // veya ES6, ES2020 gibi daha yeni bir sürüm             /* Yayılan JavaScript için JavaScript dil sürümünü ayarlayın ve uyumlu kitaplık bildirimlerini ekleyin. */
     // "lib": [],                                        /* Hedef çalışma zamanı ortamını açıklayan bir paket kitaplık bildirim dosyası kümesi belirtin. */
-    "lib": ["ES2015", "DOM"], // ES2015'i desteklemek için gerekli kütüphaneler
-    "downlevelIteration": true, // ES2015'ten önceki sürümlerdeki döngüleri desteklemek için
+    "lib": ["ES2015", "DOM"],                             // ES2015'i desteklemek için gerekli kütüphaneler
+    "downlevelIteration": true,                          // ES2015'ten önceki sürümlerdeki döngüleri desteklemek için
     // "jsx": "preserve",                                /* Oluşturulacak JSX kodunu belirtin. */
     // "experimentalDecorators": true,                   /* Eski deneysel dekoratörler için deneysel desteği etkinleştirin. */
     // "emitDecoratorMetadata": true,                    /* Kaynak dosyalarındaki donatılmış bildirimler için design-type meta verilerini yayın. */

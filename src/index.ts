@@ -587,8 +587,24 @@ let array8 = () => {
 // Bu, ... (spread) operatörüyle yapılır
 
 //////////////////////////////////////////////////////////////////////////////////
-//************** Map, Set *******************************************************
+//************** Map *******************************************************
 // TypeScript, Map ve Set veri yapılarını döngü ile işlemeyi destekler.
+
+// TypeScript'te bir Set tanımlama
+//const uniqueValues: Set<number> = new Set();
+
+// Dikkat: Bu sürümü kullanmak için bunları yapmalısınız
+// npm install -g typescript
+/*
+  set veya map için;
+  tsconfig.json dosyasını oluşturun ve aşağıdaki ayarları ekleyin:
+  {
+    "compilerOptions": {
+      "target": "ES2015", // veya ES6, ES2020 gibi daha yeni bir sürüm
+      "lib": ["ES2015", "DOM"] // ES2015'i desteklemek için gerekli kütüphaneler
+    }
+  }
+*/
 
 // Map
 let mapData = () => {
@@ -628,79 +644,56 @@ let mapData = () => {
   // Map'in boyutunu öğrenme
   console.log(`Map'teki toplam kullanıcı sayısı: ${userMap.size}`);
 
-  // Map'i tamamen temizleme
+  // Map'i tüm listeyi tamamen temizleme
   userMap.clear();
   console.log(`Map temizlendi. Toplam kullanıcı sayısı: ${userMap.size}`);
-
-  console.log("data");
   /*
-Map Tanımlama: Map<K, V> ile anahtar (K) ve değer (V) türlerini belirleyebilirsiniz.
-set Metodu: Map'e eleman ekler.
-get Metodu: Belirli bir anahtara karşılık gelen değeri döndürür.
-has Metodu: Belirli bir anahtarın Map'te olup olmadığını kontrol eder.
-delete Metodu: Belirli bir anahtarı siler.
-clear Metodu: Tüm Map elemanlarını temizler.
-forEach Metodu: Map'in tüm elemanlarını dolaşır.
-    */
+    Map Tanımlama: Map<K, V> ile anahtar (K) ve değer (V) türlerini belirleyebilirsiniz.
+    set Metodu: Map'e eleman ekler.
+    get Metodu: Belirli bir anahtara karşılık gelen değeri döndürür.
+    has Metodu: Belirli bir anahtarın Map'te olup olmadığını kontrol eder.
+    delete Metodu: Belirli bir anahtarı siler.
+    clear Metodu: Tüm Map elemanlarını temizler.
+    forEach Metodu: Map'in tüm elemanlarını dolaşır.
+  */
 };
+//mapData();
 
-mapData();
-
-let mapData1 = () => {
-    const userMap = new Map<number, string>();
-userMap.set(1, "Hamit");
-userMap.set(2, "Mızrak");
-
-for (const [key, value] of userMap) {
-    console.log(`Key: ${key}, Value: ${value}`);
-}
-
-};
-
-//mapData1();
+//////////////////////////////////////////////////////////////////////////////////
+//**************  Set *******************************************************
+// TypeScript, Map ve Set veri yapılarını döngü ile işlemeyi destekler.
 
 /*
 TypeScript'teki Set veri yapısı, benzersiz değerlerin bir koleksiyonunu saklamak için kullanılır. 
 Yani bir Set içerisine aynı değeri birden fazla kez eklemeye çalışırsanız, yalnızca bir kez saklanır. 
 Set, JavaScript'in bir parçası olarak TypeScript'te de kullanılabilir.
 */
+
+// TypeScript'te bir Set tanımlama
+//const uniqueValues: Set<number> = new Set();
+
+// Dikkat: Bu sürümü kullanmak için bunları yapmalısınız
+// npm install -g typescript
 /*
-let  setData=()=>{
-    let sayilar = new Set([10, 20, 30]);
-for (let sayi of sayilar) {
-    console.log(sayi);
-}
-}
-//setData()
+  set veya map için;
+  tsconfig.json dosyasını oluşturun ve aşağıdaki ayarları ekleyin:
+  {
+    "compilerOptions": {
+      "target": "ES2015", // veya ES6, ES2020 gibi daha yeni bir sürüm
+      "lib": ["ES2015", "DOM"] // ES2015'i desteklemek için gerekli kütüphaneler
+    }
+  }
 */
-
-
 
 let setData2 = () => {
-  // TypeScript'te bir Set tanımlama
-  //const uniqueValues: Set<number> = new Set();
-
-  // Dikkat: Bu sürümü kullanmak için bunları yapmalısınız
-  // npm install -g typescript
-  /*
-
-tsconfig.json dosyasını oluşturun ve aşağıdaki ayarları ekleyin:
-{
-  "compilerOptions": {
-    "target": "ES2015", // veya ES6, ES2020 gibi daha yeni bir sürüm
-    "lib": ["ES2015", "DOM"] // ES2015'i desteklemek için gerekli kütüphaneler
-  }
-}
-*/
-
   const uniqueValues: Set<number> = new Set([10, 20, 30, 40, 10]); // src/index.ts(667,41): error TS2583: Cannot find name 'Set'. Do you need to change your target library? Try changing the 'lib' compiler option to 'es2015' or later.
 
-  // Set'e eleman ekleme
-  //   uniqueValues.add(1);
-  //   uniqueValues.add(1);
-  //   uniqueValues.add(2);
-  //   uniqueValues.add(3);
-  //   uniqueValues.add(2); // Bu değer zaten var, tekrar eklenmez.
+  //  Set'e eleman ekleme
+  //  uniqueValues.add(1);
+  //  uniqueValues.add(1);
+  //  uniqueValues.add(2);
+  //  uniqueValues.add(3);
+  //  uniqueValues.add(2); // Bu değer zaten var, tekrar eklenmez.
 
   // Set'teki tüm elemanları yazdırma
   console.log("Set elemanları:");
@@ -747,10 +740,11 @@ let mesaj2: Mesaj<number> = 42; // Geçerli
 // Optional Chaining (?.)
 // ?. operatörü, bir nesne veya değişkenin varlığını kontrol ederek, hataların önüne geçer.
 let kullanici = {
-  isim: "Hamit",
+  "isim": "Hamit",
   adres: {
     sehir: "Malatya",
   },
+  diller: ["Türkçe", "İngilizce"],
 };
 
 // console.log(kullanici.adres?.sehir); // İstanbul
@@ -760,3 +754,119 @@ let kullanici = {
 // interface
 // abstract
 // instance
+
+/*
+TypeScript'te Nesne Yönelimli Programlama (Object-Oriented Programming - OOP) ile ilgili ele alınabilecek temel konu başlıkları şunlardır:
+
+1. Giriş ve Temel Kavramlar
+OOP nedir?
+TypeScript’te OOP’nin avantajları
+ES6 sınıf yapısı ile TypeScript arasındaki farklar
+*/
+
+/*
+2. Class (Sınıflar)
+Sınıf tanımı ve kullanımı
+Constructor (Yapıcı Metotlar)
+Field (Özellikler)
+Metotlar (Methods)
+Getter ve Setter Metotları
+Sınıf Özelliklerine Erişim Seviyeleri: public, private, protected
+*/
+
+/*
+3. Inheritance (Kalıtım)
+Kalıtım (Extends)
+super anahtar kelimesi ve kullanımı
+Base (Temel) ve Derived (Türemiş) sınıflar
+*/
+
+/*
+4. Polymorphism (Çok Biçimlilik)
+Override edilen metotlar
+Sınıflar arası çok biçimlilik
+Dinamik ve statik çok biçimlilik
+*/
+
+/*
+5. Abstraction (Soyutlama)
+Soyut sınıflar (Abstract Classes)
+Soyut metotlar ve türetilmiş sınıflarda uygulanması
+Sadece okunabilir alanlar (readonly)
+*/
+
+/*
+6. Encapsulation (Kapsülleme)
+Özelliklerin gizlenmesi (private ve protected)
+Erişimciler (Getters ve Setters)
+Modülerlik ve verilerin korunması
+*/
+
+/*
+7. Interfaces (Arayüzler)
+Arayüz tanımlama ve kullanımı
+Sınıflarda arayüzlerin uygulanması
+Çoklu arayüz uygulaması (Multiple Interfaces)
+*/
+
+/*
+8. Static Members (Statik Üyeler)
+Statik metotlar
+Statik özellikler
+Statik üyelerin sınıf düzeyinde kullanımı
+
+*/
+
+/*
+9. Access Modifiers (Erişim Belirleyiciler)
+public, private, protected, readonly kullanım farkları
+Erişim belirleyicilerin örneklerle açıklanması
+*/
+
+/*
+10. Generic Classes ve Methods
+Generic sınıflar
+Generic metotlar
+Generic arayüzler
+*/
+
+/*
+11. Abstract Classes vs Interfaces
+Soyut sınıflar ile arayüzler arasındaki farklar
+Hangi durumlarda hangisinin kullanılacağı
+*/
+
+/*
+12. TypeScript Özel Anahtar Kelimeler
+readonly anahtar kelimesi
+implements anahtar kelimesi
+instanceof kontrolü
+this anahtar kelimesi
+*/
+
+/*
+13. Design Patterns (Tasarım Kalıpları)
+TypeScript’te Singleton Tasarım Kalıbı
+Factory Method
+Observer Pattern
+*/
+
+/*
+14. Dependency Injection
+Bağımlılıkların Enjeksiyonu
+Constructor Injection
+Servisler ve bağımlılık yönetimi
+
+*/
+
+/*
+15. Modules ve Namespaces
+Modüllerin kullanımı (export, import)
+Namespace tanımlama ve kullanımı
+*/
+
+/*
+16. Mixins (Karışımlar)
+Mixins kavramı
+Çoklu sınıf kalıtımı için mixins kullanımı
+*/

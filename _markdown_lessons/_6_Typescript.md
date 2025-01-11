@@ -1,16 +1,15 @@
 # Typescript Öğreniyorum 
+[GitHub](https://github.com/hamitmizrak/techcareer_2025_typescript_1.git)
 ---
 
 ## Typescript Dersleri
 ```sh
-
 ```
 ---
 
 
 # Typescript konuları
- TypeScript konularını kapsayan bir ders planı için konu başlıkları:  
-
+ TypeScript konularını kapsayan bir ders planı için konu başlıkları:
 ---
 
 ### **1. Giriş ve Temel Kavramlar**
@@ -103,11 +102,16 @@
 
 
 ### **TypeScript Nedir?**
-TypeScript, **Microsoft** tarafından geliştirilmiş, açık kaynaklı bir programlama dilidir. **JavaScript’in bir üst kümesi** olarak kabul edilir ve **JavaScript’e tip güvenliği (type safety)** kazandırır. TypeScript, JavaScript kodlarını derleyerek (transpile ederek) çalışır, bu nedenle tarayıcılar veya Node.js üzerinde çalışabilmesi için TypeScript kodları, JavaScript’e dönüştürülür.
+TypeScript, **Microsoft** tarafından geliştirilmiş, açık kaynaklı bir programlama dilidir. 
+**JavaScript’in bir üst kümesi** olarak kabul edilir ve **JavaScript’e tip güvenliği (type safety)** kazandırır. 
+TypeScript, JavaScript kodlarını derleyerek (transpile ederek) çalışır, 
+bu nedenle tarayıcılar veya Node.js üzerinde çalışabilmesi için TypeScript kodları, JavaScript’e dönüştürülür.
 
-- **Statik Tip Kontrolü:** TypeScript, değişkenlerin türlerini derleme zamanında belirler. Bu, kod yazarken hataları daha erken fark etmeyi sağlar.
+- **Statik Tip Kontrolü:** TypeScript, değişkenlerin türlerini derleme zamanında belirler. 
+- Bu, kod yazarken hataları daha erken fark etmeyi sağlar.
 - **Gelişmiş IDE Desteği:** Otomatik tamamlama, hata bulma, yeniden düzenleme gibi özellikleri artırır.
-- **ES6 ve Üzeri Özellikler:** TypeScript, modern JavaScript özelliklerini destekler ve bu özelliklerin eski tarayıcılarda çalışmasını sağlar.
+- **ES6 ve Üzeri Özellikler:**
+-  TypeScript, modern JavaScript özelliklerini destekler ve bu özelliklerin eski tarayıcılarda çalışmasını sağlar.
 
 ---
 
@@ -148,7 +152,6 @@ TypeScript, **Microsoft** tarafından geliştirilmiş, açık kaynaklı bir prog
 
 6. **Büyük Projeler için İdeal:**
    - Karmaşık projelerde hata oranını ciddi oranda düşürür ve kod organizasyonunu kolaylaştırır.
-
 ---
 
 ### **TypeScript ile Çalışma Ortamının Hazırlanması**
@@ -162,6 +165,7 @@ TypeScript projelerine başlamadan önce uygun çalışma ortamını kurmak gere
   ```bash
   node -v
   npm -v
+  tsc -v
   ```
 
 #### **2. TypeScript Kurulumu**
@@ -184,7 +188,8 @@ TypeScript projelerine başlamadan önce uygun çalışma ortamını kurmak gere
    ```bash
    tsc --init
    ```
-   Bu komut, `tsconfig.json` adında bir dosya oluşturur. Bu dosya TypeScript derleyicisi için yapılandırma ayarlarını içerir.
+   Bu komut, `tsconfig.json` adında bir dosya oluşturur. 
+   Bu dosya TypeScript derleyicisi için yapılandırma ayarlarını içerir.
 
 #### **4. Geliştirme Ortamı (IDE) Kurulumu**
 - **Visual Studio Code (VS Code):** TypeScript projeleri için en popüler IDE'dir.
@@ -237,18 +242,24 @@ TypeScript projelerine başlamadan önce uygun çalışma ortamını kurmak gere
     ```bash
     nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/index.ts
     ```
-
 ---
 
 ### **Sonuç**
-TypeScript, güçlü tip kontrolü, gelişmiş hata ayıklama ve modern JavaScript özellikleriyle kod kalitesini artırır. Büyük ve karmaşık projelerde geliştirme sürecini daha verimli hale getirir. TypeScript ile çalışmaya başlamak için doğru araçları kurarak, güçlü bir geliştirme ortamı oluşturabilirsiniz.
+TypeScript, güçlü tip kontrolü, gelişmiş hata ayıklama ve modern JavaScript özellikleriyle kod kalitesini artırır. 
+Büyük ve karmaşık projelerde geliştirme sürecini daha verimli hale getirir. 
+TypeScript ile çalışmaya başlamak için doğru araçları kurarak, güçlü bir geliştirme ortamı oluşturabilirsiniz.
 
 
 ### **TypeScript Nedir?**
 
-TypeScript, **Microsoft** tarafından geliştirilmiş, açık kaynaklı bir **programlama dilidir.** TypeScript, **JavaScript'in bir üst kümesi (superset)** olarak tanımlanır ve JavaScript'in üzerine eklenen güçlü tip kontrolü (type checking) ve nesne yönelimli programlama (OOP) özellikleriyle, büyük ve karmaşık projelerde daha güvenilir ve ölçeklenebilir bir geliştirme ortamı sağlar.
+TypeScript, **Microsoft** tarafından geliştirilmiş, açık kaynaklı bir **programlama dilidir**.
+TypeScript, **JavaScript'in bir üst kümesi (superset)**olarak tanımlanır ve 
+JavaScript'in üzerine eklenen güçlü tip kontrolü (type checking) ve nesne yönelimli programlama (OOP) özellikleriyle, 
+büyük ve karmaşık projelerde daha güvenilir ve ölçeklenebilir bir geliştirme ortamı sağlar.
 
-TypeScript, JavaScript'in tüm özelliklerini destekler. Bunun yanı sıra, statik tip kontrolü, gelişmiş hata ayıklama ve modern JavaScript özelliklerini destekleyerek kodun daha okunabilir ve hatasız olmasını sağlar.
+TypeScript, JavaScript'in tüm özelliklerini destekler. 
+Bunun yanı sıra, statik tip kontrolü, gelişmiş hata ayıklama ve modern JavaScript özelliklerini destekleyerek kodun daha okunabilir 
+ve hatasız olmasını sağlar.
 
 ---
 
@@ -276,7 +287,8 @@ TypeScript, JavaScript'in tüm özelliklerini destekler. Bunun yanı sıra, stat
 ### **TypeScript’in Özellikleri**
 
 #### **1. Statik Tip Kontrolü (Static Typing)**
-TypeScript’in en önemli özelliği, kod yazarken değişkenlerin, parametrelerin ve fonksiyonların türlerini belirleme yeteneğidir. Bu, tür uyuşmazlıklarından kaynaklanan hataları önler.
+TypeScript’in en önemli özelliği, kod yazarken değişkenlerin, parametrelerin ve fonksiyonların türlerini belirleme yeteneğidir. 
+Bu, tür uyuşmazlıklarından kaynaklanan hataları önler.
 
 **Örnek:**
 ```typescript
