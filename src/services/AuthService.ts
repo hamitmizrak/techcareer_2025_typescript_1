@@ -2,10 +2,6 @@ import { Ilogin } from "../interfaces/Ilogin";
 import { IRegister } from "../interfaces/IRegister";
 import { User } from "../models/User";
 
-/* 
-
-*/
-
 // Export: 
 export class AuthService {
   // User import

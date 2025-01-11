@@ -1,6 +1,5 @@
 // İçeriğe aktarmak(Import)
 import {Ilogin} from "../interfaces/Ilogin";
-import {Admin} from "./Admin";
 import {UserRole} from "../utils/UserRole";
 
 // Field (Access Modifiers)
@@ -12,7 +11,7 @@ import {UserRole} from "../utils/UserRole";
 
 // Sayaç: Encapsulation, static field
 // static: Tüm sınıf örnekerleri için aynı değeri paylaşan bir alan oluşturur.
-// private: Erişim belirlecei olan bu alan sadece sınıf içerisinde erişilebilir(Encapsulation).
+// private: Erişim belirleceği olan bu alan sadece sınıf içerisinde erişilebilir(Encapsulation).
 
 // Export: Diğer Classlarda da kullanabilmek için
 export class User {
@@ -34,7 +33,6 @@ export class User {
         this.password = password;
         this.role = role;
     }
-
 
     // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     // Function: Method

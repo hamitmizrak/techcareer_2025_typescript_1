@@ -875,7 +875,11 @@ Mixins kavramı
 // OOP ********************************************************************
 /*
 1. OOP Nedir?
-**Nesne Yönelimli Programlama (Object-Oriented Programming - OOP)**, yazılım geliştirme sürecinde kodun yeniden kullanılabilirliğini, modülerliğini ve anlaşılabilirliğini artırmak için kullanılan bir programlama paradigmasıdır. Temel olarak OOP, yazılım sistemlerini gerçek dünyadaki nesneleri modelleyerek oluşturmayı hedefler. OOP'nin dört temel prensibi şunlardır:
+**Nesne Yönelimli Programlama (Object-Oriented Programming - OOP)**,
+yazılım geliştirme sürecinde kodun yeniden kullanılabilirliğini, modülerliğini ve anlaşılabilirliğini artırmak için
+kullanılan bir programlama paradigmasıdır. Temel olarak OOP,
+yazılım sistemlerini gerçek dünyadaki nesneleri modelleyerek oluşturmayı hedefler.
+OOP'nin dört temel prensibi şunlardır:
 
 1. **Kapsülleme (Encapsulation):** Verilerin ve davranışların bir sınıf içinde birleştirilmesi.
 2. **Kalıtım (Inheritance):** Bir sınıfın başka bir sınıfın özelliklerini ve metotlarını devralması.
