@@ -12,6 +12,12 @@ export class Admin extends User {
 
   // Role Normalde User'dı, Admin olarak değiştirildi
   public override getRole(): string {
-    return "Admin";
+    //return "Admin";
+    return UserRole.Admin;
+  }
+
+  // Admin Bütün kullanıcları Listele
+  public viewAllUser():string {
+    return "Admin users are listed";
   }
 } // end class Admin

@@ -10,4 +10,16 @@ export class Logger {
     message = `[ERROR]: ${message}`;
     console.log(message);
   }
+
+  // WARN
+  public static warn(message: string): void {
+    message = `[WARN]: ${message}`;
+    console.log(message);
+  }
+
+  // DEBUG
+  public static debug(message: string): void {
+    message = `[DEBUG]: ${message}`;
+    console.log(message);
+  }
 } // end of class Logger

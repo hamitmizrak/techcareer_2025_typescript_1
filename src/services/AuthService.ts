@@ -29,12 +29,21 @@ export class AuthService {
     if (!user.verifyPassword(data.password)) {
       return "Password is incorrect";
     }
-
     return `Welcome ${user.getRole()} ${user.getUsername}`;
   }
 
   // Users (User'ları getir)
   public getUsers(): User[] {
     return this.users;
+  }
+
+  // User Sil
+  public deleteUser(username:string):boolean {
+    const user = this.users.findIndex((u) => u.getUsername() === username);
+    if (user !== -1) {
+      this.users.splice(user, 1);
+      return true;
+    }
+    return false;
   }
 }
