@@ -1,18 +1,27 @@
+// İçeriğe aktarmak(Import)
 import { Admin } from "./Admin";
 
-// Export the User class
+// Export: Diğer Classlarda da kullanabilmek için
 export class User {
   // Field (Access Modifiers)
+  // private: Sadece sınıf içerisinde erişilebilir.
+  // protected: Sadece sınıf ve kalıtım alan sınıflar içerisinde erişilebilir.
+
+  // readonly: Sadece okunabilir bir alan oluşturur. Ancak burada ilk değer ataması yapılmalıdır.
+  // sonradan değiştirilemez.
 
   // Sayaç: Encapsulation, static field
+  // static: Tüm sınıf örnekerleri için aynı değeri paylaşan bir alan oluşturur.
+  // private: Erişim belirlecei olan bu alan sadece sınıf içerisinde erişilebilir(Encapsulation).
   private static idCounter: number = 1;
 
   // Field Attributes
   private id: number;
   protected username: string;
   private password: string;
+
   //private readonly role: string = "User"; // Default Value: User
-  private readonly role: string = UserRole; // Default Value: User
+  private readonly role = UserRole; // Default Value: User
   private lastLogin: Date | null = null; // en son admin giriş tarihi
 
   // constructor: Kurucu Method
@@ -21,7 +30,7 @@ export class User {
     password: string,
     role: UserRole = UserRole.User
   ) {
-    this.id = User.idCounter++;
+    this.id = User.idCounter++; // benzersiz bir ID için(Unique ID)
     this.username = username;
     this.password = password;
     this.role = role;
@@ -59,6 +68,14 @@ export class User {
     return this.role;
   }
 
+  // Yetkilendirme
+  specialPage(): void {
+    if (UserRole.Admin === this.role) {
+      console.log("Admin sayfasına hoşgeldiniz");
+    } else if (UserRole.Moderator === this.role) {
+      console.log("Moderator sayfasına hoşgeldiniz");
+    }
+  }
   // +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   // Type Guards (IsAdmin)
   isAdmin(user: User): user is Admin {
